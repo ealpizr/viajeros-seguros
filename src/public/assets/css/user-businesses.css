@@ -1,0 +1,69 @@
+nav {
+  background-color: #b1b1b1;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+main {
+  padding: 1rem;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-business-button {
+  background-color: #b1b1b1;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.business-card {
+  background-color: #b1b1b1;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.business-card-section {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.business-images-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.business-image {
+  width: 30%;
+}
+
+.rating-container {
+  text-align: center;
+}
+
+.review {
+  display: flex;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.review-image {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 3rem;
+}
