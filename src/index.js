@@ -10,7 +10,11 @@ const __dirname = path.dirname(__filename);
 const staticPath = path.resolve(__dirname, "public");
 const app = express();
 
-app.use(express.static(staticPath));
+app.use(
+  express.static(staticPath, {
+    extensions: ["html"],
+  })
+);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
