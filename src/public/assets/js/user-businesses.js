@@ -56,14 +56,25 @@ const TEST_BUSINESSES = [
         comment: "Test User 2 Comment",
       },
     ],
-    rating: 2,
+    rating: 1.5,
     numReviews: 3,
   },
 ];
 
 function getRatingStars(rating) {
+  const icons = {
+    full: '<img src="/assets/star-filled-icon.svg" />',
+    half: '<img src="/assets/star-half-filled-icon.svg" />',
+    empty: '<img src="/assets/star-icon.svg" />',
+  };
+
+  const fullStars = Math.floor(rating);
   const halfStar = rating % 1 === 0.5;
-  return "★".repeat(rating + halfStar) + "☆".repeat(5 - rating);
+  const emptyStars = 5 - fullStars - halfStar;
+
+  return `${icons.full.repeat(fullStars)}${
+    halfStar ? icons.half : ""
+  }${icons.empty.repeat(emptyStars)}`;
 }
 
 const businessesContainer = document.getElementById("businesses-container");
@@ -90,7 +101,7 @@ for (let i = 0; i < TEST_BUSINESSES.length; ++i) {
       <h3>Feedback de reseñas</h3>
       <div class="rating-container">
         <p>${b.rating}</p>
-        <p>${getRatingStars(b.rating)}</p>
+        <div class="rating-stars-container">${getRatingStars(b.rating)}</div>
         <p>${b.numReviews} reseñas</p>
       </div>
       <div class="reviews-container">

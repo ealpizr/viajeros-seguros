@@ -15,7 +15,7 @@ main {
 }
 
 .new-business-button {
-  background-color: #b1b1b1;
+  background-color: var(--accent-color);
   color: #fff;
   padding: 0.5rem 1rem;
   text-decoration: none;
@@ -25,11 +25,10 @@ main {
 }
 
 .business-card {
-  background-color: #b1b1b1;
   border-radius: 0.25rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .business-card-section {
@@ -54,6 +53,18 @@ main {
 
 .rating-container {
   text-align: center;
+}
+
+.rating-stars-container {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+}
+
+.rating-stars-container img {
+  flex-basis: 0;
 }
 
 .review {
