@@ -8,6 +8,24 @@ main {
   padding: 1rem;
 }
 
+#businesses-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.edit-button {
+  border-radius: 50%;
+  padding: 0.2rem 0.3rem;
+  display: block;
+}
+
+.edit-button:hover {
+  background-color: #e4e4e4;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
 .title-container {
   display: flex;
   justify-content: space-between;
@@ -29,6 +47,15 @@ main {
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.business-card-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50%;
+
+  /* margin-bottom: 1rem; */
 }
 
 .business-card-section {
@@ -70,6 +97,7 @@ main {
 .review {
   display: flex;
   margin-bottom: 1rem;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -77,4 +105,5 @@ main {
   border-radius: 50%;
   overflow: hidden;
   width: 3rem;
+  height: 3rem;
 }

@@ -2,6 +2,7 @@
 
 :root {
   --accent-color: #538d22;
+  --text-secondary: #737373;
 }
 
 * {
@@ -16,4 +17,12 @@ img {
 
 body {
   margin: 0;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-bold {
+  font-weight: 700;
 }

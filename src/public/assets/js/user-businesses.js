@@ -83,9 +83,14 @@ for (let i = 0; i < TEST_BUSINESSES.length; ++i) {
 
   const el = `<div class="business-card">
     <div class="business-card-section">
-      <h2>${b.name}</h2>
-      <p>${b.description}</p>
-      <p>${b.address}</p>
+      <div class="business-card-title-container">
+        <h2>${b.name}</h2>
+        <a class="edit-button" href="/business/edit/${b._id}">
+          <img src="/assets/edit-icon.svg" />
+        </a>
+      </div>
+      <p class="text-secondary">${b.description}</p>
+      <p class="text-secondary">${b.address}</p>
     </div>
     <div class="business-card-section">
       <h3>Imágenes</h3>
@@ -100,9 +105,9 @@ for (let i = 0; i < TEST_BUSINESSES.length; ++i) {
     <div class="business-card-section">
       <h3>Feedback de reseñas</h3>
       <div class="rating-container">
-        <p>${b.rating}</p>
+        <p class="text-bold">${b.rating}</p>
         <div class="rating-stars-container">${getRatingStars(b.rating)}</div>
-        <p>${b.numReviews} reseñas</p>
+        <p class="text-secondary">${b.numReviews} reseñas</p>
       </div>
       <div class="reviews-container">
         ${b.reviews
@@ -113,7 +118,7 @@ for (let i = 0; i < TEST_BUSINESSES.length; ++i) {
           </div>
           <div>
             <p>${r.name}</p>
-            <p>${r.comment}</p>
+            <p class="text-secondary">${r.comment}</p>
           </div>
           </div>`
           )
