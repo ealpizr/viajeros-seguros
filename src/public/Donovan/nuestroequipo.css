@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #ffffff;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #73A942;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.header {
+    padding: 20px;
+}
+
+.header p a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #245501;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+main {
+    padding: 20px;
+}
+
+.about {
+    text-align: center;
+    background-color: #245501;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.about p a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #73A942;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.team {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.team h2 {
+
+    color: #737373;
+}
+
+.profile-slide {
+    scroll-snap-type: x proximity;
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    margin: 0 50px;
+    background-color: #245501;
+    border-radius: 7px;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 30px;
+}
+
+.profile-slide img {
+    width: 400px;
+    height: 400px;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 2px solid #538D22;
+    box-shadow: 0px 0px 10px 1px #73A942;
+}
+
+.profile-slide h3 {
+    font-size: 1.2rem;
+}
+
+/* slider */
+
+.slide {
+    color: #fff;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 200px;
+}
+
+.profile-slide {
+    flex: 1 0 auto;
+    margin: 0 50px;
+    background-color: #245501;
+    width: 530px;
+    height: 500px;
+}
+
+/* slider arrows */
+
+
+/* footer  */
+
+.footer {
+    margin-top: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #73A942;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+}
+
+.footer-content {
+    margin: 0 auto;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* media */
+
+@media(max-width: 767px) {
+    .slider {
+        justify-content: unset;
+    }
+}
