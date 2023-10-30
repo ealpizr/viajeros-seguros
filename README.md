@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://media.discordapp.net/attachments/1121626379084116028/1168449992281817098/logoviajeros-blanco.png">
+  <img src="">
 </p>
 <h1 align="center">Viajeros Solos</h1>
 
