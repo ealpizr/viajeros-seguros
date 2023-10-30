@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align:left;
+  padding-top: 10px;
+}
+
+.metodos-pago {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+.metodos-pago {
+  border: 1px solid #ddd ; 
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items:center;
+  gap: 5px;
+}
+
+.add-payment {
+  background-color: #73A942;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.capa-interior {
+  background-color: white;
+  padding: 20px;
+}
+
+.capa-exterior {
+  background-color:#73A942;
+  padding: 50px;
+}
+
+     
+.footer {
+  margin-top: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #73A942;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer-content {
+  margin: 0 auto;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+  .metodos-pago {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
