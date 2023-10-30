@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="[https://raw.githubusercontent.com/cenfotec-codexpress/branding/main/logo.png](https://media.discordapp.net/attachments/1121626379084116028/1168449992281817098/logoviajeros-blanco.png">
+  <img src="https://media.discordapp.net/attachments/1121626379084116028/1168449992281817098/logoviajeros-blanco.png">
 </p>
 <h1 align="center">Viajeros Solos</h1>
 
