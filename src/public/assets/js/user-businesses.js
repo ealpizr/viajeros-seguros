@@ -63,9 +63,9 @@ const TEST_BUSINESSES = [
 
 function getRatingStars(rating) {
   const icons = {
-    full: '<img src="/assets/star-filled-icon.svg" />',
-    half: '<img src="/assets/star-half-filled-icon.svg" />',
-    empty: '<img src="/assets/star-icon.svg" />',
+    full: '<img src="/assets/icons/star-filled-icon.svg" />',
+    half: '<img src="/assets/icons/star-half-filled-icon.svg" />',
+    empty: '<img src="/assets/icons/star-icon.svg" />',
   };
 
   const fullStars = Math.floor(rating);
@@ -86,7 +86,7 @@ for (let i = 0; i < TEST_BUSINESSES.length; ++i) {
       <div class="business-card-title-container">
         <h2>${b.name}</h2>
         <a class="edit-button" href="/business/edit/${b._id}">
-          <img src="/assets/edit-icon.svg" />
+          <img src="/assets/icons/edit-icon.svg" />
         </a>
       </div>
       <p class="text-secondary">${b.description}</p>
