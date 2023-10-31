@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
 body {
   font-family: "Lato", sans-serif;
   margin: 0;
@@ -148,6 +146,11 @@ body {
 
 .imagen-con-overlay img {
   width: 50%;
+}
+
+div a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* FOOTER */

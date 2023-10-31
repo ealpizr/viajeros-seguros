@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="">
+        <img src="https://media.discordapp.net/attachments/1000683727124439061/1168953255192170558/CODEXPRESSBIGLOGO-BLANCO.png" alt="Logo de Viajeros Solos">
 </p>
 <h1 align="center">Viajeros Solos</h1>
 
