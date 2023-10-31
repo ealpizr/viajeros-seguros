@@ -279,3 +279,13 @@ header {
   font-weight: 500;
   margin-bottom: 25px;
 }
+
+.register-link {
+  font-weight: 700;
+  color: #143601;
+  cursor: pointer;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
