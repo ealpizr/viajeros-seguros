@@ -1,10 +1,11 @@
 body {
     color: #404040;
-    font-family: lato;
+    font-family: 'Lato';
+    margin: 0;
 }
 
 
-.profile-user .profile-user-body,
+.profile-user .profile-info,
 .profile-user {
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +13,7 @@ body {
     align-items: center;
 }
 
-.profile-user .profile-header {
+.profile-user .profile-user-header {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -20,7 +21,7 @@ body {
     margin-bottom: 1.25rem;
 }
 
-.profile-user .front-page {
+.profile-user .bg-green {
     display: block;
     position: relative;
     width: 90%;
@@ -30,7 +31,7 @@ body {
 
 }
 
-.profile-user .front-page .boton-portada {
+.profile-user .bg-green .boton-portada {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -42,7 +43,7 @@ body {
     cursor: pointer;
 }
 
-.profile-user .front-page .boton-portada i {
+.profile-user .bg-green .boton-portada i {
     margin-right: 1rem;
 }
 
@@ -69,7 +70,7 @@ body {
     border-radius: 50%;
 }
 
-.profile-user .avatar img {
+.profile-user .avatar .avatar {
     position: absolute;
     left: -2px;
     top: -2px;
@@ -82,25 +83,25 @@ body {
     cursor: pointer;
 }
 
-.profile-user .perfil-usuario-body {
+.profile-user .profile-info {
     width: 70%;
     position: relative;
     max-width: 750px;
 }
 
-.profile-user .profile-user-body .name {
+.profile-user .profile-info .name {
     display: block;
     width: 100%;
     font-size: 1.75em;
     margin-bottom: 0.5rem;
 }
 
-.profile-user .profile-user-body .text {
+.profile-user .profile-info .text {
     color: #848484;
     font-size: 0.95em;
 }
 
-.profile-user .profile-info,
+.profile-user .data-container,
 .profile-user .profile-bio {
     display: flex;
     flex-wrap: wrap;
@@ -116,22 +117,22 @@ body {
     text-align: center;
 }
 
-.profile-user .list {
+.profile-user .lista-datos {
     width: 50%;
     list-style: none;
 }
 
-.profile-user .list li {
+.profile-user .information li {
     padding: 5px 0;
 }
 
-.profile-user .list li>.icono {
+.profile-user .information li>.icono {
     margin-right: 1rem;
     font-size: 1.2rem;
     vertical-align: middle;
 }
 
-.profile-user {
+.profile-user .centrado {
     position: absolute;
     right: calc(0px - 50px - 1rem);
     top: 0;
@@ -139,7 +140,7 @@ body {
     flex-direction: column;
 }
 
-.profile-user {
+.profile-user .centrado {
     border: 0;
     background-color: #fff;
     text-decoration: none;
@@ -170,12 +171,12 @@ body {
 }
 
 @media (max-width: 750px) {
-    .profile-user .list {
+    .profile-user .information {
         width: 100%;
     }
 
-    .profile-user .front-page,
-    .profile-user .profile-user-body {
+    .profile-user .perfil-usuario-portada,
+    .profile-user .profile-info {
         width: 95%;
     }
 
