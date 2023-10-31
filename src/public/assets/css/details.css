@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "crossorigin", sans-serif;
+}
+.background {
+  background: url("/assets/images/banner_default.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+/*Efectos menu*/
+.navigation a::after {
+  /*content es la linea*/
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  /*transform cambia de tamaño en el eje X(horinzontal)*/
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+/*Efecto menu cambia por el hover sobre el after en el eje X*/
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+/*Formato del boton*/
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: 0.5s;
+}
+/*Estilo del efecto del boton por el hover*/
+.navigation .btnLogin-popup:hover {
+  background: #fff;
+  color: #000000;
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #73a942;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.footer {
+  margin-top: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #73a942;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer-content {
+  margin: 0 auto;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+.logo1 {
+  width: 25%;
+}
+.padding {
+  padding-top: 150px;
+}
+
+/*b-details detalles del negocio*/
+
+.b-details {
+  padding: 5px;
+}
+.b-title {
+  margin-top: 50px;
+}
+.b-title h1 {
+  font-weight: 600;
+}
+.b-title .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px 0;
+}
+.b-title span {
+  margin: 0 20px;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.gallery div img {
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 13px;
+  box-shadow: 4px 7px 7px 0px black;
+  cursor: pointer;
+  margin: 10px;
+  transition: 40ms;
+}
+.gallery div img:hover {
+  filter: grayscale(1);
+  transform: scale(1.03);
+}
+.perfil {
+  margin-top: 125px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 10px;
+}
+.perfil1 {
+  width: 10%;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid rgba(14, 173, 35, 0.5);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.text1 {
+  color: #000000;
+  margin-left: 25px;
+  background: transparent;
+  border: 2px solid rgba(45, 158, 22, 0.5);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  width: 25%;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/*menu2 {
+    padding-top: 55px;
+    
+    border-radius: 25px;
+    padding-bottom: 55px;
+
+}
+/*menu2 a {
+    padding-left: 5%;
+    text-decoration: none;
+    color: #000000;
+    font-size:30px ;
+    margin-left: 155px;
+    background: #73A942;
+    border-radius: 25px;
+    padding-right: 5%;
+}*/
+.menu2 {
+  text-align: center;
+  padding-top: 50px;
+}
+.menu2 a {
+  position: relative;
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+/*Efectos menu2*/
+.menu2 a::after {
+  /*content es la linea*/
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background-color: #245501;
+  border-radius: 5px;
+  /*transform cambia de tamaño en el eje X(horinzontal)*/
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+/*Efecto menu cambia por el hover sobre el after en el eje X*/
+.menu2 a:hover::after {
+  transform: scaleX(1);
+}
+.details {
+  padding-bottom: 25px;
+  padding-left: 25px;
+}
+/*line after img*/
+.line {
+  border: 0;
+  height: 5px;
+  background: #ccc;
+  width: 100%;
+  margin: 20px 0 50px;
+}
+.calendar {
+  text-align: center;
+  padding-top: 2%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 500px;
+}
+.first-day {
+  grid-column-start: 7;
+}
+.day-name {
+  background: #245501;
+  font-weight: bold;
+  color: white;
+}
+.position-calendar {
+  padding: 10px;
+}
+.check-form {
+  margin: 30px 0;
+  background: #fff;
+  box-shadow: 0 0 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 50px;
+}
+
+/*putting text on top of box*/
+.check-form label {
+  display: block;
+}
+.check-form div {
+  padding: 20px;
+}
+.check-form input {
+  padding: 15px;
+}
+.check-form button {
+  background: #73a942;
+  border: 0;
+  outline: none;
+  color: white;
+  padding: 18;
+  width: 350px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.review {
+  text-align: center;
+  align-items: center;
+  padding-bottom: 5%;
+  padding-top: 25px;
+}
+
+.perfil-review {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 50px;
+  padding-left: 10px;
+  flex-direction: column;
+}
+.perfil1-review {
+  width: 10%;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid rgba(14, 173, 35, 0.5);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+}
+.text1-review {
+  color: #000000;
+  margin-left: 25px;
+  background: transparent;
+  border: 2px solid rgba(45, 158, 22, 0.5);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  width: 25%;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

@@ -1,14 +1,14 @@
 <html>
     <head>
-        <link rel="stylesheet" href="proyecto1.css">
+        <link rel="stylesheet" href="/assets/css/login.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-
+        <title>Iniciar sesión | Viajeros Solos</title>
     </head>
     <body>
         <header>
-            <img src="logo.png" class="logo1">
+            <img src="/assets/images/logo.png" class="logo1">
             <nav class="navigation">
                 <a href="#">Inicio</a>
                 <a href="#">Landing page</a>
@@ -26,7 +26,7 @@
             </span>
             <div class="box login">
             <h2>Login</h2>
-            <form action="#">
+            <form onsubmit="event.preventDefault(); return window.location='/app';">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="email" required>
@@ -43,7 +43,7 @@
                 </div>
                 <button type="submit" class="btn">Iniciar sesión</button>
                 <div class="login-register">
-                    <p>No tiene una cuenta? <a href="#" class="register-link">Registrarse</a></p>
+                    <p>No tiene una cuenta? <a href="" class="register-link">Registrarse</a></p>
                 </div>
             </form>
         </div>
