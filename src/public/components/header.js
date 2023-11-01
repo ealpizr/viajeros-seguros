@@ -1,9 +1,52 @@
+function toggleMobileMenu() {
+  const mobileOverlay = document.querySelector(".mobile-overlay");
+  mobileOverlay.style.display =
+    mobileOverlay.style.display === "block" ? "none" : "block";
+}
+
 class ViajerosSolosHeader extends HTMLElement {
   constructor() {
     super();
   }
 
+  getLinks() {
+    const userRole = localStorage.getItem("userRole");
+    let links = [];
+    if (!userRole) {
+      links = [
+        { name: "Inicio", url: "/", button: false },
+        { name: "Nuestro equipo", url: "/about-us", button: false },
+        { name: "Iniciar sesión", url: "/app/login", button: true },
+      ];
+    }
+
+    if (userRole === "admin") {
+    }
+
+    if (userRole === "businessOwner") {
+    }
+
+    if (userRole === "user") {
+    }
+
+    return links
+      .map(
+        (link) =>
+          `<a class="${link.button ? "btn-popup" : "navigation-link"}" href="${
+            link.url
+          }">${link.name}</a>`
+      )
+      .join("");
+  }
+
   connectedCallback() {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        const mobileOverlay = document.querySelector(".mobile-overlay");
+        mobileOverlay.style.display = "none";
+      }
+    });
+
     this.innerHTML = `
     <style>
       header {
@@ -12,6 +55,17 @@ class ViajerosSolosHeader extends HTMLElement {
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+      .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        display: none;
+        background: rgba(0,0,0, 0.9);
+        z-index: 999;
+        padding: 20px;
       }
       .logo {
         width: 25%;
@@ -61,6 +115,16 @@ class ViajerosSolosHeader extends HTMLElement {
         background: #fff;
         color: #000000;
       }
+      .menu-icon {
+        all: unset;
+        display: none;
+        padding: 2px 4px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .menu-icon:hover {
+        background: rgba(255,255,255,0.2);
+      }
       @media (max-width: 1024px) {
         header {
             padding: 20px 20px;
@@ -75,13 +139,37 @@ class ViajerosSolosHeader extends HTMLElement {
           padding: 10px 20px;
         }
       }
+      @media (max-width: 768px) {
+        header .navigation {
+          display: none;
+        }
+        .menu-icon {
+          display: block;
+        }
+        .mobile-overlay .menu-icon {
+          max-width: fit-content;   
+          margin-left: auto;
+        }
+        .navigation {
+          flex-direction: column;
+        }
+      }
     </style>
+    <div class="mobile-overlay">
+      <button class="menu-icon" onclick="toggleMobileMenu();">
+        <img src="/assets/icons/close-icon.svg" />
+      </button>
+      <nav class="navigation">
+        ${this.getLinks()}
+      </nav>
+    </div>
     <header>
         <img src="/assets/images/logo.png" class="logo">
+        <button class="menu-icon" onclick="toggleMobileMenu();">
+          <img src="/assets/icons/menu-icon.svg" />
+        </button>
         <nav class="navigation">
-          <a class="navigation-link" href="/">Inicio</a>
-          <a class="navigation-link" href="/about-us">Nuestro equipo</a>
-          <a class="btn-popup" href="/app/login">Iniciar sesión</a>
+          ${this.getLinks()}
         </nav>
     </header>
     `;
