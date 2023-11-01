@@ -1,5 +1,6 @@
 body {
   font-family: 'lato';
+  margin: 0;
 }
 
 .content {
@@ -32,7 +33,7 @@ body {
 }
 
 .small-image {
-  width: 10%;
+  width: 5%;
 }
 
 .section {
@@ -85,4 +86,18 @@ body {
 .footer a {
   color: #fff;
   text-decoration: none;
+}
+
+@media(max-width: 767px) {
+  .small-image {
+    width: 20%;
+
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+  }
 }
