@@ -1,56 +1,70 @@
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
-</head>
-
-<body>
-  <section class="seccion-perfil-usuario">
-    <div class="perfil-usuario-header">
-      <div class="perfil-usuario-portada">
-        <div class="perfil-usuario-avatar">
-          <img src="/assets/images/fotoperfil.jpg" alt="img-avatar" />
+  <body>
+    <viajeros-solos-header></viajeros-solos-header>
+    <section class="seccion-perfil-usuario">
+      <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+          <div class="perfil-usuario-avatar">
+            <img src="/assets/images/fotoperfil.jpg" alt="img-avatar" />
+          </div>
         </div>
-      </div>
-      <div class="perfil-usuario-body">
-        <div class="perfil-usuario-bio">
-          <h3 class="titulo">Juan</h3>
-          <p class="texto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+        <div class="perfil-usuario-body">
+          <div class="perfil-usuario-bio">
+            <h3 class="titulo">Juan</h3>
+            <p class="texto">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div class="perfil-usuario-footer">
+            <ul class="lista-datos">
+              <li>
+                <i class="icono fas fa-map-signs"></i>Dirección de usuario:
+              </li>
+              <li><i class="icono fas fa-phone-alt"></i>Número de teléfono:</li>
+              <li><i class="icono fas fa-map-marker-alt"></i>Ubicación:</li>
+              <li>
+                <i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento:
+              </li>
+              <li>
+                <i class="icono fas fa-user-check"></i>Número de identificación:
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="perfil-usuario-footer">
           <ul class="lista-datos">
             <li>
-              <i class="icono fas fa-map-signs"></i>Dirección de usuario:
+              <i class="icono fas fa-map-signs"></i> Direccion de usuario:
             </li>
-            <li><i class="icono fas fa-phone-alt"></i>Número de teléfono:</li>
-            <li><i class="icono fas fa-map-marker-alt"></i>Ubicación:</li>
-            <li><i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento:</li>
-            <li><i class="icono fas fa-user-check"></i>Número de identificación:</li>
+            <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+            <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
+            <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.</li>
+            <li><i class="icono fas fa-user-check"></i> Registro.</li>
           </ul>
         </div>
       </div>
-      <div class="perfil-usuario-footer">
-        <ul class="lista-datos">
-          <li>
-            <i class="icono fas fa-map-signs"></i> Direccion de usuario:
-          </li>
-          <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
-          <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
-          <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.</li>
-          <li><i class="icono fas fa-user-check"></i> Registro.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</body>
-
+    </section>
+    <viajeros-solos-footer></viajeros-solos-footer>
+  </body>
 </html>

@@ -1,75 +1,64 @@
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+  </head>
 
-
-<body>
-    <div class="container-menu">
-        <div class="menu">
-            <nav>
-                <ul>
-                    <li><a href="#">Inicio </a></li>
-                    <li><a href="#">Landing page</a></li>
-                    <li><a href="#">Nuestro equipo</a></li>
-                    <li><a href="#">Mis negocios</a></li>
-                    <li><a href="#">Mi cuenta</a></li>
-                    <li><a href="#">Reportes</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Registro</a></li>
-                    <li><a href="#">Carrito de compras</a></li>
-                </ul>
-            </nav>
-
-        </div>
-
-    </div>
+  <body>
+    <viajeros-solos-header></viajeros-solos-header>
     <div class="container">
-        <div class="w-50 ">
-
-            <div>
-                <h1>Administración</h1>
-            </div>
-
-            <div class="users radius padding margin-left font-2">
-                <p>Usuarios </p>
-                <p class="center font"><img class="w-30" src="/assets/images/user.png">250</p>
-            </div>
-            <div class="users radius padding margin-left font-2">
-                <p>Negocios </p>
-                <p class="center font"><img class="w-30" src="/assets/images/business.png">64</p>
-            </div>
-            <div class="users radius padding margin-left font-2">
-                <p>Reportes</p>
-                <a href="users" class="bg-gray margin-left lists"> Listado de usuarios</a>
-                <a href="businesses" class="bg-gray margin-left lists"> Listado de negocios</a>
-            </div>
-
-
+      <div class="w-50">
+        <div>
+          <h1>Administración</h1>
         </div>
-        <div class="approval-requests">
-            <div class="users radius padding margin-right font-2">
-                <p>Solicitudes de aprobación de negocio</p>
-                <a href="#" class="bg-gray margin-left lists">Lorem ipsum dolor, sit amet</a>
-                <a href="#" class="bg-gray margin-left lists">Lorem ipsum dolor, sit amet</a>
-                <a href="#" class="bg-gray margin-left lists">Lorem ipsum dolor, sit amet</a>
-            </div>
+
+        <div class="users radius padding margin-left font-2">
+          <p>Usuarios</p>
+          <p class="center font">
+            <img class="w-30" src="/assets/images/user.png" />250
+          </p>
         </div>
+        <div class="users radius padding margin-left font-2">
+          <p>Negocios</p>
+          <p class="center font">
+            <img class="w-30" src="/assets/images/business.png" />64
+          </p>
+        </div>
+        <div class="users radius padding margin-left font-2">
+          <p>Reportes</p>
+          <a href="users" class="bg-gray margin-left lists">
+            Listado de usuarios</a
+          >
+          <a href="businesses" class="bg-gray margin-left lists">
+            Listado de negocios</a
+          >
+        </div>
+      </div>
+      <div class="approval-requests">
+        <div class="users radius padding margin-right font-2">
+          <p>Solicitudes de aprobación de negocio</p>
+          <a href="#" class="bg-gray margin-left lists"
+            >Lorem ipsum dolor, sit amet</a
+          >
+          <a href="#" class="bg-gray margin-left lists"
+            >Lorem ipsum dolor, sit amet</a
+          >
+          <a href="#" class="bg-gray margin-left lists"
+            >Lorem ipsum dolor, sit amet</a
+          >
+        </div>
+      </div>
     </div>
-    <div class="footer">
-        <div class="footer-content">
-            <p>&copy; Viajeros Solos 2023 Todos los derechos reservados.</p>
-        </div>
-    </div>
-
-
-</body>
-
+    <viajeros-solos-footer></viajeros-solos-footer>
+  </body>
 </html>
