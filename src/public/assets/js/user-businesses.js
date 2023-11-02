@@ -5,20 +5,20 @@ const TEST_BUSINESSES = [
     description: "Test Business 1 Description",
     address: "Test Business 1 Address",
     images: [
-      "https://via.placeholder.com/500x300",
-      "https://via.placeholder.com/500x300",
-      "https://via.placeholder.com/500x300",
+      "https://placehold.co/500x300",
+      "https://placehold.co/500x300",
+      "https://placehold.co/500x300",
     ],
     reviews: [
       {
         name: "Test User 1",
-        photo: "https://via.placeholder.com/150",
+        photo: "https://placehold.co/150",
         rating: 5,
         comment: "Test User 1 Comment",
       },
       {
         name: "Test User 2",
-        photo: "https://via.placeholder.com/150",
+        photo: "https://placehold.co/150",
         rating: 4,
         comment: "Test User 2 Comment",
       },
@@ -32,26 +32,26 @@ const TEST_BUSINESSES = [
     description: "Test Business 2 Description",
     address: "Test Business 2 Address",
     images: [
-      "https://via.placeholder.com/500x300",
-      "https://via.placeholder.com/500x300",
-      "https://via.placeholder.com/500x300",
+      "https://placehold.co/500x300",
+      "https://placehold.co/500x300",
+      "https://placehold.co/500x300",
     ],
     reviews: [
       {
         name: "Test User 1",
-        photo: "https://via.placeholder.com/150",
+        photo: "https://placehold.co/150",
         rating: 2,
         comment: "Test User 1 Comment",
       },
       {
         name: "Test User 2",
-        photo: "https://via.placeholder.com/150",
+        photo: "https://placehold.co/150",
         rating: 2,
         comment: "Test User 2 Comment",
       },
       {
         name: "Test User 2",
-        photo: "https://via.placeholder.com/150",
+        photo: "https://placehold.co/150",
         rating: 2,
         comment: "Test User 2 Comment",
       },

@@ -12,7 +12,10 @@ class ViajerosSolosHeader extends HTMLElement {
   getLinks() {
     let links = [];
 
-    if (window.location.pathname.includes("/app")) {
+    if (
+      window.location.pathname.includes("/app") &&
+      window.location.pathname !== "/app/login"
+    ) {
       links = [
         {
           name: "Inicio",
