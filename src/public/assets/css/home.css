@@ -178,7 +178,7 @@ div a {
 
 /* MEDIA */
 
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
   .menu-izq {
     width: auto;
     padding-left: 0px;
@@ -187,5 +187,15 @@ div a {
   .menu-der {
     width: auto;
     padding-right: 0px;
+  }
+
+  .col-25 {
+    width: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .col-25 {
+    width: 100%;
   }
 }

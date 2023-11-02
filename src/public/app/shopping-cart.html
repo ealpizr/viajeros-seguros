@@ -10,113 +10,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <viajeros-solos-header></viajeros-solos-header>
-    <div>
-        <h1 class="padding">Carrito de compras</h1>
-        <div class="flex">
-
-            <table>
-
-                <tr>
-                    <th>Servicio</th>
-                    <th>Categoría</th>
-                    <th>Descripción</th>
-                    <th>Días de reserva</th>
-                    <th>Cantidad de personas</th>
-                    <th>Cantidad de días</th>
-                    <th>Total</th>
-                </tr>
-                <tr>
-                    <div>
-                        <td class="delete"><img src="/assets/images/trash-can.png" class="w-4"><img
-                                src="/assets/images/hotel.jpg" class="w-50 center"> Hotel con vista al mar</td>
-                        <td>Transporte</td>
-                        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cum empora veniam
-                            corrupti
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, quisquam suscipit!
-                            Reprehenderit
-                            odio eaque omnis sint quam at mollitia enim. Et nobis explicabo molestiae nihil!
-                            Necessitatibus
-                            itaque molestiae iste optio.</td>
-                        <td><label for="Check-in">Desde:</label>
-                            <input type="date" id="inicio" name="inicio" min="2023-01-01" max="2023-12-31">
-                            <br>
-                            <label for="Check-out">Hasta:</label>
-                            <input type="date" id="fin" name="fin" min="2023-01-01" max="2023-12-31">
-                        </td>
-                        <td><input type="number" class="quantity" value="1"></td>
-                        <td><input type="number" class="quantity" value="1"></td>
-                        <td>₡20.000.00</td>
-                    </div>
-                </tr>
-                <tr>
-                    <td class="delete"><img src="/assets/images/trash-can.png" class="w-4"><img
-                            src="/assets/images/hotel.jpg" class="w-50 center"> Restaurante en Punta Uvita</td>
-                    <td>Alimentación</td>
-                    <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque obcaecati consectetur ut
-                        impedit, voluptates omnis sunt id natus eius ad vel corrupti dolor, excepturi, magnam
-                        necessitatibus. Quidem nulla tempore reprehenderit!</td>
-                    <td><label for="Check-in">Desde:</label>
-                        <input type="date" id="inicio" name="inicio" min="2023-01-01" max="2023-12-31">
-                        <br>
-                        <label for="Check-out">Hasta:</label>
-                        <input type="date" id="fin" name="fin" min="2023-01-01" max="2023-12-31">
-                    </td>
-                    <td><input type="number" class="quantity" value="1"></td>
-                    <td><input type="number" class="quantity" value="1"></td>
-                    <td>₡15.000.00</td>
-                </tr>
-
-            </table>
+    <div class="main">
+      <h1 class="padding">Carrito de compras</h1>
+      <div class="flex container">
+        <div class="table-container w-70">
+          <table>
+            <tr>
+              <th>Servicio</th>
+              <th>Categoría</th>
+              <th>Descripción</th>
+              <th>Días de reserva</th>
+              <th>Cantidad de personas</th>
+              <th>Cantidad de días</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td class="delete">
+                <img src="/assets/images/trash-can.png" class="w-4" /><img
+                  src="/assets/images/hotel.jpg"
+                  class="w-50 center"
+                />
+                Hotel con vista al mar
+              </td>
+              <td>Transporte</td>
+              <td>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Asperiores cum empora veniam corrupti Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Odit, quisquam suscipit!
+                Reprehenderit odio eaque omnis sint quam at mollitia enim. Et
+                nobis explicabo molestiae nihil! Necessitatibus itaque molestiae
+                iste optio.
+              </td>
+              <td>
+                <label for="Check-in">Desde:</label>
+                <input
+                  type="date"
+                  id="inicio"
+                  name="inicio"
+                  min="2023-01-01"
+                  max="2023-12-31"
+                />
+                <br />
+                <label for="Check-out">Hasta:</label>
+                <input
+                  type="date"
+                  id="fin"
+                  name="fin"
+                  min="2023-01-01"
+                  max="2023-12-31"
+                />
+              </td>
+              <td><input type="number" class="quantity" value="1" /></td>
+              <td><input type="number" class="quantity" value="1" /></td>
+              <td>₡20.000.00</td>
+            </tr>
+            <tr>
+              <td class="delete">
+                <img src="/assets/images/trash-can.png" class="w-4" /><img
+                  src="/assets/images/hotel.jpg"
+                  class="w-50 center"
+                />
+                Restaurante en Punta Uvita
+              </td>
+              <td>Alimentación</td>
+              <td>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque
+                obcaecati consectetur ut impedit, voluptates omnis sunt id natus
+                eius ad vel corrupti dolor, excepturi, magnam necessitatibus.
+                Quidem nulla tempore reprehenderit!
+              </td>
+              <td>
+                <label for="Check-in">Desde:</label>
+                <input
+                  type="date"
+                  id="inicio"
+                  name="inicio"
+                  min="2023-01-01"
+                  max="2023-12-31"
+                />
+                <br />
+                <label for="Check-out">Hasta:</label>
+                <input
+                  type="date"
+                  id="fin"
+                  name="fin"
+                  min="2023-01-01"
+                  max="2023-12-31"
+                />
+              </td>
+              <td><input type="number" class="quantity" value="1" /></td>
+              <td><input type="number" class="quantity" value="1" /></td>
+              <td>₡15.000.00</td>
+            </tr>
+          </table>
         </div>
-
-        <div class="w-100">
-            <div class="car">
-                <div class="header-car">
-                    <h2>Tu Carrito</h2>
-                </div>
-                <div class="car-items">
-                    <div class="item">
-
-                        <div class="car-details">
-                            <p class="car-title">Hotel con vista al mar:</p>
-                            <p class="car-price">₡20.000.00</p>
-                            <hr>
-                            <p class="car-title">Restaurante en Punta Uvita:</p>
-                            <p class="car-price">₡15.000.00</p>
-                            <hr>
-                            <p class="car-title">Cantidad de servicios: 2</p>
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-                <div class="total center">
-                    <div class="left margin-bottom">
-                        <strong>Tu Total:</strong>
-                        <span class="total-price">
-                            ₡35.000.00
-                        </span>
-                    </div>
-                    <div>
-                        <a href="confirmation" class="btn-pay margin-bottom">Reservar</a>
-                        <a href="app" class="btn-pay green margin-bottom">Seguir buscando</a>
-                    </div>
-
-                </div>
+        <div class="w-30">
+          <div class="car">
+            <div class="header-car">
+              <h2>Tu Carrito</h2>
             </div>
+            <div class="car-items">
+              <div class="item">
+                <div class="car-details">
+                  <p class="car-title">Hotel con vista al mar:</p>
+                  <p class="car-price">₡20.000.00</p>
+                  <hr />
+                  <p class="car-title">Restaurante en Punta Uvita:</p>
+                  <p class="car-price">₡15.000.00</p>
+                  <hr />
+                  <p class="car-title">Cantidad de servicios: 2</p>
+                </div>
+              </div>
+            </div>
+            <div class="total center">
+              <div class="left margin-bottom">
+                <p>
+                  <strong>Tu Total:</strong>
+                  <span class="total-price"> ₡35.000.00 </span>
+                </p>
+                <div class="text-center">
+                  <a href="confirmation" class="btn-pay margin-bottom"
+                    >Reservar</a
+                  >
+                  <a href="/app" class="btn-pay green margin-bottom"
+                    >Seguir buscando</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-
-
+      </div>
     </div>
     <viajeros-solos-footer></viajeros-solos-footer>
-</body>
-
+  </body>
 </html>

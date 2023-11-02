@@ -1,27 +1,29 @@
 body {
   height: 80vh;
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-
-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #73A942;
-
+* {
+  box-sizing: border-box;
 }
 
 .container-menu {
   height: 70px;
-  background-color: #73A942;
+  background-color: #73a942;
   padding: 0, 20px;
 }
 
 .menu a {
   text-decoration: none;
+}
+
+.table-container {
+  overflow: scroll;
+}
+
+.wrapper {
+  padding: 10px;
 }
 
 .menu {
@@ -39,12 +41,12 @@ nav ul {
   display: flex;
 }
 
-nav>ul>li {
+nav > ul > li {
   list-style: none;
   height: 100%;
 }
 
-nav>ul>li a {
+nav > ul > li a {
   width: 100%;
   height: 100%;
   display: flex;
@@ -54,10 +56,9 @@ nav>ul>li a {
   padding-right: 25px;
 }
 
-nav>ul>li a:hover {
+nav > ul > li a:hover {
   transform: scale(1.1);
   background-color: #aad576;
-
 }
 
 .header {
@@ -74,7 +75,6 @@ nav>ul>li a:hover {
   padding-top: 30px;
 }
 
-
 table {
   width: 100%;
 }
@@ -90,7 +90,6 @@ td {
   border: 1px solid #cccccc;
   padding: 20px;
   text-align: left;
-
 }
 
 th {
@@ -103,7 +102,7 @@ th {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #73A942;
+  background-color: #73a942;
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -117,9 +116,12 @@ th {
   color: #fff;
   text-decoration: none;
 }
-@media(max-width: 767px) {
-.user {
-  width: 15%;
-  padding-left: 10px;
-}
+@media (max-width: 767px) {
+  .user {
+    width: 15%;
+    padding-left: 10px;
+  }
+  .search {
+    padding-right: 0;
+  }
 }
