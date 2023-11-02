@@ -40,8 +40,7 @@ div {
 
 /* MAIN */
 
-.main {
-}
+
 
 .title {
   color: #fff;
@@ -58,16 +57,18 @@ div {
   display: flex;
   flex-direction: row;
   border-radius: 3px;
-  background-color: #73a942;
+  background-color: #aad576;
 }
-
+.font-style {
+  font-size: 17px;;
+}
 .objetivos {
   padding: 20px;
   margin: 20px 20px 100px 20px;
   display: flex;
   flex-direction: row;
   border-radius: 3px;
-  background-color: #73a942;
+  background-color: #aad576;
 }
 
 .w-100 {

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "crossorigin", sans-serif;
+  font-family: 'lato', sans-serif;
 }
 .background {
   background: url("/assets/images/banner_default.jpg") no-repeat;
@@ -139,7 +139,7 @@ header {
   filter: grayscale(1);
   transform: scale(1.03);
 }
-.perfil {
+.profile {
   margin-top: 125px;
   display: flex;
   flex-wrap: wrap;
@@ -148,14 +148,14 @@ header {
   padding-bottom: 50px;
   padding-left: 10px;
 }
-.perfil1 {
+.profile-1 {
   width: 10%;
   border-radius: 10px;
   background: transparent;
   border: 2px solid rgba(14, 173, 35, 0.5);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
-.text1 {
+.text-1 {
   color: #000000;
   margin-left: 25px;
   background: transparent;
@@ -185,11 +185,11 @@ header {
     border-radius: 25px;
     padding-right: 5%;
 }*/
-.menu2 {
+.menu-2 {
   text-align: center;
   padding-top: 50px;
 }
-.menu2 a {
+.menu-2 a {
   position: relative;
   font-size: 25px;
   color: black;
@@ -296,7 +296,7 @@ header {
   padding-left: 10px;
   flex-direction: column;
 }
-.perfil1-review {
+.profile-1-review {
   width: 10%;
   border-radius: 10px;
   background: transparent;
@@ -304,7 +304,7 @@ header {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 25px;
 }
-.text1-review {
+.text-1-review {
   color: #000000;
   margin-left: 25px;
   background: transparent;
