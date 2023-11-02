@@ -10,23 +10,47 @@ class ViajerosSolosHeader extends HTMLElement {
   }
 
   getLinks() {
-    const userRole = localStorage.getItem("userRole");
     let links = [];
-    if (!userRole) {
+
+    if (window.location.pathname.includes("/app")) {
+      links = [
+        {
+          name: "Inicio",
+          url: "/app",
+          button: false,
+        },
+        {
+          name: "Administración",
+          url: "/app/admin",
+          button: false,
+        },
+        {
+          name: "Mis negocios",
+          url: "/app/me/businesses",
+          button: false,
+        },
+        {
+          name: "Carrito de compras",
+          url: "/app/shopping-cart",
+          button: false,
+        },
+        {
+          name: "Mi cuenta",
+          url: "/app/me",
+          button: false,
+        },
+        {
+          name: "Cerrar sesión",
+          url: "/",
+          button: true,
+        },
+      ];
+    } else {
       links = [
         { name: "Inicio", url: "/", button: false },
         { name: "Nuestro equipo", url: "/about-us", button: false },
         { name: "Iniciar sesión", url: "/app/login", button: true },
       ];
-    }
-
-    if (userRole === "admin") {
-    }
-
-    if (userRole === "businessOwner") {
-    }
-
-    if (userRole === "user") {
     }
 
     return links
@@ -125,7 +149,7 @@ class ViajerosSolosHeader extends HTMLElement {
       .menu-icon:hover {
         background: rgba(255,255,255,0.2);
       }
-      @media (max-width: 1024px) {
+      @media (max-width: 1366px) {
         header {
             padding: 20px 20px;
         }
@@ -139,7 +163,7 @@ class ViajerosSolosHeader extends HTMLElement {
           padding: 10px 20px;
         }
       }
-      @media (max-width: 768px) {
+      @media (max-width: 1200px) {
         header .navigation {
           display: none;
         }
