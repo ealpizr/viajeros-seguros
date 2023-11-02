@@ -141,3 +141,11 @@ nav > ul > li a:hover {
   margin-right: 25px;
   margin-bottom: 20px;
 }
+
+@media (max-width: 767px) {
+  .container {
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
