@@ -4,20 +4,12 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'lato', sans-serif;
+  font-family: "lato", sans-serif;
 }
 .background {
   background: url("/assets/images/banner_default.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-}
-.navigation a {
-  position: relative;
-  font-size: 1.1em;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 40px;
 }
 
 /*Efectos menu*/
@@ -59,39 +51,7 @@ body {
   background: #fff;
   color: #000000;
 }
-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #73a942;
-  padding: 20px 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 99;
-}
 
-.footer {
-  margin-top: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #73a942;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
-
-.footer-content {
-  margin: 0 auto;
-}
-
-.footer a {
-  color: #fff;
-  text-decoration: none;
-}
 .logo1 {
   width: 25%;
 }
