@@ -7,9 +7,10 @@ body {
   font-family: 'lato', sans-serif;
 }
 .background {
-  background: url("/assets/images/banner_default.jpg") no-repeat;
+  background: url("/assets/images/CR-beach.jpg") no-repeat;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 0 30px;
 }
 .navigation a {
   position: relative;
@@ -95,15 +96,9 @@ header {
 .logo1 {
   width: 25%;
 }
-.padding {
-  padding-top: 150px;
-}
 
 /*b-details detalles del negocio*/
 
-.b-details {
-  padding: 5px;
-}
 .b-title {
   margin-top: 50px;
 }
@@ -161,30 +156,13 @@ header {
   background: transparent;
   border: 2px solid rgba(45, 158, 22, 0.5);
   border-radius: 10px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(50px);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   width: 25%;
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-/*menu2 {
-    padding-top: 55px;
-    
-    border-radius: 25px;
-    padding-bottom: 55px;
-
-}
-/*menu2 a {
-    padding-left: 5%;
-    text-decoration: none;
-    color: #000000;
-    font-size:30px ;
-    margin-left: 155px;
-    background: #73A942;
-    border-radius: 25px;
-    padding-right: 5%;
-}*/
 .menu-2 {
   text-align: center;
   padding-top: 50px;
@@ -201,7 +179,7 @@ header {
 }
 
 /*Efectos menu2*/
-.menu2 a::after {
+.menu-2 a::after {
   /*content es la linea*/
   content: "";
   position: absolute;
@@ -216,12 +194,15 @@ header {
   transition: 0.5s;
 }
 /*Efecto menu cambia por el hover sobre el after en el eje X*/
-.menu2 a:hover::after {
+.menu-2 a:hover::after {
   transform: scaleX(1);
 }
 .details {
   padding-bottom: 25px;
   padding-left: 25px;
+}
+.title-h1 {
+  color: #245501;
 }
 /*line after img*/
 .line {
@@ -288,7 +269,7 @@ header {
   padding-top: 25px;
 }
 
-.perfil-review {
+.profile-review {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -303,17 +284,25 @@ header {
   border: 2px solid rgba(14, 173, 35, 0.5);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 25px;
+  margin-top: 25px;
 }
 .text-1-review {
   color: #000000;
-  margin-left: 25px;
-  background: transparent;
-  border: 2px solid rgba(45, 158, 22, 0.5);
-  border-radius: 10px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  width: 25%;
+  background: #aad576;
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+.text-1-review {
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 13px;
+  box-shadow: 4px 7px 7px 0px black;
+  cursor: pointer;
+  margin: 10px;
+  transition: 40ms;
+}
+.text-1-review:hover{
+  filter: hue-rotate(90deg);
+  transform: scale(1.03);
 }
