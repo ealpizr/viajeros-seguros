@@ -40,8 +40,6 @@ div {
 
 /* MAIN */
 
-
-
 .title {
   color: #fff;
   font-size: 1.5rem;
@@ -60,7 +58,7 @@ div {
   background-color: #aad576;
 }
 .font-style {
-  font-size: 17px;;
+  font-size: 17px;
 }
 .objetivos {
   padding: 20px;
@@ -78,13 +76,7 @@ div {
 /* MEDIA */
 
 @media (max-width: 767px) {
-  .menu-izq {
-    width: auto;
-    padding-left: 0px;
-  }
-
-  .menu-der {
-    width: auto;
-    padding-right: 0px;
+  .info-container {
+    flex-direction: column;
   }
 }
