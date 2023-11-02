@@ -40,8 +40,7 @@ div {
 
 /* MAIN */
 
-.main {
-}
+
 
 .title {
   color: #fff;
@@ -60,7 +59,9 @@ div {
   border-radius: 3px;
   background-color: #73a942;
 }
-
+.font-style {
+  font-size: 17px;;
+}
 .objetivos {
   padding: 20px;
   margin: 20px 20px 100px 20px;

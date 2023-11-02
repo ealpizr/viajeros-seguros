@@ -13,7 +13,7 @@ div {
 }
 
 header {
-  background-color: #73a942;
+  background-color: #aad576;
   color: #ffffff;
   text-align: center;
   padding: 20px;
@@ -73,8 +73,26 @@ h2 {
   justify-content: center;
 }
 
+.info-container {
+  padding: 20px;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 6px;
+  background-color: #83b158;
+  ;
+}
+
 .team h2 {
   color: #737373;
+}
+
+.black {
+  color: black;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .profile-slide {
@@ -113,7 +131,7 @@ h2 {
   flex-wrap: nowrap;
   overflow: hidden;
   transition: transform 0.3s ease;
-  margin-bottom: 200px;
+  margin-bottom: 30px;
 }
 
 .profile-slide {
