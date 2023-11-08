@@ -135,14 +135,24 @@ th {
 }
 
 .delete {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.delete img:first-child {
-  position: absolute;
-  top: 0;
-  right: 0;
+.delete i {
+  color: #73a942;
+  font-size: 1.6rem;
 }
+
+.delete i:hover {
+  cursor: pointer;
+  color: red;
+}
+
+/* .delete img:first-child {
+  position: absolute;
+} */
 
 .quantity {
   width: 40px;
