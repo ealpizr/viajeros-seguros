@@ -95,7 +95,6 @@ body {
   transform: scale(1.03);
 }
 .profile {
-  margin-top: 125px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
