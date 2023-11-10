@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+
 }
 
 body {
@@ -10,31 +11,99 @@ body {
   min-height: 100%;
 }
 
-.container-menu {
-  height: 70px;
+.img-header {
+  background: url(/assets/images/bird.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.img-header h1 {
+  text-align: left;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+}
+
+.container-1 {
+  max-width: 1200px;
+  padding: 15px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  contain: paint;
+
+}
+
+.container-1 .item-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 5px;
+  grid-row-gap: 5px;
+  width: 100%;
+
+}
+
+.title-item {
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.container-1 .item-container .item-1 {
+  max-width: 200px;
+  padding: 10px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 20px;
+  transition: .3s;
+
+}
+
+.item-1:hover {
+  background-color: #aad576;
+  box-shadow: 0 15px 30px black, 0 10px 10px black;
+  transition: 0.4s;
+}
+
+.item-container .item:hover {
+  box-shadow: 0 0 10px #73a942;
+  scale: 1.05;
+}
+
+.item-container .item-1 .img-item {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.item-container .item-1 .price-item {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.button-item {
+  display: block;
+  margin: 10px auto;
+  border: none;
   background-color: #73a942;
-  padding: 0, 20px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 10px;
 }
 
-.container {
-  gap: 10px;
+.button-item:hover {
+  background-color: #000000;
+
 }
 
-.menu a {
-  text-decoration: none;
-}
-
-table {
-  width: 70%;
-}
-
-.main {
-  padding: 0 10px;
-  flex: 1;
-}
-
-.table-container {
-  overflow: auto;
+.center {
+  text-align: center;
 }
 
 .w-30 {
@@ -45,74 +114,6 @@ table {
   width: 70%;
 }
 
-.menu {
-  max-width: 1200px;
-  margin: auto;
-  height: 100%;
-}
-
-nav {
-  height: 100%;
-}
-
-nav ul {
-  height: 100%;
-  display: flex;
-}
-
-nav > ul > li {
-  list-style: none;
-  height: 100%;
-}
-
-nav > ul > li a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  color: #fff;
-  align-items: center;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-nav > ul > li a:hover {
-  transform: scale(1.1);
-  background-color: #aad576;
-}
-
-.user {
-  width: 20%;
-  padding-left: 10px;
-}
-
-table {
-  width: 100%;
-}
-
-th,
-td {
-  border: 1px solid #cccccc;
-  padding: 20px;
-  text-align: left;
-}
-
-th {
-  background-color: #aad576;
-}
-
-.flex {
-  display: flex;
-}
-
-.remove {
-  text-decoration: none;
-  color: black;
-}
-
-.remove:hover {
-  text-decoration: none;
-  color: #73a942;
-}
 
 .w-100 {
   width: 100%;
@@ -123,65 +124,6 @@ th {
 .left {
   padding: 10px;
   text-align: left;
-}
-
-.w-50 {
-  width: 50%;
-  align-items: center;
-}
-
-.w-4 {
-  width: 4%;
-}
-
-.delete {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.delete i {
-  color: #73a942;
-  font-size: 1.6rem;
-}
-
-.delete i:hover {
-  cursor: pointer;
-  color: red;
-}
-
-/* .delete img:first-child {
-  position: absolute;
-} */
-
-.quantity {
-  width: 40px;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.button {
-  background-color: #ade07d;
-  border-radius: 5px;
-  text-decoration: none;
-  color: black;
-  padding: 10px;
-  width: 50%;
-  flex-direction: column;
-}
-
-.button:hover {
-  width: 50%;
-  background-color: #73a942;
-  border-radius: 5px;
-  text-decoration: none;
-  color: black;
-  padding: 10px;
-}
-
-.padding {
-  padding-left: 50px;
 }
 
 .car {
@@ -204,15 +146,13 @@ th {
   padding: 15px;
 }
 
-.text-center {
-  text-align: center;
-}
 
 .car .item .car-title {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: uppercase;
+
 }
 
 .car .car-item .selector {
@@ -237,10 +177,17 @@ th {
   margin-bottom: 5px;
 }
 
-.center {
-  vertical-align: middle;
+.quantity {
   text-align: center;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 30px;
+  grid-row-gap: 30px;
+  width: 100%;
+ 
 }
+
 
 .btn-pay {
   display: block;
@@ -259,27 +206,15 @@ th {
   cursor: pointer;
 }
 
-.green {
-  background-color: #73a942;
-}
 
 .margin-bottom {
   margin-bottom: 5px;
 }
 
-.right {
-  bottom: 0;
-  right: 0;
-}
-@media (max-width: 767px) {
-  .w-4 {
-    width: 15%;
-  }
 
-  .w-50 {
-    width: 120%;
-    align-items: center;
-  }
+@media (max-width: 767px) {
+
+
   .car {
     border: 1px solid #000000;
     margin-top: 30px;
@@ -287,13 +222,30 @@ th {
     top: 0;
     right: 0;
   }
+
   .container {
     flex-direction: column;
   }
+
   .w-30 {
     width: 100%;
   }
+
   .w-70 {
     width: 100%;
+  }
+
+  .img-header {
+    background: url(/assets/images/beach-coast.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+  }
+
+  .img-header h1 {
+    text-align: left;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    padding: 50px;
   }
 }
