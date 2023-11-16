@@ -1,6 +1,26 @@
+* {
+  box-sizing: border-box;
+
+}
+
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
+}
+
+.img-header {
+  background: url(/assets/images/macaw.jpg);
+  color: #fff;
+  text-align: left;
+  background-size: cover;
+  background-position: top;
+  height: 300px;
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+.white {
+  color: white;
 }
 
 .padding {
@@ -90,5 +110,11 @@ li {
     box-shadow: 0 15px 30px black, 0 10px 10px black;
     transition: 0.4s;
     background: white;
+  }
+
+  .padding {
+
+    padding-left: 280px;
+    font-size: 25px;
   }
 }
