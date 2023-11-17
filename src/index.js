@@ -1,47 +1,38 @@
 import express from "express";
-import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
-import authRouter from "./api/auth.js";
-import businessRouter from "./api/businesses.js";
-import categoryRouter from "./api/categories.js";
-import reservationRouter from "./api/reservations.js";
-import userRouter from "./api/users.js";
+import connectToDB from "./db/connection.js";
+import appRouter from "./routes.js";
 
-const PORT = process.env.PORT || 5000;
+async function main() {
+  try {
+    await connectToDB();
+    console.info("Connection to Mongo established successfully");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+    const PORT = process.env.PORT || 5000;
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const staticPath = path.resolve(__dirname, "public");
+    const app = express();
 
-mongoose
-  .connect(
-    "mongodb+srv://viajeros-solos:lZ08pqReQ90wvgrW@cluster.srakrmu.mongodb.net/viajeros-solos?retryWrites=true&w=majority"
-  )
-  .then(() => {
-    console.log("Connected to database");
-  })
-  .catch((error) => {
-    console.error("Error connecting to database: ", error);
-    process.exit();
-  });
+    app.use(express.json());
 
-const staticPath = path.resolve(__dirname, "public");
+    app.use(
+      express.static(staticPath, {
+        extensions: ["html"],
+      })
+    );
 
-const app = express();
-app.use(express.json());
+    app.use("/api", appRouter);
 
-app.use(
-  express.static(staticPath, {
-    extensions: ["html"],
-  })
-);
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (e) {
+    console.error("Fatal error starting server, exiting...");
+    console.error(e);
+    process.exit(1);
+  }
+}
 
-app.use("/auth", authRouter);
-app.use("/users", userRouter);
-app.use("/businesses", businessRouter);
-app.use("/categories", categoryRouter);
-app.use("/reservations", reservationRouter);
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+main();

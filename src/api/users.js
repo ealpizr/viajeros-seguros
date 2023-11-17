@@ -1,9 +1,6 @@
-import express from "express";
 import User from "../schemas/user.js";
 
-const router = express.Router();
-
-router.get("/list", function (req, res) {
+export function listUsers(req, res) {
   User.find()
     .exec()
     .then(function (users) {
@@ -28,14 +25,4 @@ router.get("/list", function (req, res) {
 
       res.json(cleanedUpUsers);
     });
-});
-
-router.get("/count", function (req, res) {
-  User.find()
-    .exec()
-    .then(function (users) {
-      res.json(users.length);
-    });
-});
-
-export default router;
+}

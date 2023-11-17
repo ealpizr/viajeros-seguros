@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 var userSchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   identification: String,
   firstName: String,
   lastName: String,
