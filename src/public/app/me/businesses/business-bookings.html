@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Sistema de reservas | Viajeros Solos</title>
+    <link rel="stylesheet" href="/assets/css/business-bookings.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+</head>
+
+<body>
+    <viajeros-solos-header></viajeros-solos-header>
+    <div class="img-header">
+        <h1>Sistema de reservas</h1>
+    </div>
+    <main>
+        <label for="select">Seleccionar Negocio:</label>
+        <select id="select">
+            <option value="1">Hotel Bella Vista</option>
+            <option value="2">Tour Monteverde</option>
+            <option value="3">Almuerzo en el Poás</option>
+        </select>
+        <label for="filter">Filtrar Reservas:</label>
+        <select id="filter">
+            <option value="all">Todas</option>
+            <option value="coming">Futuras</option>
+            <option value="past">Viejas</option>
+        </select>
+
+        <table>
+            <tr>
+                <th>Fecha de reserva</th>
+                <th>Cliente</th>
+                <th>Días de reserva</th>
+            </tr>
+            <tr>
+                <td>23-11-2023</td>
+                <td>Sofía Herrera</td>
+                <td>
+                    <p>Fecha de entrada: 24-11-23 </p>
+                    <p>Fecha de salida: 28-11-23</p>
+                </td>
+            </tr>
+            <tr>
+                <td>03-12-2023</td>
+                <td>Marcela Aguilar</td>
+                <td>
+                    <p>Fecha de entrada: 05-12-2023 </p>
+                    <p>Fecha de salida: 11-12-2023</p>
+                </td>
+            </tr>
+            <tr>
+                <td>05-11-2023</td>
+                <td>Carlos Sauma</td>
+                <td>
+                    <p>Fecha de entrada: 05-12-2023 </p>
+                    <p>Fecha de salida: 16-12-2023</p>
+                </td>
+            </tr>
+            <tr>
+                <td>28-11-2023</td>
+                <td>Manuel Chaverri</td>
+                <td>
+                    <p>Fecha de entrada: 05-12-2023 </p>
+                    <p>Fecha de salida: 07-16-2023</p>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <viajeros-solos-footer></viajeros-solos-footer>
+</body>
+
+</html>
+
+</html>
