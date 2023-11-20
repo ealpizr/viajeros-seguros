@@ -1,14 +1,30 @@
-import express from "express";
 import Business from "../schemas/business.js";
+/* schemas */
 
-const router = express.Router();
-
-router.get("/listar", function (req, res) {
+export function listBusinesses(req, res) {
   Business.find()
     .exec()
-    .then(function (result) {
-      res.json(result);
-    });
-});
+    .then(function (businesses) {
 
-export default router;
+      const cleanedUpBusinesses = [];
+
+      for (let i = 0; i < businesses.length; i++) {
+
+
+        const name = businesses[i].name;
+        const ownerId = businesses[i].ownerId;
+        const categoriesIds = businesses[i].categoriesIds;
+
+        const business = {
+          name: name,
+          ownerId: ownerId,
+          categoriesIds: categoriesIds,
+        };
+
+        cleanedUpBusinesses.push(business);
+      }
+    
+      console.log(cleanedUpBusinesses);
+      res.json(cleanedUpBusinesses);
+    });
+}

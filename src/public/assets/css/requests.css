@@ -1,0 +1,121 @@
+body {
+    color: #404040;
+    font-family: "Lato";
+    margin: 0;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.padding {
+    padding-left: 30px;
+}
+
+select {
+    font-size: 22px;
+    margin-right: 40px;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.request {
+    width: 45%;
+    float: left;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: #c7e99d;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 10px 20px black, 0 5px 5px black;
+    transition: 0.6s;
+}
+
+
+.request:hover {
+    box-shadow: 0 2px 4px black, 0 3px 6px black;
+    transform: translate(0px, -5px);
+}
+
+.arrow {
+    position: absolute;
+    top: 30%;
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.slider-item {
+    position: relative;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.buttons {
+    margin: 20px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.approve {
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 15px;
+    font-weight: bold;
+    border: none;
+}
+
+.approve:hover {
+    background-color: #76c579;
+
+}
+
+.decline {
+    background-color: #f44336;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    border: none;
+}
+
+.decline:hover {
+    background-color: rgb(255, 167, 167);
+}
+
+section img {
+    width: 65%;
+    margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .request {
+        width: 100%;
+
+
+    }
+}
