@@ -26,14 +26,3 @@ export function listUsers(req, res) {
       res.json(cleanedUpUsers);
     });
 }
-
-export function getTotalUsers(req, res) {
-  User.find()
-    .exec()
-    .then(function (users) {
-
-      const totalUsers = users.length;
-
-      res.json(totalUsers);
-    });
-}

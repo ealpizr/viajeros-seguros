@@ -191,7 +191,9 @@ class ViajerosSolosHeader extends HTMLElement {
       </nav>
     </div>
     <header>
-        <img src="/assets/images/logo.png" class="logo">
+    <a class="logo" href="/app/index.html">
+    <img src="/assets/images/logo.png" class="logo">
+    </a>
         <button class="menu-icon" onclick="toggleMobileMenu();">
           <img src="/assets/icons/menu-icon.svg" />
         </button>
