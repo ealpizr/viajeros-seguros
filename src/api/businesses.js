@@ -12,3 +12,14 @@ router.get("/listar", function (req, res) {
 });
 
 export default router;
+
+export function getTotalBusinesses(req, res) {
+  User.find()
+    .exec()
+    .then(function (businesses) {
+
+      const totalBusinesses = businesses.length;
+
+      res.json(totalBusinesses);
+    });
+}
