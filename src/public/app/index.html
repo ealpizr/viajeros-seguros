@@ -16,6 +16,27 @@
 
   <body>
     <viajeros-solos-header></viajeros-solos-header>
+    <div class="filters-container">
+      <div class="filter">
+        <label for="select">Categoría:</label>
+        <select id="select">
+          <option selected hidden>Seleccione</option>
+          <option value="1">Alimentación</option>
+          <option value="2">Hospedaje</option>
+          <option value="3">Transporte</option>
+          <option value="4">Entretenimiento</option>
+        </select>
+      </div>
+      <div class="filter">
+        <label for="select">Calificación:</label>
+        <input type="range" min="1" max="5" />
+      </div>
+      <div class="filter">
+        <label for="select">Buscar:</label>
+        <input type="text" />
+      </div>
+      <button>Filtrar</button>
+    </div>
     <div class="contenedor-valoraciones">
       <div class="item col-25">
         <div class="valoracion-box">
