@@ -11,22 +11,23 @@
   <script src="/assets/js/user-quantity.js" defer></script>
   <script src="/components/header.js"></script>
   <script src="/components/footer.js"></script>
-  <script src="/assets/js/user-quantity.js" defer></script>
+  <script src="/assets/js/user-get-total.js" defer></script>
+  <script src="/assets/js/businesses-get-total.js" defer></script>
 </head>
 
 <body>
   <viajeros-solos-header></viajeros-solos-header>
-        <h1 class="title">Administración</h1>
-        <div class="container">
-          <div class="w-50 widgets-container">
-            <div class="users radius padding font-2">
-              <p>Usuarios</p>
-              <div class="count-widget">
-                <div class="widget-icon">
-                  <img class="w-15" src="/assets/images/user.png" />
-                </div>
-                <p id="users-quantity"></p> 
-              </div>
+  <h1 class="title">Administración</h1>
+  <div class="container">
+    <div class="w-50 widgets-container">
+      <div class="users radius padding font-2">
+        <p>Usuarios</p>
+        <div class="count-widget">
+          <div class="widget-icon">
+            <img class="w-15" src="/assets/images/user.png" />
+          </div>
+          <p id="user-count">0</p>
+        </div>
       </div>
       <div class="users radius padding font-2">
         <p>Negocios</p>
@@ -34,7 +35,7 @@
           <div class="widget-icon">
             <img class="w-15" src="/assets/images/business.png" />
           </div>
-          <p>64</p>
+          <p id="business">0</p>
         </div>
       </div>
       <div class="users radius padding font-2">
