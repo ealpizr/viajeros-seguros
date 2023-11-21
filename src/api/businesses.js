@@ -1,5 +1,8 @@
 import Business from "../schemas/business.js";
 
+// Despues lo vamos a sacar de la sesion del usuario
+const userId = "655638cc9e4fb7afc0eb39dc";
+
 export function listBusinesses(req, res) {
   Business.find()
     .exec()
@@ -32,4 +35,18 @@ export function getTotalBusinesses(req, res) {
 
       res.json(totalBusinesses);
     });
+}
+
+export function createNewBusiness(req, res) {
+  return res.json({ message: "Not implemented" });
+
+  // todo el codigo
+
+  const business = new Business({
+    //  todos los datos
+    isApproved: false,
+  });
+
+  business.save();
+  res.json(business);
 }

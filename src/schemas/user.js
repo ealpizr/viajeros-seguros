@@ -13,11 +13,11 @@ var userSchema = mongoose.Schema({
   role: String,
 
   paymentMethods: [
-    {
+    new mongoose.Schema({
       _id: mongoose.Schema.Types.ObjectId,
       type: String,
       details: String,
-    },
+    }),
   ],
 
   reservations: [mongoose.Schema.Types.ObjectId],
