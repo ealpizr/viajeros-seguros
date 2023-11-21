@@ -1,71 +1,42 @@
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business</title>
-    <link rel="stylesheet" href="/assets/css/businesses.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="shortcut icon"
-      href="/src/public/assets/images/minilogo-viajerossolos.png"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
-    />
-    <script src="/components/header.js"></script>
-    <script src="/components/footer.js"></script>
-  </head>
 
-  <body>
-    <viajeros-solos-header></viajeros-solos-header>
-    <div class="wrapper">
-      <div class="header">
-        <div>
-          <h1 class="padding">Negocios</h1>
-        </div>
-        <div class="search"><input type="search" placeholder="Buscar" /></div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business</title>
+  <link rel="stylesheet" href="/assets/css/businesses.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="shortcut icon" href="/src/public/assets/images/minilogo-viajerossolos.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/assets/js/business-list.js" defer></script>
+</head>
 
-      <div class="table-container">
-        <table>
-          <tr>
-            <th>Nombre</th>
-            <th>Dueño</th>
-            <th>Categoría</th>
-            <th>Calificación</th>
-          </tr>
-          <tr>
-            <td>
-              <img class="user" src="/assets/images/business.png" /> Restaurante
-              Buena Vista
-            </td>
-            <td>Luis Rodríguez Alvarado</td>
-            <td class="center">Alimentación</td>
-            <td class="center">4.9</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="user" src="/assets/images/business.png" /> Tour
-              Monteverde
-            </td>
-            <td>Miguel Zumbado Fallas</td>
-            <td class="center">Entretenimiento</td>
-            <td class="center">5.0</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="user" src="/assets/images/business.png" /> Servicio de
-              transporte al aeropuerto de Liberia
-            </td>
-            <td>Fiorella Loría Vega</td>
-            <td class="center">Transporte</td>
-            <td class="center">4.8</td>
-          </tr>
-        </table>
+<body>
+  <viajeros-solos-header></viajeros-solos-header>
+  <div class="wrapper">
+    <div class="header">
+      <div>
+        <h1 class="padding">Negocios</h1>
       </div>
+      <div class="search"><input type="search" placeholder="Buscar" /></div>
     </div>
-    <viajeros-solos-footer></viajeros-solos-footer>
-  </body>
+
+    <div class="table-container">
+      <table id="business-table">
+
+        <tr>
+          <th>Nombre</th>
+          <th>Dueño</th>
+          <th>Categoría</th>
+          <th>Calificación</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <viajeros-solos-footer></viajeros-solos-footer>
+</body>
+
 </html>
