@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "lato", sans-serif;
+}
 .background {
   background: url("/assets/images/CR-beach.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 30px;
 }
 
 /*Efectos menu*/
@@ -184,7 +191,7 @@
 .check-form {
   margin: 30px 0;
   background: #fff;
-  box-shadow: 0 0 30px;
+  box-shadow: -3px 0px 3px 0px;
   border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
@@ -253,7 +260,7 @@
   margin: 10px;
   transition: 40ms;
 }
-.text-1-review:hover {
+.text-1-review:hover{
   filter: hue-rotate(90deg);
   transform: scale(1.03);
 }
