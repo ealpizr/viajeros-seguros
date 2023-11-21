@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/home.css" />
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
     />
-    <link rel="stylesheet" href="/assets/css/globals.css" />
-    <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
     <title>Inicio | Viajeros Solos</title>
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -16,197 +21,160 @@
 
   <body>
     <viajeros-solos-header></viajeros-solos-header>
-    <div class="filters-container">
-      <div class="filter">
-        <label for="select">Categoría:</label>
-        <select id="select">
-          <option selected hidden>Seleccione</option>
-          <option value="1">Alimentación</option>
-          <option value="2">Hospedaje</option>
-          <option value="3">Transporte</option>
-          <option value="4">Entretenimiento</option>
-        </select>
-      </div>
-      <div class="filter">
-        <label for="select">Calificación:</label>
-        <input type="range" min="1" max="5" />
-      </div>
-      <div class="filter">
-        <label for="select">Buscar:</label>
-        <input type="text" />
-      </div>
-      <button>Filtrar</button>
-    </div>
-    <div class="contenedor-valoraciones">
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
+    <div class="background"></div>
+    <div class="gallery">
+          <div class="gallery paddingl">
+            <img src="/assets/images/casa1.jpg">
+             
+            
+            <div class="text-img">
+              <a class="text-white" href="details">
+                El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+              </a>
+              <div class="valoracion">
+                <p><i class="fas fa-star"></i> 9,9</p>
+              </div>
           </div>
-          <div class="overlay">
-            <a href="details">
-              El servicio que ofrecen es de primera calidad. Las guías son
-              excepcionales, el transporte es impecable y el trato de las
-              personas que trabajan allí es sumamente amable.
+        </div>
+        <div>             
+          <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+      </div>
+      <div class="gallery paddingl">
+          <img src="/assets/images/casa2.jpg">                        
+          <div class="text-img">
+            <a class="text-white" href="details">
+              El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
             </a>
             <div class="valoracion">
               <p><i class="fas fa-star"></i> 9,9</p>
             </div>
-          </div>
         </div>
       </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
+      
+        <div>  
+        <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+    </div>
+   
+      <div class="gallery paddingl">
+        <img src="/assets/images/casa3.jpg">               
+        <div class="text-img">
+          <a class="text-white" href="details">
+            El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+          </a>
+          <div class="valoracion">
+            <p><i class="fas fa-star"></i> 9,9</p>
           </div>
-          <div class="overlay">
-            <a href="details">
-              No puedo más que elogiar este servicio. Las guías son altamente
-              competentes, el transporte es de primer nivel y la amabilidad del
-              personal es insuperable.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 9,8</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
-          </div>
-          <div class="overlay">
-            <a href="details">
-              Si buscas un servicio de calidad, este es el indicado. Las guías
-              son expertas, el transporte es excelente y la atención es siempre
-              amigable y atenta.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 10</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
-          </div>
-          <div class="overlay">
-            <a href="details">
-              No puedo estar más satisfecho con este servicio. Las guías son
-              increíbles, el transporte es de primera y el personal siempre te
-              trata con amabilidad.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 9,5</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
-          </div>
-          <div class="overlay">
-            <a href="details">
-              El servicio es simplemente excepcional. Las guías son altamente
-              capacitadas, el transporte es de lujo y la atención del personal
-              es siempre cálida y amable.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 9,6</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
-          </div>
-          <div class="overlay">
-            <a href="details">
-              Recomiendo encarecidamente este servicio. Las guías son
-              excepcionales, el transporte es de alta calidad y el trato amable
-              del personal hace que la experiencia sea inolvidable.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 9,9</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
-          </div>
-          <div class="overlay">
-            <a href="details">
-              Si valoras un servicio de primera, este es el adecuado. Las guías
-              son excelentes, el transporte es de primera categoría y el
-              personal siempre te atiende con una sonrisa amable.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 10</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item col-25">
-        <div class="valoracion-box">
-          <div class="imagen-con-overlay">
-            <img
-              src="https://media.discordapp.net/attachments/1121626379084116028/1168441679003537438/home-white.png"
-              class="w-100"
-              alt="BannerCasa1"
-            />
-          </div>
-          <div class="overlay">
-            <a href="details">
-              Si buscas calidad, este servicio es el indicado. Las guías son
-              excelentes, el transporte es de primer nivel y el personal siempre
-              te atiende con una sonrisa amable.
-            </a>
-            <div class="valoracion">
-              <p><i class="fas fa-star"></i> 10</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+    <div>              
+      <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+  </div>
+    <div class="gallery paddingl">
+      <img src="/assets/images/casa4.jpg">          
+      <div class="text-img">
+        <a class="text-white" href="details">
+          El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+        </a>
+        <div class="valoracion">
+          <p><i class="fas fa-star"></i> 9,9</p>
+        </div>
+    </div>
+  </div>
+  <div>              
+    <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+</div>
+  <div class="gallery paddingl">
+    <img src="/assets/images/casa5.jpg">
+    <div class="text-img">
+      <a class="text-white" href="details">
+        El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+      </a>
+      <div class="valoracion">
+        <p><i class="fas fa-star"></i> 9,9</p>
+      </div>
+  </div>
+</div>
+<div>             
+  <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+</div>
+<div class="gallery paddingl">
+  <img src="/assets/images/casa6.jpg"> 
+  <div class="text-img">
+    <a class="text-white" href="details">
+      El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+    </a>
+    <div class="valoracion">
+      <p><i class="fas fa-star"></i> 9,9</p>
+    </div>
+</div>
+</div>
+<div>             
+  <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+</div>
+<div class="gallery paddingl">
+  <img src="/assets/images/casa7.jpg">                    
+  <div class="text-img">
+    <a class="text-white" href="details">
+      El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+    </a>
+    <div class="valoracion">
+      <p><i class="fas fa-star"></i> 9,9</p>
+    </div>
+</div>
+</div>
+<div>
+  <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+</div>
+<div class="gallery paddingl">
+  <img src="/assets/images/casa8.png"> 
+  <div class="text-img">
+    <a class="text-white" href="details">
+      El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+    </a>
+    <div class="valoracion">
+      <p><i class="fas fa-star"></i> 9,9</p>
+    </div>
+</div>
+</div>
+<div>              
+  <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+</div>
+<div class="gallery paddingl">
+  <img src="/assets/images/casa3.3.jpg"> 
+  <div class="text-img">
+    <a class="text-white" href="details">
+      El servicio que ofrecen es de primera calidad. Las guías son excepcionales, el transporte es impecable y el trato de las personas que trabajan allí es sumamente amable.
+    </a>
+    <div class="valoracion">
+      <p><i class="fas fa-star"></i> 9,9</p>
+    </div>
+</div>
+</div>
+<div>              
+  <h4>El bosque</h4>
+  <h4>₡25,000</h4>
+<p>Monte Verde, Costa Rica</p>
+</div>
+      </div>
+  
+     
+            
     <viajeros-solos-footer></viajeros-solos-footer>
   </body>
 </html>
