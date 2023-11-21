@@ -3,65 +3,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Perfil | Viajeros Solos</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="/assets/css/globals.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
   </head>
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-</head>
-
   <body>
     <viajeros-solos-header></viajeros-solos-header>
-   <section class="profile-user">
-    <div class="profile-user-header">
-      <div class="bg-green">
-        <div class="avatar">
-          <img src="/assets/images/fotoperfil.jpg" alt="img-avatar" />
+    <section class="profile-user">
+      <div class="profile-user-header">
+        <div class="bg-green">
+          <div class="avatar">
+            <img src="/assets/images/fotoperfil.jpg" alt="img-avatar" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="profile-info">
-      <div class="profile-bio">
-        <h3 class="name">Juan Pérez Herrera</h3>
-        <p class="text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+      <div class="profile-info">
+        <div class="profile-bio">
+          <h3 class="name">Juan Pérez Herrera</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="data-container">
+          <ul class="information">
+            <li>
+              <i class="icono fas fa-map-signs"></i>Dirección del usuario:
+            </li>
+            <li><i class="icono fas fa-phone-alt"></i>Número de Teléfono:</li>
+            <li>
+              <i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento:
+            </li>
+            <li><i class="icono fas fa-user-check"></i>Correo electrónico:</li>
+          </ul>
+        </div>
       </div>
-      <div class="data-container">
-        <ul class="information">
-          <li>
-            <i class="icono fas fa-map-signs"></i>Dirección del usuario:
-          </li>
-          <li><i class="icono fas fa-phone-alt"></i>Número de Teléfono:</li>
-          <li><i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento: </li>
-          <li><i class="icono fas fa-user-check"></i>Correo electrónico:</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
     <viajeros-solos-footer></viajeros-solos-footer>
   </body>
 </html>

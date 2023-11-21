@@ -1,55 +1,51 @@
-body {
-    margin: 0;
-    font-family: "lato", sans-serif;
-  }
-  
+.img-header {
+  background: url(/assets/images/toucan.jpg);
+  color: #fff;
+  text-align: left;
+  background-size: cover;
+  background-position: top;
+  height: 300px;
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+main {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #73a942;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #73a942;
+  color: #fff;
+}
+@media (max-width: 767px) {
   .img-header {
-    background: url(/assets/images/toucan.jpg);
-    color: #fff;
-    text-align: left;
-    background-size: cover;
-    background-position:top;
-    height: 300px;
-    padding-left: 30px;
-    padding-top: 40px;
+    font-size: 13px;
+    padding-top: 75px;
   }
-  
-  main {
-    max-width: 800px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #73a942;;
-  }
-  
   select {
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
   }
-  
-  table {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #73a942;
-    color: #fff;
-  }
-  @media (max-width: 767px) {
-    .img-header {
-      font-size:13px;
-      padding-top: 75px;
-    }
-    select {
-      padding: 5px;
-      font-size: 16px;
-    }
-  }
+}

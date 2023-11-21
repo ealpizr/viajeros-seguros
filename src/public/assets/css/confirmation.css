@@ -1,6 +1,4 @@
 body {
-  margin: 0;
-  font-family: lato;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -55,7 +53,4 @@ body {
     left: 0;
     background-color: #73a942;
   }
-
 }
-
-
