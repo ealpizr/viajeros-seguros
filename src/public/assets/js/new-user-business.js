@@ -51,24 +51,29 @@ document.getElementById("submit").addEventListener("click", async function (e) {
   try {
     const name = getValue("name");
     const address = getValue("address");
-    const category = getValue("category");
+    const categoriesIds = ["65563b1e9e4fb7afc0eb39e0"];
     const phone = getValue("phone");
     const description = getValue("description");
-    const photo = await convertBase64(
-      document.getElementById("photos").files[0]
-    );
+    const images = [];
 
     const business = {
       name,
       address,
-      category,
+      categoriesIds,
       phone,
       description,
-      photo,
+      images,
     };
+    await fetch("/api/businesses", {
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(business)
 
-    console.log(business);
-    alert("Información en consola");
+    })
+    alert("El negocio se creo correctamente");
+    window.location = "/app";
   } catch (e) {
     alert("Debe llenar todos los campos");
   }
