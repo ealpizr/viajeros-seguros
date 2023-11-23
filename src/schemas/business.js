@@ -10,6 +10,8 @@ var businessSchema = mongoose.Schema({
   images: [String],
   isApproved: Boolean,
 
+  price: Number,
+
   reservations: [mongoose.Schema.Types.ObjectId],
 
   reviews: [
