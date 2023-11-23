@@ -1,5 +1,5 @@
 import Business from "../schemas/business.js";
-
+import mongoose from "mongoose";
 // Despues lo vamos a sacar de la sesion del usuario
 const userId = "655638cc9e4fb7afc0eb39dc";
 
@@ -37,16 +37,32 @@ export function getTotalBusinesses(req, res) {
     });
 }
 
-export function createNewBusiness(req, res) {
-  return res.json({ message: "Not implemented" });
+export async function createNewBusiness(req, res) {
+  try {
 
-  // todo el codigo
+    const { name, address, categoriesIds, description, images } = req.body;
+    
 
-  const business = new Business({
-    //  todos los datos
-    isApproved: false,
-  });
 
-  business.save();
-  res.json(business);
+    const business = new Business({
+      _id: new mongoose.Types.ObjectId(),
+      name,
+      ownerId: userId,
+      address,
+      categoriesIds,
+      description,
+      images,
+      isApproved: false,
+    });
+
+    await business.save();
+
+    res.status(201).json(business);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({ error: 'Error al crear un nuevo negocio' });
+  }
 }
+
+
