@@ -1,6 +1,11 @@
 import Business from "../schemas/business.js";
 import User from "../schemas/user.js";
 
+export function listUnapprovedBusinesses(req, res) {
+  // aqui va todo el codigo
+  res.json({ message: "Hola" });
+}
+
 export function listBusinesses(req, res) {
   Business.find()
     .exec()

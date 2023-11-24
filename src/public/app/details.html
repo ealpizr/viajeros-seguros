@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/globals.css">
     <link rel="stylesheet" href="/assets/css/details.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
+    <script src="/assets/js/business-details.js" defer></script>
     <title>Detalles | Viajeros Solos</title>
 </head>
 
@@ -23,7 +22,7 @@
     <div class="menu-2">
         <a href="#">Acerca de</a>
         <a href="#">Fotos</a>
-        <a href="#">Calendario</a>
+        <a href="#calendar">Calendario</a>
         <a href="#">Reseñas</a>
     </div>
     <div>
@@ -31,7 +30,7 @@
     </div>
     <div class="b-details padding">
         <div class="b-title">
-            <h1 class="details title-h1">Monteverde glamping</h1>
+            <h1 class="details title-h1" id="business-name"></h1>
             <div class="row">
                 <div>
                     <h3 class="details ">Detalles del servicio</h3>
@@ -68,7 +67,7 @@
         <div>
             <hr class="line">
         </div>
-        <h1>Octubre 2023</h1>
+        <h1 id="calendar">Octubre 2023</h1>
         <div class="calendar">
 
             <div class="day-name">Lun</div>
