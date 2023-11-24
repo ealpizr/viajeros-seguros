@@ -2,9 +2,30 @@ import Business from "../schemas/business.js";
 import User from "../schemas/user.js";
 
 export function listUnapprovedBusinesses(req, res) {
-  // aqui va todo el codigo
-  res.json({ message: "Hola" });
+  try {
+    Business.find({ isApproved: false })
+      .exec()
+      .then(function (businesses) {
+        res.json(
+          businesses.map((b) => {
+            return {
+              id: b._id,
+              name: b.name,
+              price: b.price,
+              address: b.address,
+              description: b.description,
+              categories: b.categoriesIds,
+              phone: b.phone,
+            };
+          })
+        );
+      });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Error al listar los negocios" });
+  }
 }
+
 
 export function listBusinesses(req, res) {
   Business.find()
