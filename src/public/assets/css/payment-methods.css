@@ -1,50 +1,80 @@
 h1 {
-  text-align: left;
-  padding-top: 10px;
+  text-align: center;
+  padding-top: 20px;
 }
 
 main {
-  padding: 10px;
-}
-
-.outer-layer {
-  background-color: #73a942;
-  padding: 50px;
+  padding: 20px;
 }
 
 .inner-layer {
-  background-color: white;
+  background-color: #f8f8f8;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .payment-methods {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
   margin-top: 20px;
 }
 
-.payment-methods {
+.payment-method {
   border: 1px solid #ddd;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 15px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment-method:hover {
+  background-color: #f0f0f0;
+}
+
+.payment-method label {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 5px;
+}
+
+.payment-method img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.payment-details {
+  text-align: left;
+}
+
+.payment-method.active .payment-details {
+  display: block;
 }
 
 .add-payment {
   background-color: #73a942;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-payment:hover {
+  background-color: #5f8c3a;
 }
 
 .footer {
-  margin-top: 0;
+  margin-top: 20px;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -53,6 +83,7 @@ main {
   color: #fff;
   padding: 10px;
   text-align: center;
+  border-top: 1px solid #ddd;
 }
 
 .footer-content {
@@ -63,10 +94,42 @@ main {
   color: #fff;
   text-decoration: none;
 }
-@media only screen and (max-width: 600px) {
-  .metodos-pago {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
+
+#newPaymentForm form {
+  margin: 0 auto;
+  width: 40%;
+  background-color: #5f8c3a;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+#newPaymentForm label {
+  font-weight: bold;
+}
+
+#newPaymentForm select,
+#newPaymentForm input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#newPaymentForm button {
+  margin-top: 15px;
+  background-color: #73a942;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#newPaymentForm button:hover {
+  background-color: #ffffff;
+  color: #73a942;
 }
