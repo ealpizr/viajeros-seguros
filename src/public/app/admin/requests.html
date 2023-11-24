@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+    <script src="/assets/js/requests.js" defer></script>
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <title>Detalles | Viajeros Solos</title>
@@ -15,86 +16,20 @@
 <body>
     <viajeros-solos-header></viajeros-solos-header>
     <div class="background">
-    <div class="title-container">
-        <h1 class="padding">Solicitudes de negocios</h1>
-        <select class="button-style">
-            <option value="todos">Todas</option>
-            <option value="viejos">Viejas</option>
-            <option value="nuevos">Nuevas</option>
-        </select>
-    </div>
-</div>
-    <div class="gallery">
-            <div class="request">
-                <div class="slider-item">
-                    <button class="arrow prev">&#10094;</button>
-                    <img src="/assets/images/jacuzzi-new.jpg" alt="Imagen del negocio">
-                    <button class="arrow next">&#10095;</button>
-                </div>
-                <h2>Nombre del Negocio: Mirador Irazú</h2>
-                <p>Dirección: Volcán Irazú</p>
-                <p>Categoría: Entretenimiento</p>
-                <p>Teléfono: 8890 6764</p>
-                <p>Descripción: Mirador encantador para llevar a toda la familia...</p>
-                <div class="buttons">
-                    <button class="approve">Aceptar</button>
-                    <button class="decline">Rechazar</button>
-                </div>
-            </div>
-
-            <div class="request">
-                <div class="slider-item">
-                <button class="arrow prev">&#10094;</button>
-                <img src="/assets/images/adventure-tent.jpg" alt="Imagen del negocio">
-                <button class="arrow next">&#10095;</button>
-            </div>
-                <h2>Nombre del Negocio: Mirador Irazú</h2>
-                <p>Dirección: Volcán Irazú</p>
-                <p>Categoría: Entretenimiento</p>
-                <p>Teléfono: 8890 6764</p>
-                <p>Descripción: Mirador encantador para llevar a toda la familia...</p>
-                <div class="buttons">
-                    <button class="approve">Aceptar</button>
-                    <button class="decline">Rechazar</button>
-                </div>
-            </div>
-
-            <div class="request">
-                <div class="slider-item">
-                    <button class="arrow prev">&#10094;</button>
-                    <img src="/assets/images/bosque.jpg" alt="Imagen del negocio">
-                    <button class="arrow next">&#10095;</button>
-                </div>
-                <h2>Nombre del Negocio: Mirador Irazú</h2>
-                <p>Dirección: Volcán Irazú</p>
-                <p>Categoría: Entretenimiento</p>
-                <p>Teléfono: 8890 6764</p>
-                <p>Descripción: Mirador encantador para llevar a toda la familia...</p>
-                <div class="buttons">
-                    <button class="approve">Aceptar</button>
-                    <button class="decline">Rechazar</button>
-                </div>
-            </div>
-
-            <div class="request">
-                <div class="slider-item">
-                <button class="arrow prev">&#10094;</button>
-                <img src="/assets/images/hotel.jpg" alt="Imagen del negocio">
-                <button class="arrow next">&#10095;</button>
-            </div>
-                <h2>Nombre del Negocio: Mirador Irazú</h2>
-                <p>Dirección: Volcán Irazú</p>
-                <p>Categoría: Entretenimiento</p>
-                <p>Teléfono: 8890 6764</p>
-                <p>Descripción: Mirador encantador para llevar a toda la familia...</p>
-                <div class="buttons">
-                    <button class="approve">Aceptar</button>
-                    <button class="decline">Rechazar</button>
-                </div>
-            </div>
-        
+        <div class="title-container">
+            <h1 class="padding">Solicitudes de negocios</h1>
+            <select class="button-style">
+                <option value="todos">Todas</option>
+                <option value="viejos">Viejas</option>
+                <option value="nuevos">Nuevas</option>
+            </select>
         </div>
-    
+    </div>
+    <div class="gallery" id="requests">
+        
+
+    </div>
+
 
     <viajeros-solos-footer></viajeros-solos-footer>
 </body>
