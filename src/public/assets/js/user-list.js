@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/api/users")
+  fetch("/api/admin/users")
     .then((respuesta) => {
       respuesta.json().then((users) => {
         const table = document.getElementById("users-table");

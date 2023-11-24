@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/api/businesses")
+  fetch("/api/admin/businesses")
     .then((respuesta) => {
       respuesta.json().then((businesses) => {
         const totalBusinesses = businesses.length;
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error(error);
     });
 
-  fetch("/api/users")
+  fetch("/api/admin/users")
     .then((respuesta) => {
       respuesta.json().then((users) => {
         const totalUsers = users.length;
