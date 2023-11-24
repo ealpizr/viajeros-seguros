@@ -20,39 +20,33 @@
             nesciunt, expedita optio nobis nam. Ipsa.</p>
     </div>
     <div class="menu-2">
-        <a href="#">Acerca de</a>
-        <a href="#">Fotos</a>
+        <a href="#about-info">Acerca de</a>
+        <a href="#pictures">Fotos</a>
         <a href="#calendar">Calendario</a>
-        <a href="#">Reseñas</a>
+        <a href="#reviews">Reseñas</a>
     </div>
     <div>
         <hr class="line">
     </div>
     <div class="b-details padding">
-        <div class="b-title">
+        <div class="b-title" id="about-info">
             <h1 class="details title-h1" id="business-name"></h1>
-            <div class="row">
+                      
                 <div>
                     <h3 class="details ">Detalles del servicio</h3>
-                    <p class="details">Ubicación: Monteverde, Puntarenas</p>
+                    <div class="details" id="business-price">₡</div> 
+                    <p class="details" id="business-address">Ubicación: Monteverde, Puntarenas</p>
                 </div>
-                <div class="details">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, facere. Iusto cumque dolorem
-                        quo pariatur incidunt! Maiores officiis repellendus dolore. Ipsum sapiente dicta illum quis
-                        consequatur doloremque? Facilis, neque autem.</p>
-                </div>
-                <div class="details">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur harum eius ad facere,
-                        pariatur recusandae cumque sunt inventore ex omnis quis id iste assumenda asperiores vitae
-                        aliquam voluptates dolorum esse?</p>
-                </div>
-            </div>
+                
+                <div class="details" id="business-description">
+                    <p></p>
+                </div>                
         </div>
         <div>
             <hr class="line">
         </div>
         <div class="gallery">
-            <div class="gallery">
+            <div class="gallery" id="pictures">
                 <img src="/assets/images/puente-monte.jpg">
                 <img src="/assets/images/gato.jpg">
                 <img src="/assets/images/canopy.jpg">
@@ -124,14 +118,11 @@
             <button type="submit">Revisar disponibilidad</button>
         </form>
 
-        <div class="review">
-            <h1>5</h1>
-            <span class="icon"><ion-icon name="star"></ion-icon></span>
-            <span class="icon"><ion-icon name="star"></ion-icon></span>
-            <span class="icon"><ion-icon name="star"></ion-icon></span>
-            <span class="icon"><ion-icon name="star"></ion-icon></span>
-            <span class="icon"><ion-icon name="star"></ion-icon></span>
-
+        <div class="review" >
+            <h1 id="business-rating">5</h1>
+            <div id="stars"></div>
+            
+            
 
 
             <h2>Reviews</h2>
