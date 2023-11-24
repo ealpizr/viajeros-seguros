@@ -4,6 +4,10 @@ body {
   min-height: 100%;
 }
 
+ul {
+  padding-inline-start: 0;
+}
+
 .profile-user .profile-info,
 .profile-user {
   display: flex;
@@ -82,6 +86,7 @@ body {
 }
 
 .profile-user .profile-info {
+  margin: 0 auto;
   width: 70%;
   position: relative;
   max-width: 750px;
@@ -99,9 +104,14 @@ body {
   font-size: 0.95em;
 }
 
+.data-container {
+  display: block !important;
+}
+
 .profile-user .data-container,
 .profile-user .profile-bio {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 1.5rem 2rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
@@ -117,6 +127,10 @@ body {
 
 .profile-user .lista-datos {
   width: 50%;
+  list-style: none;
+}
+
+.profile-user .information {
   list-style: none;
 }
 
@@ -180,19 +194,17 @@ body {
   }
 
   .profile-user {
+    display: block;
     position: relative;
     flex-direction: row;
     width: 100%;
     left: 0;
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+
     align-items: center;
     justify-content: center;
   }
 
-  .profile-user {
-    margin-left: 1rem;
-    margin-top: 0;
+  .block {
+    display: block;
   }
 }

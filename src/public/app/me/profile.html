@@ -5,8 +5,13 @@
     <title>Mi Perfil | Viajeros Solos</title>
     <link rel="stylesheet" href="/assets/css/globals.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+    />
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
+    <script src="/assets/js/user-profile.js" defer></script>
   </head>
   <body>
     <viajeros-solos-header></viajeros-solos-header>
@@ -20,22 +25,23 @@
       </div>
       <div class="profile-info">
         <div class="profile-bio">
-          <h3 class="name">Juan Pérez Herrera</h3>
-          <p class="text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <h3 class="name" id="fullName"></h3>
+          <p class="text" id="identification"></p>
         </div>
         <div class="data-container">
           <ul class="information">
-            <li>
+            <li id="homeAddress">
               <i class="icono fas fa-map-signs"></i>Dirección del usuario:
             </li>
-            <li><i class="icono fas fa-phone-alt"></i>Número de Teléfono:</li>
-            <li>
+            <li id="phoneNumber">
+              <i class="icono fas fa-phone-alt"></i>Número de Teléfono:
+            </li>
+            <li id="dateOfBirth">
               <i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento:
             </li>
-            <li><i class="icono fas fa-user-check"></i>Correo electrónico:</li>
+            <li id="email">
+              <i class="icono fas fa-user-check"></i>Correo electrónico:
+            </li>
           </ul>
         </div>
       </div>

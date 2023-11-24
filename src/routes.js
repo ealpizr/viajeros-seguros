@@ -11,6 +11,7 @@ import {
   listBusinesses,
 } from "./api/businesses.js";
 import { listPaymentMethods } from "./api/payment-methods.js";
+import { getCurrentUser } from "./api/users.js";
 
 const authRouter = express.Router();
 authRouter.post("/signup", signup);
@@ -22,6 +23,8 @@ adminRouter.get("/unapproved-businesses", listUnapprovedBusinesses);
 adminRouter.get("/users", listUsers);
 
 const usersRouter = express.Router();
+usersRouter.get("/me", getCurrentUser);
+// /api/users/me
 
 const businessesRouter = express.Router();
 businessesRouter.get("/", listBusinesses);
