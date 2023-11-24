@@ -60,6 +60,7 @@ main {
   font-weight: 400;
   max-width: 36rem;
   font-size: 1.25rem;
+  text-align: justify;
 }
 
 .main-container > div {
@@ -140,6 +141,63 @@ main {
 
 .service-item i:hover {
   transform: scale(1.2);
+}
+
+.your-businesses-container {
+  display: flex;
+  margin-top: 15vh;
+  gap: 6rem;
+}
+
+.your-businesses-container .left {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.your-businesses-container .left h2 {
+  font-size: 5rem;
+}
+
+.your-businesses-container .left p {
+  text-align: justify;
+  max-width: 37rem;
+}
+
+.your-businesses-container > div {
+  width: 50%;
+}
+
+.testimonials div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials i {
+  font-size: 10rem;
+  padding-bottom: 10rem;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+footer div {
+  max-width: 400px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
 }
 
 .bounce {
