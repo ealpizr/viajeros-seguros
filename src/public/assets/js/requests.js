@@ -1,19 +1,18 @@
 function approve(id) {
-    alert("Aprobar: " + id)
+  alert("Aprobar: " + id);
 }
 function deny(id) {
-    alert("Rechazar: " + id)
+  alert("Rechazar: " + id);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    
-    fetch("/api/admin/unapproved-businesses")
-        .then((respuesta) => {
-            respuesta.json().then((businesses) => {
-                const table = document.getElementById("requests");
+  fetch("/api/admin/unapproved-businesses")
+    .then((respuesta) => {
+      respuesta.json().then((businesses) => {
+        const table = document.getElementById("requests");
 
-                for (let i = 0; i < businesses.length; i++) {
-                    const element = `
+        for (let i = 0; i < businesses.length; i++) {
+          const element = `
                     <div class="request ">
                     <div class="slider-item">
                         <button class="arrow prev">&#10094;</button>
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <h2>Nombre del Negocio: ${businesses[i].name} </h2>
                     <p>Dirección: ${businesses[i].address}</p>
-                    <p>Categoría: ${businesses[i].categories.join(", ")}</p>
+                    <p>Categoría: ${businesses[i].categories}</p>
                     <p>Teléfono: ${businesses[i].phone}</p>
                     <p>Precio: ${businesses[i].price}</p>
                     <p>Descripción: ${businesses[i].description}</p>
@@ -33,15 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
               `;
 
-                    table.insertAdjacentHTML("beforeend", element);
-                }
-            });
-        })
-        .catch((error) => {
-            alert("Hubo un problema al cargar los usuarios");
-            console.error(error);
-        });
+          table.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    })
+    .catch((error) => {
+      alert("Hubo un problema al cargar los usuarios");
+      console.error(error);
+    });
 });
-
-
-

@@ -3,13 +3,14 @@ import mongoose from "mongoose";
 var businessSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: String,
-  ownerId: mongoose.Schema.Types.ObjectId,
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   address: String,
-  categoriesIds: [mongoose.Schema.Types.ObjectId],
+  categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
   description: String,
   images: [String],
   isApproved: Boolean,
 
+  phoneNumber: Number,
   price: Number,
 
   reservations: [mongoose.Schema.Types.ObjectId],

@@ -1,9 +1,33 @@
 import Business from "../schemas/business.js";
+import Category from "../schemas/category.js";
 import User from "../schemas/user.js";
+
+function calculateRatingAverage(reviews) {
+  const ratings = reviews.map((review) => {
+    return review.rating;
+  });
+
+  let sum = 0;
+  for (let i = 0; i < ratings.length; i++) {
+    sum += ratings[i];
+  }
+
+  const average = sum / ratings.length;
+
+  return average;
+}
 
 export function listUnapprovedBusinesses(req, res) {
   try {
     Business.find({ isApproved: false })
+      .populate({
+        path: "categories",
+        select: "name",
+        // The schema property here is not required.
+        // We just add it here so that VSCode's remove unused imports
+        // functionallity doesn't break the code.
+        schema: Category,
+      })
       .exec()
       .then(function (businesses) {
         res.json(
@@ -14,8 +38,8 @@ export function listUnapprovedBusinesses(req, res) {
               price: b.price,
               address: b.address,
               description: b.description,
-              categories: b.categoriesIds,
-              phone: b.phone,
+              categories: b.categories.map((c) => c.name).join(", "),
+              phone: b.phoneNumber,
             };
           })
         );
@@ -26,22 +50,38 @@ export function listUnapprovedBusinesses(req, res) {
   }
 }
 
-
 export function listBusinesses(req, res) {
   Business.find()
+    .populate({
+      path: "owner",
+      select: "firstName lastName",
+    })
+    .populate({
+      path: "categories",
+      select: "name",
+      // The schema property here is not required.
+      // We just add it here so that VSCode's remove unused imports
+      // functionallity doesn't break the code.
+      schema: Category,
+    })
     .exec()
     .then(function (businesses) {
       const cleanedUpBusinesses = [];
 
       for (let i = 0; i < businesses.length; i++) {
         const name = businesses[i].name;
-        const ownerId = businesses[i].ownerId;
-        const categoriesIds = businesses[i].categoriesIds;
+        const owner =
+          businesses[i].owner.firstName + " " + businesses[i].owner.lastName;
+        const categories = businesses[i].categories
+          .map((c) => c.name)
+          .join(", ");
+        const rating = calculateRatingAverage(businesses[i].reviews);
 
         const business = {
           name: name,
-          ownerId: ownerId,
-          categoriesIds: categoriesIds,
+          owner: owner,
+          categories: categories,
+          rating: rating,
         };
 
         cleanedUpBusinesses.push(business);

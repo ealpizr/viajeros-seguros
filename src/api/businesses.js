@@ -73,9 +73,9 @@ export async function createNewBusiness(req, res) {
     const business = new Business({
       _id: new mongoose.Types.ObjectId(),
       name,
-      ownerId: userId,
+      owner: userId,
       address,
-      categoriesIds,
+      categories: categoriesIds,
       description,
       images,
       isApproved: false,
