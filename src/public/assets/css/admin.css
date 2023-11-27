@@ -7,6 +7,21 @@ body {
   font-family: lato;
 }
 
+.img-header {
+  background: url(/assets/images/turtle.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.img-header h1 {
+  text-align: left;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .count-widget {
   display: flex;
   flex-direction: column;
@@ -88,7 +103,7 @@ nav > ul > li a:hover {
 
 .title {
   width: 100%;
-  padding-left:30px;
+  padding-left: 30px;
 }
 
 .w-50 {

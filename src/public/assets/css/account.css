@@ -8,7 +8,6 @@
   height: 400px;
   padding-left: 100px;
   padding-top: 45px;
-
 }
 
 .content {
@@ -22,7 +21,6 @@
   padding-bottom: 15px;
   transition: 0.4s;
   border-radius: 6px;
-
 }
 
 div {
@@ -32,6 +30,7 @@ div {
 .container-profile-reservations {
   display: flex;
   flex-wrap: nowrap;
+  padding: 1rem;
 }
 
 .bookings-profile {
@@ -39,7 +38,6 @@ div {
   background-color: #73a942;
   overflow-y: scroll;
   width: 50%;
-  max-height: 700px;
   margin-bottom: 40px;
   border-radius: 5px;
 }
@@ -56,14 +54,12 @@ img {
   width: 10%;
 }
 
-
 .image-top {
-/*   padding: 0 0 10px 10px; */
+  /*   padding: 0 0 10px 10px; */
   width: 50%;
 }
 
 .image-top img {
-
 }
 
 .outer-layer-1 {
@@ -79,7 +75,6 @@ img {
 }
 
 .outer-layer-3 {
-<<<<<<< main
   background: darkgrey;
   padding-top: 15px;
 }
@@ -87,47 +82,27 @@ img {
 .dark-grey {
   background-color: #bfef88;
   padding: 5px;
-=======
   background: rgb(255, 255, 255);
   padding: 20px;
 }
 
-.dark-grey {
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
->>>>>>> main
-  border-radius: 5px;
-  text-decoration: none;
-}
-
 .dark-grey:hover {
   background-color: #b2dd8f;
-  transform: translateY(-10px) scale(1.1);
 }
 
 .small-image {
-<<<<<<< main
   width: 7%;
-=======
-  width: 10%;
 }
 
 .section-toptitle {
   color: #fff;
   border-radius: 5px;
   padding: 20px;
->>>>>>> main
 }
 
 .section {
   border-radius: 5px;
-<<<<<<< main
-
-  padding-top: 30px;
-=======
   padding: 20px;
-/*   padding-bottom: 20px; */
->>>>>>> main
   margin-bottom: 20px;
 }
 
@@ -161,40 +136,59 @@ img {
   margin: 0 0 40px 40px;
 }
 
-.container-right h2, .container-right h3 {
+.container-right h2,
+.container-right h3 {
   color: #333;
 }
 
-.user-info, .business-owner-info, .admin-info, .advantages-section, .info-section {
+.user-info,
+.business-owner-info,
+.admin-info,
+.advantages-section,
+.info-section {
   border-radius: 5px;
   padding: 10px;
   background-color: #fff;
 }
 
-.user-info, .business-owner-info, .admin-info, .advantages-section, .info-section {
+.user-info,
+.business-owner-info,
+.admin-info,
+.advantages-section,
+.info-section {
   margin-bottom: 20px;
 }
 
-.user-info h3, .business-owner-info h3, .admin-info h3 {
+.user-info h3,
+.business-owner-info h3,
+.admin-info h3 {
   color: #000000;
 }
 
-.user-info p, .business-owner-info p, .admin-info p {
+.user-info p,
+.business-owner-info p,
+.admin-info p {
   color: #555;
 }
 
-.more-info-section, .contact-section, .faq-section {
+.more-info-section,
+.contact-section,
+.faq-section {
   border-radius: 5px;
   padding: 15px;
   background-color: #fff;
   margin-bottom: 20px;
 }
 
-.more-info-section h3, .contact-section h3, .faq-section h3 {
+.more-info-section h3,
+.contact-section h3,
+.faq-section h3 {
   color: #333;
 }
 
-.more-info-section p, .contact-section p, .faq-section p {
+.more-info-section p,
+.contact-section p,
+.faq-section p {
   color: #555;
 }
 
@@ -221,7 +215,6 @@ img {
 }
 
 @media (max-width: 767px) {
-
   .section-title {
     font-size: 20px;
     margin-bottom: 10px;
@@ -229,13 +222,10 @@ img {
     color: black;
   }
 
-<<<<<<< main
   .content {
-
     width: 70%;
     padding-top: 25px;
     padding-bottom: 5px;
-
   }
 
   .small-image {
@@ -249,10 +239,8 @@ img {
   }
 
   .img-header {
-
     padding-left: 100px;
     padding-top: 45px;
-
   }
 
   .img-header {
@@ -261,9 +249,6 @@ img {
     font-size: 15px;
   }
 
-
-}
-=======
   .container-profile-reservations {
     display: block;
   }
@@ -271,7 +256,6 @@ img {
   .bookings-profile {
     width: 100%;
   }
-  
 }
 
 .bookings-profile::-webkit-scrollbar {
@@ -312,4 +296,3 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #aad576 #f1f1f1;
 }
->>>>>>> main
