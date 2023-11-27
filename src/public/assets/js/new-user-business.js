@@ -51,7 +51,7 @@ document.getElementById("submit").addEventListener("click", async function (e) {
   try {
     const name = getValue("name");
     const address = getValue("address");
-    const categoriesIds = ["65563b1e9e4fb7afc0eb39e0"];
+    const categories = ["65563b1e9e4fb7afc0eb39e0"];
     const phone = getValue("phone");
     const description = getValue("description");
     const images = [];
@@ -59,7 +59,7 @@ document.getElementById("submit").addEventListener("click", async function (e) {
     const business = {
       name,
       address,
-      categoriesIds,
+      categories,
       phone,
       description,
       images,
@@ -67,11 +67,10 @@ document.getElementById("submit").addEventListener("click", async function (e) {
     await fetch("/api/businesses", {
       method: "POST",
       headers: {
-        "Content-Type":"application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(business)
-
-    })
+      body: JSON.stringify(business),
+    });
     alert("El negocio se creo correctamente");
     window.location = "/app";
   } catch (e) {
