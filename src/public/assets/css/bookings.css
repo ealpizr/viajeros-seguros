@@ -4,7 +4,7 @@
   text-align: left;
   background-size: cover;
   background-position: top;
-  height: 300px;
+  height: 400px;
   padding-left: 30px;
   padding-top: 40px;
 }
@@ -14,8 +14,9 @@
 }
 
 .padding {
-  padding-left: 30px;
-  padding-top: 20px;
+  padding-left: 60px;
+  padding-top: 12px;
+  font-size: 35px;
 }
 
 h3 {
@@ -103,7 +104,9 @@ li {
   }
 
   .padding {
-    padding-left: 280px;
+    position: absolute;
+    right: 0;
+    padding-right: 60px;
     font-size: 25px;
   }
 }
