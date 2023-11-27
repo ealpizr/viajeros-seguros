@@ -1,12 +1,34 @@
+.img-header {
+  background: url(/assets/images/bg-birds.jpg);
+  color: #fff;
+  font-size: 18px;
+  text-align: left;
+  background-size: cover;
+  background-position: top;
+  height: 400px;
+  padding-left: 100px;
+  padding-top: 45px;
+
+}
+
 .content {
-  margin: 20px;
+  width: 55%;
+  margin: auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  transition: 0.4s;
+  border-radius: 6px;
+
 }
 
 .outer-layer-1 {
   padding: 20px;
   margin-bottom: 40px;
   display: flex;
-  align-items: normal;
 }
 
 .outer-layer-2 {
@@ -17,32 +39,36 @@
 
 .outer-layer-3 {
   background: darkgrey;
-  padding: 20px;
+  padding-top: 15px;
 }
 
 .dark-grey {
-  background-color: darkgrey;
-  padding: 10px;
+  background-color: #bfef88;
+  padding: 5px;
   border-radius: 5px;
   text-decoration: none;
 }
 
+.dark-grey:hover {
+  background-color: #b2dd8f;
+  transform: translateY(-10px) scale(1.1);
+}
+
 .small-image {
-  width: 5%;
+  width: 7%;
 }
 
 .section {
   border-radius: 5px;
-  padding: 20px;
-  padding-bottom: 20px;
+
+  padding-top: 30px;
   margin-bottom: 20px;
 }
 
 .section-title {
-  font-size: 24px;
   margin-bottom: 10px;
-  text-decoration: none;
   color: black;
+  white-space: nowrap;
 }
 
 .image {
@@ -57,7 +83,6 @@
 }
 
 .right-image {
-  padding-left: 25px;
   justify-content: flex-end;
 }
 
@@ -73,6 +98,7 @@
   text-align: center;
 }
 
+/* arreglar esto */
 .footer-content {
   margin: 0 auto;
 }
@@ -83,9 +109,6 @@
 }
 
 @media (max-width: 767px) {
-  .small-image {
-    width: 20%;
-  }
 
   .section-title {
     font-size: 20px;
@@ -93,4 +116,37 @@
     text-decoration: none;
     color: black;
   }
+
+  .content {
+
+    width: 70%;
+    padding-top: 25px;
+    padding-bottom: 5px;
+
+  }
+
+  .small-image {
+    width: 30%;
+  }
+
+  .section-title {
+    margin-bottom: 10px;
+    color: black;
+    white-space: nowrap;
+  }
+
+  .img-header {
+
+    padding-left: 100px;
+    padding-top: 45px;
+
+  }
+
+  .img-header {
+    padding-left: 17px;
+    padding-top: 30px;
+    font-size: 15px;
+  }
+
+
 }
