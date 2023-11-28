@@ -36,7 +36,6 @@ div {
 .bookings-profile {
   padding: 20px;
   background-color: #73a942;
-  overflow-y: scroll;
   width: 50%;
   margin-bottom: 40px;
   border-radius: 5px;
@@ -253,8 +252,12 @@ img {
     display: block;
   }
 
-  .bookings-profile {
+  .bookings-profile, .container-right {
     width: 100%;
+  }
+
+  .container-right {
+    margin: 0 0 40px 0;
   }
 }
 
@@ -276,7 +279,7 @@ img {
 /* SCROLL STYLES */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
+  scrollbar-color: #d8d8d8 #f1f1f1;
 }
 
 html::-webkit-scrollbar {
@@ -284,7 +287,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: #aad576;
+  background-color: #d8d8d8;
   border-radius: 10px;
 }
 
@@ -294,5 +297,5 @@ html::-webkit-scrollbar-track {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
+  scrollbar-color: #d8d8d8 #f1f1f1;
 }
