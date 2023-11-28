@@ -36,7 +36,6 @@ div {
 .bookings-profile {
   padding: 20px;
   background-color: #73a942;
-  overflow-y: scroll;
   width: 50%;
   margin-bottom: 40px;
   border-radius: 5px;
@@ -253,8 +252,12 @@ img {
     display: block;
   }
 
-  .bookings-profile {
+  .bookings-profile, .container-right {
     width: 100%;
+  }
+
+  .container-right {
+    margin: 0 0 40px 0;
   }
 }
 
