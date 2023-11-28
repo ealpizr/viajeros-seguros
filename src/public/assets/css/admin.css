@@ -91,6 +91,7 @@ nav > ul > li a:hover {
 
 .users {
   background-color: #ccebb3;
+  height: 50%;
   justify-content: center;
 }
 
