@@ -1,3 +1,5 @@
+
+
 function togglePaymentForm() {
     const paymentMethodsContainer = document.getElementById('paymentMethodsContainer');
     const newPaymentFormContainer = document.getElementById('newPaymentForm');

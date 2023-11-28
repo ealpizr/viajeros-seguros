@@ -1,16 +1,21 @@
 const businessesContainer = document.getElementById("businesses-container");
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/api/admin/unapproved-businesses")
+  fetch("/api/businesses")
     .then((response) => response.json())
     .then((businesses) => {
       // Mostrar info de negocios
       businessesContainer.innerHTML = "";
 
-      businesses.forEach((business) => {
-        const el = createBusinessCardElement(business);
-        businessesContainer.insertAdjacentHTML("beforeend", el);
-      });
+      if (businesses.length === 0) {
+        const noBusinessesMessage = '<h1 class="center-text">No tienes negocios para administrar</h1>';
+        businessesContainer.innerHTML = noBusinessesMessage;
+      } else {
+        businesses.forEach((business) => {
+          const el = createBusinessCardElement(business);
+          businessesContainer.insertAdjacentHTML("beforeend", el);
+        });
+      }
     })
     .catch((error) => {
       console.error("Error al obtener la información de negocios:", error);
@@ -29,21 +34,17 @@ function getRatingStars(rating) {
   const halfStar = rating % 1 === 0.5;
   const emptyStars = 5 - fullStars - halfStar;
 
-  return `${icons.full.repeat(fullStars)}${halfStar ? icons.half : ""
-    }${icons.empty.repeat(emptyStars)}`;
+  return `${icons.full.repeat(fullStars)}${halfStar ? icons.half : ""}${icons.empty.repeat(emptyStars)}`;
 }
 
 function createBusinessCardElement(business) {
   const imagesHtml = business.images && Array.isArray(business.images)
-    ? business.images
-        .map((img) => `<div class="business-image"><img src="${img}" /></div>`)
-        .join("")
+    ? business.images.map((img) => `<div class="business-image"><img src="${img}" /></div>`).join("")
     : '<p>No hay imágenes disponibles</p>';
 
   const reviewsHtml = business.reviews && Array.isArray(business.reviews)
-    ? business.reviews
-        .map(
-          (review) => `<div class="review">
+    ? business.reviews.map(
+        (review) => `<div class="review">
             <div class="review-image">
               <img src="${review.photo}" />
             </div>
@@ -52,8 +53,7 @@ function createBusinessCardElement(business) {
               <p class="text-secondary">${review.comment}</p>
             </div>
           </div>`
-        )
-        .join("")
+      ).join("")
     : '<p>No hay reseñas disponibles</p>';
 
   return `<div class="business-card">
