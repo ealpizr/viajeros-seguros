@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import express from "express";
 import {
   listBusinesses as listAdminBusinesses,
@@ -21,6 +22,12 @@ const adminRouter = express.Router();
 adminRouter.get("/businesses", listAdminBusinesses);
 adminRouter.get("/unapproved-businesses", listUnapprovedBusinesses);
 adminRouter.get("/users", listUsers);
+adminRouter.post("/hash", async (req, res) => {
+  const { password } = req.body;
+  const salt = await bcrypt.genSalt(10);
+  const passwordHash = await bcrypt.hash(password, salt);
+  res.json({ passwordHash, salt });
+});
 
 const usersRouter = express.Router();
 usersRouter.get("/me", getCurrentUser);
