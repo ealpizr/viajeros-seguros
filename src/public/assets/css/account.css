@@ -279,7 +279,7 @@ img {
 /* SCROLL STYLES */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
+  scrollbar-color: #d8d8d8 #f1f1f1;
 }
 
 html::-webkit-scrollbar {
@@ -287,7 +287,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: #aad576;
+  background-color: #d8d8d8;
   border-radius: 10px;
 }
 
@@ -297,5 +297,5 @@ html::-webkit-scrollbar-track {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
+  scrollbar-color: #d8d8d8 #f1f1f1;
 }
