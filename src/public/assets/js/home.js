@@ -1,3 +1,10 @@
+function formatPrice(price) {
+  return price.toLocaleString("es-CR", {
+    style: "currency",
+    currency: "CRC",
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   fetch("/api/businesses")
     .then((res) => res.json())
@@ -11,22 +18,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const el = `
-        <a href="details?id=${businesses[i].id}" class="item-container">
-          <div class="item-image-container">
-            <img src="/assets/images/casa1.jpg" />
-
-            <div class="text-img">
-              <p class="text-white" >${businesses[i].description}</p>
-              <p class="valoracion"><i class="fas fa-star"></i> ${ratings}</p>
+        <div class="business-card">
+        <div class="businesses-image-container">
+          <img src="/assets/images/casa1.jpg" />
+        </div>
+        <div class="business-info-container">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="business-title">${businesses[i].name}</p>
+              <p class="business-location">${businesses[i].address}</p>
+            </div>
+            <div>
+              <p class="business-price text-right">${formatPrice(
+                businesses[i].price
+              )}</p>
+              <p class="business-rating text-right">${ratings}</p>
             </div>
           </div>
-
-          <div class="item-info-container">
-            <h4>${businesses[i].name}</h4>
-            <h4>₡${businesses[i].price}</h4>
-            <p>${businesses[i].address}</p>
-          </div>
-        </a>
+          <p class="business-description">
+          ${businesses[i].description}
+          </p>
+          <a href="details?id=${
+            businesses[i].id
+          }" class="business-details-button"
+            >Ver más detalles</a
+          >
+        </div>
+      </div>
         `;
 
         container.insertAdjacentHTML("beforeend", el);

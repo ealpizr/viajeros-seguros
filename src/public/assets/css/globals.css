@@ -63,7 +63,9 @@ textarea {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #f4f4f4;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
   padding: 1rem;
 }

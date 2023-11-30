@@ -143,9 +143,8 @@ div a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  padding: 50px 3%;
-  row-gap: 30px;
+  padding: 50px 0;
+  gap: 2rem;
 }
 
 .item-info-container {
@@ -200,4 +199,77 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track {
   background-color: #ffffff;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.business-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  width: calc(25% - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.business-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+.business-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.business-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.business-description {
+  text-align: justify;
+  flex: 1;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.business-details-button {
+  border: none;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: var(--accent-color) 1px solid;
+  color: var(--accent-color);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.business-details-button:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.business-location,
+.business-rating {
+  color: var(--text-secondary);
 }

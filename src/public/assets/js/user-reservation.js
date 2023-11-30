@@ -1,30 +1,49 @@
+function formatPrice(price) {
+  return price.toLocaleString("es-CR", {
+    style: "currency",
+    currency: "CRC",
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("/api/reservations")
-        .then((respuesta) => {
-            respuesta.json().then((businesses) => {
-                const table = document.getElementById("user-bookings");
+  fetch("/api/reservations")
+    .then((respuesta) => {
+      respuesta.json().then((businesses) => {
+        const table = document.getElementById("user-bookings");
 
-                for (let i = 0; i < business.length; i++) {
-                    const element = `
-                    <div class="gallery" id="user-bookings">
-                    <div class="content">
-                    <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" /><h3> Nombre: ${businesses[i].name} </h3>
-                    <p>Descripción: ${businesses[i].description}</p>
-                    <p class="black">Fechas:${businesses[i].days} </p>
-                    <p>20-10-23</p>
-                    <p class="black">hasta:</p>
-                    <p>26-10-23</p>
-                    <p class="black">Precio: ${businesses[i].totalPrice}</p>
-                    </div>
-                    </div>
-                    `;
+        for (let i = 0; i < businesses.length; i++) {
+          const element = `
+          <div class="gallery" id="user-bookings">
+          <div class="content">
+            <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" />
+            <h3>Nombre: ${businesses[i].businessId.name}</h3>
+            <p>Descripción: ${businesses[i].businessId.description}</p>
+            <p class="black">Fechas:</p>
+        
+            ${businesses[i].days
+              .map((d) => new Date(d).toLocaleDateString("es-CR"))
+              .map((d) => `<p>${d}</p>`)
+              .join("")}
+        
+            <p class="black">Cantidad de días: ${businesses[i].numberOfDays}</p>
+        
+            <p class="black">Precio por día: ${formatPrice(
+              businesses[i].dailyPrice
+            )}</p>
+        
+            <p class="black">Precio Total: ${formatPrice(
+              businesses[i].totalPrice
+            )}</p>
+          </div>
+        </div>        
+        `;
 
-                    table.insertAdjacentHTML("beforeend", element);
-                }
-            });
-        })
-        .catch((error) => {
-            alert("Hubo un problema al cargar los usuarios");
-            console.error(error);
-        });
+          table.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    })
+    .catch((error) => {
+      alert("Hubo un problema al cargar los usuarios");
+      console.error(error);
+    });
 });
