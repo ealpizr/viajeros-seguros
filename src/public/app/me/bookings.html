@@ -1,85 +1,26 @@
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reservas | Viajeros Solos</title>
-    <link rel="stylesheet" href="/assets/css/globals.css" />
-    <link rel="stylesheet" href="/assets/css/bookings.css" />
-    <script src="/components/header.js"></script>
-    <script src="/components/footer.js"></script>
-  </head>
 
-  <body>
-    <viajeros-solos-header></viajeros-solos-header>
-    <div class="img-header">
-      <h1 class="padding white">Mis reservas</h1>
-    </div>
-    <div class="gallery">
-      <div class="content">
-        <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" />
-        <h3>Hotel en Tamarindo</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-          quisquam vitae sunt possimus, accusantium quaerat porro ducimus
-          dolorem nostrum ipsam, blanditiis sint libero ipsum, animi a magnam!
-          Adipisci, vero maiores!
-        </p>
-        <p class="black">Fechas de reserva:</p>
-        <p>20-10-23</p>
-        <p class="black">hasta:</p>
-        <p>26-10-23</p>
-        <p class="black">Precio cancelado:</p>
-        <h1>₡25 000</h1>
-      </div>
-      <div class="content">
-        <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" />
-        <h3>Casa con vista al mar</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-          quisquam vitae sunt possimus, accusantium quaerat porro ducimus
-          dolorem nostrum ipsam, blanditiis sint libero ipsum, animi a magnam!
-          Adipisci, vero maiores!
-        </p>
-        <p class="black">Fechas de reserva:</p>
-        <p>20-10-23</p>
-        <p class="black">hasta:</p>
-        <p>26-10-23</p>
-        <p class="black">Precio cancelado:</p>
-        <h1>₡40 000</h1>
-      </div>
-      <div class="content">
-        <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" />
-        <h3>Tour al Poás</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-          quisquam vitae sunt possimus, accusantium quaerat porro ducimus
-          dolorem nostrum ipsam, blanditiis sint libero ipsum, animi a magnam!
-          Adipisci, vero maiores!
-        </p>
-        <p class="black">Fechas de reserva:</p>
-        <p>20-10-23</p>
-        <p class="black">hasta:</p>
-        <p>26-10-23</p>
-        <p class="black">Precio cancelado:</p>
-        <h1>₡20 000</h1>
-      </div>
-      <div class="content">
-        <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" />
-        <h3>Desayuno caribeño</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-          quisquam vitae sunt possimus, accusantium quaerat porro ducimus
-          dolorem nostrum ipsam, blanditiis sint libero ipsum, animi a magnam!
-          Adipisci, vero maiores!
-        </p>
-        <p class="black">Fechas de reserva:</p>
-        <p>20-10-23</p>
-        <p class="black">hasta:</p>
-        <p>26-10-23</p>
-        <p class="black">Precio cancelado:</p>
-        <h1>₡50 000</h1>
-      </div>
-    </div>
-    <viajeros-solos-footer></viajeros-solos-footer>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas | Viajeros Solos</title>
+  <link rel="stylesheet" href="/assets/css/globals.css" />
+  <link rel="stylesheet" href="/assets/css/bookings.css" />
+  <script src="/assets/js/user-reservation.js" defer></script>
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+</head>
+
+<body>
+  <viajeros-solos-header></viajeros-solos-header>
+  <div class="img-header">
+    <h2 class="padding-title white">Mis reservas</h2>
+  </div>
+  <div class="gallery" id="user-bookings">
+    
+
+  </div>
+  <viajeros-solos-footer></viajeros-solos-footer>
+</body>
+
 </html>

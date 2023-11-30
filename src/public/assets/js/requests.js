@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
               `;
 
-          table.insertAdjacentHTML("beforeend", element);
-        }
-      });
-    })
-    .catch((error) => {
-      alert("Hubo un problema al cargar los usuarios");
-      console.error(error);
-    });
+                    table.insertAdjacentHTML("beforeend", element);
+                }
+            });
+        })
+        .catch((error) => {
+            alert("Hubo un problema al cargar los usuarios");
+            console.error(error);
+        });
 });
