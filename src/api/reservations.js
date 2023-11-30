@@ -1,14 +1,29 @@
-import express from "express";
+import User from "../schemas/user.js";
 import Reservation from "../schemas/reservation.js";
+const userId = "65655817c7cfd62135ae90a4";
 
-const router = express.Router();
+export async function listReservations(req, res) {
+  try {
+    User.findById(userId)
+      .exec()
+      .then(function (user) {
+        const reservations = [];
+        const reservationIds = user.reservations;
+        reservationIds.forEach(Id => {
+          Reservation.findById(Id).exec().then(function (reservation) {
+            console.log(reservation)
+            reservations.push(reservation)
+          });
+        });
 
-router.get("/listar", function (req, res) {
-  Reservation.find()
-    .exec()
-    .then(function (result) {
-      res.json(result);
-    });
-});
+        res.json(reservations);
+      })
 
-export default router;
+    
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Error al listar las reservas" });
+  }
+}
+
+

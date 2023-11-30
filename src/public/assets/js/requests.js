@@ -6,7 +6,7 @@ function deny(id) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     fetch("/api/admin/unapproved-businesses")
         .then((respuesta) => {
             respuesta.json().then((businesses) => {
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         })
+
         .catch((error) => {
             alert("Hubo un problema al cargar los usuarios");
             console.error(error);

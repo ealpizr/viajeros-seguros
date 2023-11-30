@@ -13,6 +13,8 @@ import {
 import { listPaymentMethods } from "./api/payment-methods.js";
 import { getCurrentUser } from "./api/users.js";
 
+import { listReservations} from "./api/reservations.js";
+
 const authRouter = express.Router();
 authRouter.post("/signup", signup);
 authRouter.post("/login", login);
@@ -34,6 +36,9 @@ businessesRouter.get("/:id", businessDetails);
 const paymentMethodsRouter = express.Router();
 paymentMethodsRouter.get("/", listPaymentMethods);
 
+const reservationsRouter = express.Router();
+reservationsRouter.get("/", listReservations);
+
 // Router principal
 const appRouter = express.Router();
 appRouter.use("/auth", authRouter);
@@ -41,4 +46,5 @@ appRouter.use("/admin", adminRouter);
 appRouter.use("/users", usersRouter);
 appRouter.use("/businesses", businessesRouter);
 appRouter.use("/payment-methods", paymentMethodsRouter);
+appRouter.use("/reservations", reservationsRouter); 
 export default appRouter;
