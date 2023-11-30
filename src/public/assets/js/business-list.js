@@ -8,10 +8,13 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < businesses.length; i++) {
           const element = `
             <tr>
-              <td> <img class="user" src="/assets/images/business.png" /> ${businesses[i].name}
+              <td> <img class="user" src="/assets/images/business.png" /> ${
+                businesses[i].name
+              }
               </td>
-              <td>${businesses[i].ownerId}</td>
-              <td>${businesses[i].categoriesIds}</td>
+              <td>${businesses[i].owner}</td>
+              <td>${businesses[i].categories}</td>
+              <td>${businesses[i].rating || "Sin calificaciones"}</td>
             </tr>
             `;
 

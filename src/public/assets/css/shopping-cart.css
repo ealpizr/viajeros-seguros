@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-
 }
 
 body {
@@ -32,7 +31,6 @@ body {
   display: flex;
   justify-content: space-between;
   contain: paint;
-
 }
 
 .container-1 .item-container {
@@ -42,13 +40,11 @@ body {
   grid-gap: 5px;
   grid-row-gap: 5px;
   width: 100%;
-
 }
 
 .title-item {
   font-weight: bold;
   text-align: center;
-
 }
 
 .container-1 .item-container .item-1 {
@@ -58,8 +54,7 @@ body {
   border: 1px solid black;
   border-radius: 15px;
   padding: 20px;
-  transition: .3s;
-
+  transition: 0.3s;
 }
 
 .item-1:hover {
@@ -99,7 +94,6 @@ body {
 
 .button-item:hover {
   background-color: #000000;
-
 }
 
 .center {
@@ -113,7 +107,6 @@ body {
 .w-70 {
   width: 70%;
 }
-
 
 .w-100 {
   width: 100%;
@@ -146,13 +139,11 @@ body {
   padding: 15px;
 }
 
-
 .car .item .car-title {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: uppercase;
-
 }
 
 .car .car-item .selector {
@@ -185,9 +176,7 @@ body {
   grid-gap: 30px;
   grid-row-gap: 30px;
   width: 100%;
- 
 }
-
 
 .btn-pay {
   display: block;
@@ -206,15 +195,11 @@ body {
   cursor: pointer;
 }
 
-
 .margin-bottom {
   margin-bottom: 5px;
 }
 
-
 @media (max-width: 767px) {
-
-
   .car {
     border: 1px solid #000000;
     margin-top: 30px;
@@ -248,4 +233,27 @@ body {
     color: rgb(255, 255, 255);
     padding: 50px;
   }
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
 }

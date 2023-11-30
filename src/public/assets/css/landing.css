@@ -219,3 +219,21 @@ footer div {
     transform: translateY(2px);
   }
 }
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}

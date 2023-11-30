@@ -239,7 +239,7 @@ body {
   width: 10%;
   border-radius: 10px;
   background: transparent;
-  border: 2px solid rgba(14, 173, 35, 0.5);
+  border: 2px solid #0ead2380;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 25px;
   margin-top: 25px;
@@ -260,7 +260,26 @@ body {
   margin: 10px;
   transition: 40ms;
 }
-.text-1-review:hover{
+.text-1-review:hover {
   filter: hue-rotate(90deg);
   transform: scale(1.03);
+}
+
+/* SCROLL STYLES */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
 }

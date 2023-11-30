@@ -2,14 +2,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Administración | Viajeros Solos</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/globals.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
-    />
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <script src="/assets/js/admin.js" defer></script>
@@ -17,7 +12,9 @@
 
   <body>
     <viajeros-solos-header></viajeros-solos-header>
-    <h1 class="title">Administración</h1>
+    <div class="img-header">
+      <h1>Administración</h1>
+    </div>
     <div class="container">
       <div class="w-50 widgets-container">
         <div class="users radius padding font-2">
@@ -38,18 +35,18 @@
             <p id="businesses-count">0</p>
           </div>
         </div>
-        <div class="users radius padding font-2">
-          <p>Reportes</p>
-          <a href="users" class="bg-gray lists"> Listado de usuarios</a>
-          <a href="businesses" class="bg-gray lists"> Listado de negocios</a>
-        </div>
       </div>
-      <div class="w-50">
+      <div class="w-50 widgets-container">
         <div class="users radius padding margin-right font-2">
           <p>Solicitudes de aprobación de negocio</p>
           <a href="requests" class="bg-gray margin-left lists"
             >Ver solicitudes</a
           >
+        </div>
+        <div class="users radius padding font-2">
+          <p>Reportes</p>
+          <a href="users" class="bg-gray lists"> Listado de usuarios</a>
+          <a href="businesses" class="bg-gray lists"> Listado de negocios</a>
         </div>
       </div>
     </div>

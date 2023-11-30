@@ -1,67 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/globals.css" />
+    <link rel="stylesheet" href="assets/css/about-us.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <title>CodeXpress</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuestro Equipo | Viajeros Solos</title>
-  <link rel="stylesheet" href="assets/css/globals.css" />
-  <link rel="stylesheet" href="assets/css/about-us.css" />
-  <script src="/components/header.js"></script>
-  <script src="/components/footer.js"></script>
-</head>
+  <body>
+    <div class="full-height-wrapper">
+      <header>
+        <div class="logo">
+          <img
+            src="assets/images/codexpress-white.png"
+            alt="CodeXpress' logo"
+          />
+        </div>
 
-<body>
-  <viajeros-solos-header></viajeros-solos-header>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#team">Equipo</a></li>
+          <li><a href="#projects">Proyectos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </header>
 
-
-  <div>
-    <div class="content reservation-thumbnail about">
-
-      <div class="bg-green">
-        <h2>VIAJEROS SOLOS</h2>
-      </div>
-      <div class="bg-white">
-        <p>EXPLORA, DESCUBRE, VIAJA</p>
-      </div>
-
-      <p><a href="/">Ir a la Pagina Principal</a></p>
-
+      <main class="main-container">
+        <div class="left">
+          <h1>Creando el <br /><span class="text-blue">futuro digital.</span></h1>
+          <p>
+            Ofrecemos soluciones de desarrollo y diseño que marcan la diferencia
+            en la era digital
+          </p>
+          <a href="#contact" class="cta"
+            >Contactános y llevá tu proyecto al siguiente nivel <i class="fas fa-solid fa-arrow-right"></i></a
+          >
+        </div>
+        <div class="landing-image-container">
+          <div class="landing-image">
+            <img src="assets/images/development.png" alt="Landing image" />
+          </div>
+        </div>
+      </main>
     </div>
 
-  </div>
-  </div>
-  <div class="team">
-    <h2>NUESTRO EQUIPO</h2>
+    <section class="full-height-wrapper text-center" id="team">
+      <h3 class="title text-blue">Nuestro equipo</h3>
+      <div class="team-members-container">
+        <div class="team-member">
+          <div class="team-member-image-container">
+            <img src="assets/images/fotoisabella.jpg" />
+          </div>
+          <p>Isabella Nassar Míguez</p>
+        </div>
 
-    <div class="slide">
-      <div class="profile-slide">
-        <img src="assets/images/fotoisabella.jpg" alt="" />
-        <h3>Coordinadora: Isabella Nassar Míguez</h3>
-      </div>
-      <div class="profile-slide">
-        <img src="assets/images/fotodonovan.jpg" alt="" />
-        <h3>Líder técnico: Donovan Alfaro Alpízar</h3>
-      </div>
-      <div class="profile-slide">
-        <img src="assets/images/fotodaniel.jpg" alt="" />
-        <h3>Calidad 1: Daniel Muñoz Alfaro</h3>
-      </div>
-      <div class="profile-slide">
-        <img src="assets/images/fotomarco.jpg" alt="" />
-        <h3>Calidad 2: Marco Rodríguez Barrantes</h3>
-      </div>
-      <div class="profile-slide">
-        <img src="assets/images/fotoenrique.jpg" alt="" />
-        <h3>Soporte: Enrique Alpízar Padilla</h3>
-      </div>
-    </div>
-  </div>
+        <div class="team-member">
+          <div class="team-member-image-container">
+            <img src="assets/images/fotodonovan.jpg" />
+          </div>
+          <p>Donovan Alfaro Alpízar</p>
+        </div>
 
+        <div class="team-member">
+          <div class="team-member-image-container">
+            <img src="assets/images/fotodaniel.jpg" />
+          </div>
+          <p>Daniel Muñoz Alfaro</p>
+        </div>
 
+        <div class="team-member">
+          <div class="team-member-image-container">
+            <img src="assets/images/fotomarco.jpg" />
+          </div>
+          <p>Marco Rodríguez Barrantes</p>
+        </div>
 
-  <viajeros-solos-footer></viajeros-solos-footer>
-  <script src="/assets/js/about-us.js"></script>
-</body>
+        <div class="team-member">
+          <div class="team-member-image-container">
+            <img src="assets/images/fotoenrique.jpg" />
+          </div>
+          <p>Enrique Alpízar Padilla</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="full-height-wrapper text-center" id="projects">
+      <h3 class="title text-blue">Proyectos</h3>
+      <div class="project-container">
+        <div class="project">
+          <div class="project-image-container">
+            <img src="assets/images/viajeros-solos-snapshot.jpg" />
+          </div>
+          <h3 class="project-title">Viajeros Solos</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem dolorum atque obcaecati eaque quisquam. Et commodi at error iusto repellat illo quibusdam pariatur? Totam fugit neque odio deserunt error?</p>
+          <div class="project-buttons-container">
+            <a class="project-button project-button-primary" href="/"><i class="fas fa-external-link-alt"></i> Visitar</a>
+            <a class="project-button" href="https://github.com/cenfotec-codexpress/viajeros-solos"><i class="fab fa-github"></i> Github</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-height-wrapper contact" id="contact">
+      <h3 class="title text-blue">Contacto</h3>
+        <form class="contact-form">
+          <div class="contact-form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" />
+          </div>
+          <div class="contact-form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="contact-form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <input type="submit" class="cta" value="Enviar" />
+        </form>
+    </section>
+
+    <footer>
+      <div>
+        <img src="assets/images/codexpress-white.png" />
+      </div>
+      <p>
+        © 2023 CodeXpress. Todos los derechos reservados.</a>
+      </p>
+    </footer>
+  </body>
 </html>

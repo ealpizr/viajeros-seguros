@@ -8,7 +8,6 @@
   height: 400px;
   padding-left: 100px;
   padding-top: 45px;
-
 }
 
 .content {
@@ -22,7 +21,44 @@
   padding-bottom: 15px;
   transition: 0.4s;
   border-radius: 6px;
+}
 
+div {
+  box-sizing: border-box;
+}
+
+.container-profile-reservations {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1rem;
+}
+
+.bookings-profile {
+  padding: 20px;
+  background-color: #73a942;
+  width: 50%;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+
+img {
+  justify-content: center;
+}
+
+.small-image-top {
+  padding: 1px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: solid #aad576 5px;
+  width: 10%;
+}
+
+.image-top {
+  /*   padding: 0 0 10px 10px; */
+  width: 50%;
+}
+
+.image-top img {
 }
 
 .outer-layer-1 {
@@ -32,7 +68,7 @@
 }
 
 .outer-layer-2 {
-  background-color: #73a942;
+  background-color: rgb(116, 169, 66);
   padding: 20px;
   padding-bottom: 20px;
 }
@@ -45,23 +81,27 @@
 .dark-grey {
   background-color: #bfef88;
   padding: 5px;
-  border-radius: 5px;
-  text-decoration: none;
+  background: rgb(255, 255, 255);
+  padding: 20px;
 }
 
 .dark-grey:hover {
   background-color: #b2dd8f;
-  transform: translateY(-10px) scale(1.1);
 }
 
 .small-image {
   width: 7%;
 }
 
+.section-toptitle {
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+}
+
 .section {
   border-radius: 5px;
-
-  padding-top: 30px;
+  padding: 20px;
   margin-bottom: 20px;
 }
 
@@ -84,6 +124,71 @@
 
 .right-image {
   justify-content: flex-end;
+}
+
+.container-right {
+  width: 50%;
+  background-color: #73a942;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 0 40px 40px;
+}
+
+.container-right h2,
+.container-right h3 {
+  color: #333;
+}
+
+.user-info,
+.business-owner-info,
+.admin-info,
+.advantages-section,
+.info-section {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.user-info,
+.business-owner-info,
+.admin-info,
+.advantages-section,
+.info-section {
+  margin-bottom: 20px;
+}
+
+.user-info h3,
+.business-owner-info h3,
+.admin-info h3 {
+  color: #000000;
+}
+
+.user-info p,
+.business-owner-info p,
+.admin-info p {
+  color: #555;
+}
+
+.more-info-section,
+.contact-section,
+.faq-section {
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.more-info-section h3,
+.contact-section h3,
+.faq-section h3 {
+  color: #333;
+}
+
+.more-info-section p,
+.contact-section p,
+.faq-section p {
+  color: #555;
 }
 
 .footer {
@@ -109,7 +214,6 @@
 }
 
 @media (max-width: 767px) {
-
   .section-title {
     font-size: 20px;
     margin-bottom: 10px;
@@ -118,11 +222,9 @@
   }
 
   .content {
-
     width: 70%;
     padding-top: 25px;
     padding-bottom: 5px;
-
   }
 
   .small-image {
@@ -136,10 +238,8 @@
   }
 
   .img-header {
-
     padding-left: 100px;
     padding-top: 45px;
-
   }
 
   .img-header {
@@ -148,5 +248,49 @@
     font-size: 15px;
   }
 
+  .container-profile-reservations {
+    display: block;
+  }
 
+  .bookings-profile,
+  .container-right {
+    width: 100%;
+  }
+
+  .container-right {
+    margin: 0 0 40px 0;
+  }
+}
+
+.bookings-profile::-webkit-scrollbar {
+  width: 12px;
+}
+
+.bookings-profile::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+.bookings-profile::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
 }

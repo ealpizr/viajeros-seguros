@@ -13,11 +13,20 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.background {
-  background: url("/assets/images/oso.jpg") no-repeat;
+
+.img-header {
+  background: url(/assets/images/oso.jpg);
   background-size: cover;
   background-position: center;
   height: 400px;
+}
+
+.img-header h1 {
+  text-align: left;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  text-shadow: 4px 4px 8px #000000;
 }
 
 .menu-izq,
@@ -173,4 +182,22 @@ div a {
   .col-25 {
     width: 100%;
   }
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
 }

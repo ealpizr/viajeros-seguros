@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Business from "../schemas/business.js";
 
 // Despues lo vamos a sacar de la sesion del usuario
-const userId = "655638cc9e4fb7afc0eb39dc";
+const userId = "65655817c7cfd62135ae90a4";
 
 function calculateRatingAverage(reviews) {
   // [5, 4, 3, 5, ...]
@@ -73,9 +73,9 @@ export async function createNewBusiness(req, res) {
     const business = new Business({
       _id: new mongoose.Types.ObjectId(),
       name,
-      ownerId: userId,
+      owner: userId,
       address,
-      categoriesIds,
+      categories: categoriesIds,
       description,
       images,
       isApproved: false,
