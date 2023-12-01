@@ -1,51 +1,59 @@
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Perfil | Viajeros Solos</title>
-    <link rel="stylesheet" href="/assets/css/globals.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
-    />
-    <script src="/components/header.js"></script>
-    <script src="/components/footer.js"></script>
-    <script src="/assets/js/user-profile.js" defer></script>
-  </head>
-  <body>
-    <viajeros-solos-header></viajeros-solos-header>
-    <section class="profile-user">
-      <div class="profile-user-header">
-        <div class="bg-green">
-          <div class="avatar">
-            <img src="/assets/images/fotoperfil.jpg" alt="img-avatar" />
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil | Viajeros Solos</title>
+  <link rel="stylesheet" href="/assets/css/globals.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/profile.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/account.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css" />
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/assets/js/user-profile.js" defer></script>
+</head>
+
+<body>
+  <viajeros-solos-header></viajeros-solos-header>
+  <section class="profile-user">
+    <div class="profile-user-header">
+      <div class="bg-green">
+        <div class="avatar">
+          <img src="/assets/images/fotoperfil.jpg" alt="img-avatar" />
         </div>
       </div>
-      <div class="profile-info">
-        <div class="profile-bio">
-          <h3 class="name" id="fullName"></h3>
-          <p class="text" id="identification"></p>
-        </div>
-        <div class="data-container">
-          <ul class="information">
-            <li id="homeAddress">
-              <i class="icono fas fa-map-signs"></i>Dirección del usuario:
-            </li>
-            <li id="phoneNumber">
-              <i class="icono fas fa-phone-alt"></i>Número de Teléfono:
-            </li>
-            <li id="dateOfBirth">
-              <i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento:
-            </li>
-            <li id="email">
-              <i class="icono fas fa-user-check"></i>Correo electrónico:
-            </li>
-          </ul>
-        </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-bio">
+        <h3 class="name" id="fullName"></h3>
+        <p class="text" id="identification"></p>
       </div>
-    </section>
+      <div class="data-container">
+        <ul class="information">
+          <li id="homeAddress">
+            <i class="icono fas fa-map-signs"></i>Dirección del usuario:
+          </li>
+          <li id="phoneNumber">
+            <i class="icono fas fa-phone-alt"></i>Número de Teléfono:
+          </li>
+          <li id="dateOfBirth">
+            <i class="icono fas fa-calendar-alt"></i>Fecha de nacimiento:
+          </li>
+          <li id="email">
+            <i class="icono fas fa-user-check"></i>Correo electrónico:
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="account-options">
+      <div><a href="change-password" class="button"><i class="fa-solid fa-lock"></i></a></div>
+      <div><a href="payment-methods" class="button"><i class="fa-solid fa-credit-card"></i> </a></div>
+      <div><a href="bookings" class="button"><i class="fa-solid fa-briefcase"></i> </a></div>
+      <div><a href="/" class="button"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></div>
+    </div>
+  </section>
     <viajeros-solos-footer></viajeros-solos-footer>
-  </body>
+</body>
+
 </html>
