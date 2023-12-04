@@ -18,14 +18,12 @@ body {
 }
 
 .img-header h1 {
-  text-align: left;
   font-size: 35px;
   color: rgb(255, 255, 255);
   padding: 50px;
 }
 
 .container-1 {
-  max-width: 1200px;
   padding: 15px;
   margin: auto;
   display: flex;
@@ -48,9 +46,6 @@ body {
 }
 
 .container-1 .item-container .item-1 {
-  width: 100%;
-  padding: 10px;
-  margin: auto;
   border: 1px solid black;
   border-radius: 15px;
   padding: 20px;
@@ -70,10 +65,6 @@ body {
   scale: 1.05;
 }
 
-.item-container .item-1 .img-item {
-  width: 100%;
-  padding-top: 20px;
-}
 
 .item-container .item-1 .price-item {
   display: block;
@@ -84,7 +75,6 @@ body {
 }
 
 .button-item {
-  display: block;
   border: none;
   background-color: #73a942;
   color: white;
@@ -135,52 +125,6 @@ body {
   padding: 20px 0;
 }
 
-.car .item {
-  display: flex;
-  align-items: center;
-  position: relative;
-  border-bottom: 1px solid #000000;
-  padding: 15px;
-}
-
-.car .item .car-title {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.car .car-item .selector {
-  display: inline-block;
-  margin-right: 25px;
-}
-
-.car .item .car-quantity {
-  border: none;
-  font-size: 18px;
-  background: transparent;
-  display: inline-block;
-  width: 30px;
-  padding: 5px;
-  text-align: center;
-}
-
-.car .item .price {
-  font-weight: bold;
-  display: inline-block;
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.quantity {
-  text-align: center;
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  grid-gap: 30px;
-  grid-row-gap: 30px;
-  width: 100%;
-}
 
 .btn-pay {
   display: block;
@@ -205,11 +149,9 @@ body {
 
 @media (max-width: 767px) {
   .car {
-    border: 1px solid #000000;
     margin-top: 30px;
-    border-radius: 10px;
-    top: 0;
-    right: 0;
+    margin-bottom: 20px;
+    align-items: center
   }
 
   .container {
@@ -224,20 +166,39 @@ body {
     width: 100%;
   }
 
-  .img-header {
-    background: url(/assets/images/bird.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 350px;
-  }
-
   .img-header h1 {
     text-align: left;
     font-size: 25px;
     color: rgb(255, 255, 255);
     padding: 50px;
   }
+
+  section {
+    flex-direction: column;
+  }
+
+  .container-1 {
+    grid-gap: 0;
+    align-items: center;
+  }
+
+  .w-30 {
+    width: 50%;
+
+  }
+
+  .button-item {
+    font-size: 9px;
+    padding: 13px;
+  }
+
+
+  .item-container .item-1 .price-item {
+    
+    font-size: 19px;
 }
+
+
 
 html {
   scrollbar-width: thin;
@@ -260,4 +221,5 @@ html::-webkit-scrollbar-track {
 html {
   scrollbar-width: thin;
   scrollbar-color: #aad576 #f1f1f1;
+}
 }

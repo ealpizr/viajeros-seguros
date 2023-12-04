@@ -67,6 +67,11 @@ a {
 
 .content p {
   color: black;
+  font-size: 16px;
+  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .content:hover {
@@ -113,11 +118,26 @@ li {
     background: white;
   }
 
-  .padding {
-    position: absolute;
-    right: 0;
-    padding-right: 60px;
-    font-size: 25px;
+  .gallery {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .content p {
+    font-size: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .padding-title {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+    padding-right: 30px;
   }
 }
 
