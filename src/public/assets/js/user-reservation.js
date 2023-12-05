@@ -6,7 +6,7 @@ function formatPrice(price) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/api/reservations")
+  fetch("/api/me/reservations")
     .then((respuesta) => {
       respuesta.json().then((businesses) => {
         const table = document.getElementById("user-bookings");

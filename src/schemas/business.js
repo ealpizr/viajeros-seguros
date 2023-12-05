@@ -13,7 +13,7 @@ var businessSchema = mongoose.Schema({
   phoneNumber: Number,
   price: Number,
 
-  reservations: [mongoose.Schema.Types.ObjectId],
+  reservations: { type: [mongoose.Schema.Types.ObjectId], ref: "Reservation" },
 
   reviews: [
     {

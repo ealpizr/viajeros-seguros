@@ -1,6 +1,5 @@
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservaciones | Viajeros Solos</title>
@@ -9,43 +8,28 @@
     <script src="/assets/js/business-reservation.js" defer></script>
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <viajeros-solos-header></viajeros-solos-header>
     <div class="img-header">
-        <h1>Reservaciones de mis negocios</h1>
+      <h1>Reservaciones de mis negocios</h1>
     </div>
     <main>
+      <div class="center">
         <label for="select">Seleccionar Negocio:</label>
         <select id="select">
-            <option value="1">Hotel Bella Vista</option>
-            <option value="2">Tour Monteverde</option>
-            <option value="3">Almuerzo en el Poás</option>
+          <option selected hidden>Seleccione un negocio</option>
         </select>
-        <label for="filter">Filtrar Reservas:</label>
-        <select id="filter">
-            <option value="all">Todas</option>
-            <option value="coming">Futuras</option>
-            <option value="past">Viejas</option>
-        </select>
+      </div>
 
-        <table id="business-bookings">
-            <tr>
-                <th>Cliente</th>
-                <th>Días de reserva</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <p></p> 
-                </td>
-            </tr>
-        </table>
+      <table id="business-bookings">
+        <tr>
+          <th>Cliente</th>
+          <th>Días de reserva</th>
+        </tr>
+      </table>
     </main>
     <viajeros-solos-footer></viajeros-solos-footer>
-</body>
-
-</html>
-
+  </body>
 </html>

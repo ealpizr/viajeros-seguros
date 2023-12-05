@@ -41,20 +41,17 @@ adminRouter.get("/users", listUsers);
 
 const userRouter = express.Router();
 userRouter.get("/", getCurrentUser);
+userRouter.get("/reservations", listReservations);
 userRouter.get("/businesses", listUserBusinesses);
-// /api/users/me
 
 const businessesRouter = express.Router();
 businessesRouter.get("/", listBusinesses);
 businessesRouter.post("/", upload.array("images[]"), createNewBusiness);
 businessesRouter.get("/:id", businessDetails);
+businessesRouter.get("/:id/reservations", listBusinessReservations);
 
 const paymentMethodsRouter = express.Router();
 paymentMethodsRouter.get("/", listPaymentMethods);
-
-const reservationsRouter = express.Router();
-reservationsRouter.get("/", listReservations);
-reservationsRouter.get("/", listBusinessReservations);
 
 const categoriesRouter = express.Router();
 categoriesRouter.get("/", listCategories);
@@ -66,6 +63,5 @@ appRouter.use("/admin", adminRouter);
 appRouter.use("/me", userRouter);
 appRouter.use("/businesses", businessesRouter);
 appRouter.use("/payment-methods", paymentMethodsRouter);
-appRouter.use("/reservations", reservationsRouter);
 appRouter.use("/categories", categoriesRouter);
 export default appRouter;
