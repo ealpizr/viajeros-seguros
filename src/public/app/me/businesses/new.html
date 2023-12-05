@@ -6,6 +6,7 @@
     <title>Nuevo negocio | Viajeros Solos</title>
     <link rel="stylesheet" href="/assets/css/globals.css" />
     <link rel="stylesheet" href="/assets/css/new-user-business.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/js/new-user-business.js" defer></script>
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -19,8 +20,8 @@
     <!-- Main section -->
     <div class="background">
     <main>
-      <h1>Nueva solicitud</h1></div>
-      <form class="form">
+      <h1>Nueva solicitud</h1>
+      <form id="form" class="form">
         <h2 class="text-center">Formulario de solicitud</h2>
 
         <!-- Name -->
@@ -49,6 +50,12 @@
           <input type="text" name="phone" id="phone" />
         </div>
 
+        <!-- Price -->
+        <div class="form-group">
+          <label for="phone">Costo</label>
+          <input type="number" name="price" id="price" />
+        </div>
+
         <!-- Description -->
         <div class="form-group">
           <label for="description">Descripción</label>
@@ -57,8 +64,14 @@
 
         <!-- Photos -->
         <div class="form-group">
-          <label for="photos">Fotos</label>
-          <input type="file" name="photos" id="photos" />
+          <label for="images">Fotos</label>
+          <input
+            type="file"
+            name="images"
+            id="images"
+            accept="image/*"
+            multiple
+          />
         </div>
 
         <!-- Submit -->

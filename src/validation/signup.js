@@ -69,4 +69,18 @@ export default Joi.object({
     "string.empty": "homeAddress is required",
     "string.min": "homeAddress must be at least 10 characters long",
   }),
+  phoneNumber: Joi.string()
+    .min(8)
+    .max(12)
+    .pattern(new RegExp("^[0-9]+$"))
+    .required()
+    .messages({
+      "any.required": "phoneNumber is a required field",
+      "string.empty": "phoneNumber is required",
+      "string.pattern.base": "phoneNumber must contain only numbers",
+      "string.min": "phoneNumber must be at least 8 characters long",
+      "string.max":
+        "phoneNumber must be less than or equal to 12 characters long",
+    }),
+  photo: Joi.any(),
 });

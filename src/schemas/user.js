@@ -11,6 +11,7 @@ var userSchema = mongoose.Schema({
   homeAddress: String,
   phoneNumber: String,
   role: String,
+  profilePicture: String,
 
   paymentMethods: [
     new mongoose.Schema({
