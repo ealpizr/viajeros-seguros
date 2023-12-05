@@ -37,7 +37,6 @@ main {
 
 .full-height-wrapper {
   padding: 2rem 10%;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -108,13 +107,12 @@ main {
 }
 
 .services-container {
-  flex: 1;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-content: center;
   row-gap: 20vh;
-  padding: 0 10%;
+  padding: 7% 10%;
 }
 
 .title {

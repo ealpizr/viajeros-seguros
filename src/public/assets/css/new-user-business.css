@@ -14,6 +14,8 @@ textarea {
   padding: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 2rem;
+  border-style: double;
+  margin-top: 4rem;
 }
 
 .form-group {
@@ -40,4 +42,14 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track {
   background-color: #ffffff;
+}
+.background {
+  background: url("/assets/images/monkey.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  text-shadow: 2px 2px 4px #000000;
 }
