@@ -1,0 +1,31 @@
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("/api/reservations")
+    .then((respuesta) => {
+      respuesta.json().then((businesses) => {
+        const table = document.getElementById("business-bookings");
+
+        for (let i = 0; i < businesses.length; i++) {
+          const element = `
+          <table id="business-bookings">
+            <tr>
+                <th>Cliente</th>
+                <th>Días de reserva</th>
+            </tr>
+            <tr>
+                <td>${users[i].userId.name}</td>
+                <td>
+                    <p>${businesses[i].numberOfDays}</p> 
+                </td>
+            </tr>
+        </table>
+        `;
+
+          table.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    })
+    .catch((error) => {
+      alert("Hubo un problema al cargar los usuarios");
+      console.error(error);
+    });
+});
