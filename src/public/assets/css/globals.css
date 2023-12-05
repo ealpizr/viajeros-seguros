@@ -88,3 +88,28 @@ textarea {
   background-color: var(--accent-color);
   color: white;
 }
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.fa-spinner {
+  font-size: 3rem;
+  color: var(--accent-color);
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

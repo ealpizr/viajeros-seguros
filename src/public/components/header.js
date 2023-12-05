@@ -44,7 +44,7 @@ class ViajerosSolosHeader extends HTMLElement {
         },
         {
           name: "Cerrar sesión",
-          url: "/",
+          url: "/app/logout",
           button: true,
         },
       ];

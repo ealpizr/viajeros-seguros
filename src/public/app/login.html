@@ -1,104 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/css/globals.css" />
-    <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Iniciar sesión | Viajeros Solos</title>
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
-</head>
+    <script src="/assets/js/login.js" defer></script>
+  </head>
 
-<body>
+  <body>
     <viajeros-solos-header></viajeros-solos-header>
-    <div class="wrapper">
-        <span class="icon-close"><ion-icon name="close"></ion-icon>
-        </span>
+    <main>
+      <div class="wrapper">
         <div class="box login">
-            <h2>Login</h2>
-            <form onsubmit="event.preventDefault(); login();">
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input id="email" type="email" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input id="password" type="password" required>
-                    <label>Password</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Remember me</label>
-                    <a href="password">Forgot Password?</a>
-                </div>
-                <button type="submit" class="btn">Iniciar sesión</button>
-                <div class="login-register">
-                    <p>No tiene una cuenta? <span class="register-link">Registrarse</span></p>
-                </div>
-            </form>
+          <h2>Login</h2>
+          <form id="login-form">
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input id="email-login" type="email" required />
+              <label>Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input id="password-login" type="password" required />
+              <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+              <label><input type="checkbox" />Remember me</label>
+              <a href="forgot-password">¿Olvidó su contraseña?</a>
+            </div>
+            <button type="submit" class="btn">Iniciar sesión</button>
+            <div class="login-register">
+              <p>
+                No tiene una cuenta?
+                <span class="register-link">Registrarse</span>
+              </p>
+            </div>
+          </form>
         </div>
         <div class="box register">
-            <h2>Registro</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input type="text" required>
-                    <label>Nombre</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"></span>
-                    <input type="text" required>
-                    <label>Apellidos</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="calendar"></ion-icon></span>
-                    <input type="email" required>
-                    <label>Fecha de nacimiento</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required>
-                    <label>Contraseña</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="id-card"></ion-icon></span>
-                    <input type="type" required>
-                    <label>Numero de identificación(Cédula o DIMEX)</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="map"></ion-icon></span>
-                    <input type="type" required>
-                    <label>Dirección exacta</label>
-                </div>
+          <h2>Registro</h2>
+          <form id="register-form" action="#">
+            <div class="input-box">
+              <span class="icon"><ion-icon name="person"></ion-icon></span>
+              <input type="text" id="name" required />
+              <label>Nombre</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"></span>
+              <input type="text" id="lastName" required />
+              <label>Apellidos</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="calendar"></ion-icon></span>
+              <input type="date" id="dateOfBirth" required />
+              <label>Fecha de nacimiento</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="email" id="email-register" required />
+              <label>Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" id="password-register" required />
+              <label>Contraseña</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="id-card"></ion-icon></span>
+              <input type="type" id="identification" required />
+              <label>Número de identificación(Cédula o DIMEX)</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="call-outline"></ion-icon
+              ></span>
+              <input type="tel" id="phoneNumber" required />
+              <label>Número de teléfono</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="map"></ion-icon></span>
+              <input type="type" id="address" required />
+              <label>Dirección exacta</label>
+            </div>
 
-                <button type="submit" class="btn2">Foto perfil (jpg)</button>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Acepto los terminos y condiciones de uso</label>
-                </div>
-                <button type="submit" class="btn">Registrarse</button>
-                <div class="login-register">
-                    <p>Ya tiene una cuenta? <a href="#" class="login-link">Iniciar sesión</a></p>
-                </div>
-            </form>
+            <div>
+              <label>Foto de perfil</label>
+              <input type="file" accept="image/*" id="profile-picture" />
+            </div>
+            <button type="submit" class="btn">Registrarse</button>
+            <div class="login-register">
+              <p>
+                Ya tiene una cuenta?
+                <a href="#" class="login-link">Iniciar sesión</a>
+              </p>
+            </div>
+          </form>
         </div>
-    </div>
-
-
-    </div>
-
+      </div>
+    </main>
     <viajeros-solos-footer></viajeros-solos-footer>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <script src="/assets/js/login.js"></script>
-</body>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>

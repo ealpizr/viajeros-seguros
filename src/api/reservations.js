@@ -2,11 +2,9 @@ import Business from "../schemas/business.js";
 import Reservation from "../schemas/reservation.js";
 import User from "../schemas/user.js";
 
-const userId = "65655817c7cfd62135ae90a4";
-
 export async function listReservations(req, res) {
   try {
-    const user = await User.findById(userId).exec();
+    const user = await User.findById(req.session.user.id).exec();
     const reservations = [];
     const reservationIds = user.reservations;
 

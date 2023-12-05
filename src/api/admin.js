@@ -21,7 +21,7 @@ export function listUnapprovedBusinesses(req, res) {
   try {
     Business.find({ isApproved: false })
       .populate({
-        path: "categories",
+        path: "category",
         select: "name",
         // The schema property here is not required.
         // We just add it here so that VSCode's remove unused imports
@@ -38,7 +38,8 @@ export function listUnapprovedBusinesses(req, res) {
               price: b.price,
               address: b.address,
               description: b.description,
-              categories: b.categories.map((c) => c.name).join(", "),
+              categories: b.category,
+              image: b.images[0],
               phone: b.phoneNumber,
             };
           })
@@ -57,7 +58,7 @@ export function listBusinesses(req, res) {
       select: "firstName lastName",
     })
     .populate({
-      path: "categories",
+      path: "category",
       select: "name",
       // The schema property here is not required.
       // We just add it here so that VSCode's remove unused imports
@@ -72,9 +73,7 @@ export function listBusinesses(req, res) {
         const name = businesses[i].name;
         const owner =
           businesses[i].owner.firstName + " " + businesses[i].owner.lastName;
-        const categories = businesses[i].categories
-          .map((c) => c.name)
-          .join(", ");
+        const categories = businesses[i].category;
         const rating = calculateRatingAverage(businesses[i].reviews);
 
         const business = {
@@ -115,5 +114,29 @@ export function listUsers(req, res) {
       }
 
       res.json(cleanedUpUsers);
+    });
+}
+
+export function approveBusiness(req, res) {
+  const { id } = req.params;
+
+  Business.findByIdAndUpdate(id, { isApproved: true })
+    .exec()
+    .then(function (business) {
+      res.status(200).json({
+        message: "Business approved",
+      });
+    });
+}
+
+export function denyBusiness(req, res) {
+  const { id } = req.params;
+
+  Business.findByIdAndDelete(id)
+    .exec()
+    .then(function (business) {
+      res.status(200).json({
+        message: "Business denied",
+      });
     });
 }

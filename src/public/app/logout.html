@@ -1,0 +1,49 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cerrar Sesión | Viajeros Solos</title>
+    <link rel="stylesheet" href="/assets/css/globals.css" />
+    <script src="/components/footer.js"></script>
+
+    <script defer>
+      const logout = async () => {
+        const response = await fetch("/api/auth/logout", {
+          method: "POST",
+        });
+
+        if (response.ok) {
+          window.location.href = "/app";
+        }
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          logout();
+        }, 2000);
+      });
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <p>Estamos cerrando tu sesión...</p>
+    </main>
+    <viajeros-solos-footer></viajeros-solos-footer>
+  </body>
+</html>

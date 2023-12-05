@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((businesses) => {
       const container = document.getElementById("businesses-container");
+      container.innerHTML = "";
 
       for (let i = 0; i < businesses.length; i++) {
         let ratings = "Sin valoraciones";
