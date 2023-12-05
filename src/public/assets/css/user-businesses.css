@@ -3,9 +3,9 @@
 }
 
 .img-header {
-  background: url(/assets/images/squirrel.jpg);
+  background: url(/assets/images/bg-birds.jpg);
   background-size: cover;
-  background-position: center;
+  
   height: 400px;
 }
 
@@ -19,7 +19,7 @@
 
 #businesses-container {
   display: flex;
-  flex-direction: column;
+  
   gap: 2rem;
 }
 
@@ -54,10 +54,11 @@
 }
 
 .business-card {
+  width: 30%;
   border-radius: 0.25rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.2)
 }
 
 .business-card-title-container {

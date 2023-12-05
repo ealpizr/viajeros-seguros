@@ -10,6 +10,13 @@ body {
   background: url("/assets/images/CR-beach.jpg") no-repeat;
   background-size: cover;
   background-position: center;
+  height: 400px;
+}
+.background2 {
+  background: url("/assets/images/CR-beach.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  
 }
 
 /*Efectos menu*/
@@ -57,6 +64,11 @@ body {
 }
 
 /*b-details detalles del negocio*/
+.b-details{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 
 .b-title {
   margin-top: 50px;
@@ -109,9 +121,9 @@ body {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 .text-1 {
-  color: #000000;
+  color: white;
   margin-left: 25px;
-  background: transparent;
+  background: #00000087;
   border: 2px solid rgba(45, 158, 22, 0.5);
   border-radius: 10px;
   backdrop-filter: blur(50px);
@@ -168,7 +180,7 @@ body {
   height: 5px;
   background: #ccc;
   width: 100%;
-  margin: 20px 0 50px;
+  margin: 20px 0 5px;
 }
 .calendar {
   text-align: center;
@@ -188,10 +200,14 @@ body {
 .position-calendar {
   padding: 10px;
 }
+.reviews{
+  display: flex;
+  width: 100%;
+}
 .check-form {
   margin: 30px 0;
   background: #fff;
-  box-shadow: -3px 0px 3px 0px;
+  box-shadow: 1px 1px 1px 1px;
   border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
@@ -215,7 +231,8 @@ body {
   outline: none;
   color: white;
   padding: 18;
-  width: 350px;
+  width: 200px;
+  height: 50px;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
@@ -264,6 +281,9 @@ body {
   filter: hue-rotate(90deg);
   transform: scale(1.03);
 }
+.size2{
+  font-size: x-large;
+}
 
 /* SCROLL STYLES */
 html {
@@ -282,4 +302,9 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track {
   background-color: #ffffff;
+}
+.calendar-center{
+  width: fit-content;
+  margin: 0 auto;
+
 }
