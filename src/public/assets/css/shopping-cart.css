@@ -113,8 +113,8 @@ body {
 }
 
 .left {
-  padding: 10px;
-  text-align: left;
+  padding: 5px;
+  text-align: center;
 }
 
 .car {
@@ -149,6 +149,14 @@ body {
 
 .margin-bottom {
   margin-bottom: 5px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+select {
+  font-size: 16px;
 }
 
 @media (max-width: 767px) {
@@ -198,32 +206,32 @@ body {
 
 
   .item-container .item-1 .price-item {
-    
+
     font-size: 19px;
-}
+  }
 
 
 
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
-}
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #aad576 #f1f1f1;
+  }
 
-html::-webkit-scrollbar {
-  width: 12px;
-}
+  html::-webkit-scrollbar {
+    width: 12px;
+  }
 
-html::-webkit-scrollbar-thumb {
-  background-color: #aad576;
-  border-radius: 10px;
-}
+  html::-webkit-scrollbar-thumb {
+    background-color: #aad576;
+    border-radius: 10px;
+  }
 
-html::-webkit-scrollbar-track {
-  background-color: #ffffff;
-}
+  html::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
 
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
-}
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #aad576 #f1f1f1;
+  }
 }

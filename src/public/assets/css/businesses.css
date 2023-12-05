@@ -140,7 +140,7 @@ th {
     padding-right: 0;
   }
   .user{
-    width: 30%;
+    display:none;
   }
 }
 
