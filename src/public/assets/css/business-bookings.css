@@ -12,6 +12,8 @@
 main {
   max-width: 800px;
   margin: 100px auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
@@ -39,15 +41,28 @@ th {
   background-color: #73a942;
   color: #fff;
 }
+
 @media (max-width: 767px) {
   .img-header {
     font-size: 13px;
-    padding-top: 75px;
+    padding-top: 90px;
+    column-gap: 30px;
   }
+
   select {
     padding: 5px;
     font-size: 16px;
   }
+
+  main {
+    max-width: 500px;
+  }
+
+  select {
+    display: flex;
+    column-gap: 30px;
+  }
+ 
 }
 
 html {

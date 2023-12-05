@@ -20,6 +20,7 @@ body {
 
 .table-container {
   overflow: scroll;
+  margin-bottom: 70px;
 }
 
 .menu a {
@@ -92,7 +93,7 @@ table {
 }
 
 .user {
-  width: 2%;
+  width: 4%;
   padding-left: 10px;
   vertical-align: middle;
 }
@@ -137,6 +138,9 @@ th {
   }
   .search {
     padding-right: 0;
+  }
+  .user{
+    width: 30%;
   }
 }
 
