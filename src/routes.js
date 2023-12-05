@@ -1,44 +1,52 @@
-import bcrypt from "bcrypt";
 import express from "express";
 import {
+  approveBusiness,
+  denyBusiness,
   listBusinesses as listAdminBusinesses,
   listUnapprovedBusinesses,
   listUsers,
 } from "./api/admin.js";
-import { login, signup } from "./api/auth.js";
+import {
+  forgotPassword,
+  login,
+  logout,
+  resetPassword,
+  signup,
+} from "./api/auth.js";
+import { listBusinessReservations } from "./api/business-bookings.js";
 import {
   businessDetails,
   createNewBusiness,
   listBusinesses,
 } from "./api/businesses.js";
+import { listCategories } from "./api/categories.js";
 import { listPaymentMethods } from "./api/payment-methods.js";
-import { getCurrentUser } from "./api/users.js";
-
-import { listReservations} from "./api/reservations.js";
-import { listBusinessReservations } from "./api/business-bookings.js";
+import { listReservations } from "./api/reservations.js";
+import { getCurrentUser, listUserBusinesses } from "./api/users.js";
+import upload from "./middleware/multer.js";
 
 const authRouter = express.Router();
-authRouter.post("/signup", signup);
+authRouter.post("/signup", upload.single("photo"), signup);
 authRouter.post("/login", login);
+authRouter.post("/logout", logout);
+authRouter.post("/forgot-password", forgotPassword);
+authRouter.post("/reset-password", resetPassword);
 
 const adminRouter = express.Router();
 adminRouter.get("/businesses", listAdminBusinesses);
+adminRouter.post("/businesses/:id/approve", approveBusiness);
+adminRouter.post("/businesses/:id/deny", denyBusiness);
 adminRouter.get("/unapproved-businesses", listUnapprovedBusinesses);
 adminRouter.get("/users", listUsers);
-adminRouter.post("/hash", async (req, res) => {
-  const { password } = req.body;
-  const salt = await bcrypt.genSalt(10);
-  const passwordHash = await bcrypt.hash(password, salt);
-  res.json({ passwordHash, salt });
-});
 
-const usersRouter = express.Router();
-usersRouter.get("/me", getCurrentUser);
+const userRouter = express.Router();
+userRouter.get("/", getCurrentUser);
+userRouter.get("/businesses", listUserBusinesses);
 // /api/users/me
 
 const businessesRouter = express.Router();
 businessesRouter.get("/", listBusinesses);
-businessesRouter.post("/", createNewBusiness);
+businessesRouter.post("/", upload.array("images[]"), createNewBusiness);
 businessesRouter.get("/:id", businessDetails);
 
 const paymentMethodsRouter = express.Router();
@@ -48,14 +56,16 @@ const reservationsRouter = express.Router();
 reservationsRouter.get("/", listReservations);
 reservationsRouter.get("/", listBusinessReservations);
 
+const categoriesRouter = express.Router();
+categoriesRouter.get("/", listCategories);
+
 // Router principal
 const appRouter = express.Router();
 appRouter.use("/auth", authRouter);
 appRouter.use("/admin", adminRouter);
-appRouter.use("/users", usersRouter);
+appRouter.use("/me", userRouter);
 appRouter.use("/businesses", businessesRouter);
 appRouter.use("/payment-methods", paymentMethodsRouter);
-appRouter.use("/reservations", reservationsRouter); 
-
-
+appRouter.use("/reservations", reservationsRouter);
+appRouter.use("/categories", categoriesRouter);
 export default appRouter;

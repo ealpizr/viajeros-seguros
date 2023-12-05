@@ -1,5 +1,9 @@
 body {
   font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background-color: #fbfcff;
 }
 
 * {
@@ -140,6 +144,7 @@ div a {
 }
 
 .businesses-container {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

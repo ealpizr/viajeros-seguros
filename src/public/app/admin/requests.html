@@ -1,37 +1,35 @@
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/requests.css">
+    <link rel="stylesheet" href="/assets/css/requests.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/js/requests.js" defer></script>
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <title>Solicitudes | Viajeros Solos</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <viajeros-solos-header></viajeros-solos-header>
     <div class="background">
-        <div class="title-container">
-            <h1 class="padding">Solicitudes de negocios</h1>
-            <select class="button-style">
-                <option value="todos">Todas</option>
-                <option value="viejos">Viejas</option>
-                <option value="nuevos">Nuevas</option>
-            </select>
-        </div>
+      <div class="title-container">
+        <h1 class="padding">Solicitudes de negocios</h1>
+        <select class="button-style">
+          <option value="todos">Todas</option>
+          <option value="viejos">Viejas</option>
+          <option value="nuevos">Nuevas</option>
+        </select>
+      </div>
     </div>
-    <div class="gallery" id="requests">
-        
-
-    </div>
-
+    <div class="gallery" id="requests"></div>
 
     <viajeros-solos-footer></viajeros-solos-footer>
-</body>
-
+  </body>
 </html>

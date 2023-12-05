@@ -1,5 +1,9 @@
 import bcrypt from "bcrypt";
+import emailTransporter from "../email.js";
 import User from "../schemas/user.js";
+import forgotPasswordValidationSchema from "../validation/forgot-password.js";
+import loginValidationSchema from "../validation/login.js";
+import resetPasswordValidationSchema from "../validation/reset-password.js";
 import signUpValidationSchema from "../validation/signup.js";
 
 export async function signup(req, res) {
@@ -10,6 +14,16 @@ export async function signup(req, res) {
       statusCode: 400,
       error: "Bad request",
       message: error.message,
+      code: `${error.details[0].path}.${error.details[0].type}`,
+    });
+  }
+
+  if (!req.file) {
+    return res.status(400).json({
+      statusCode: 400,
+      error: "Bad request",
+      message: "profile picture is required",
+      code: "photo.any.required",
     });
   }
 
@@ -21,10 +35,14 @@ export async function signup(req, res) {
       identification: data.identification,
       firstName: data.firstName,
       lastName: data.lastName,
+      dateOfBirth: data.dateOfBirth,
       email: data.email,
       passwordHash: passwordHash,
       passwordSalt: salt,
+      homeAddress: data.homeAddress,
+      phoneNumber: data.phoneNumber,
       role: "Viajero",
+      profilePicture: req.file.filename,
       paymentMethods: [],
       reservations: [],
     });
@@ -46,25 +64,136 @@ export async function signup(req, res) {
   }
 }
 
-export function login(req, res) {
-  // Validar que el usuario me envie el cuerpo del request
-  // en formato JSON y que tenga username y password
-  if (!req.body || !req.body.email || !req.body.password) {
+export async function login(req, res) {
+  const { error, value: data } = loginValidationSchema.validate(req.body);
+  const unautorizedResponse = {
+    statusCode: 401,
+    error: "Unauthorized",
+    message: "Invalid credentials",
+  };
+
+  if (error) {
     return res.status(400).json({
-      message: "Invalid request",
+      statusCode: 400,
+      error: "Bad request",
+      message: error.message,
     });
   }
 
-  const email = req.body.email;
-  const password = req.body.password;
+  const userLogin = await User.findOne(
+    { email: data.email },
+    "passwordHash passwordSalt role"
+  ).exec();
 
-  if (email == "admin@admin.com" && password == "admin") {
-    res.status(200).json({
-      message: "Login successful",
+  if (!userLogin) {
+    return res.status(401).json(unautorizedResponse);
+  }
+
+  const passwordHash = await bcrypt.hash(data.password, userLogin.passwordSalt);
+
+  if (passwordHash !== userLogin.passwordHash) {
+    return res.status(401).json(unautorizedResponse);
+  }
+
+  req.session.user = {
+    id: userLogin._id,
+    role: userLogin.role,
+  };
+
+  res.json(req.session);
+}
+
+export async function logout(req, res) {
+  req.session.destroy();
+
+  res.json({
+    statusCode: 200,
+    message: "Logged out successfully",
+  });
+}
+
+export async function forgotPassword(req, res) {
+  const { error, value: data } = forgotPasswordValidationSchema.validate(
+    req.body
+  );
+
+  if (error) {
+    return res.status(400).json({
+      statusCode: 400,
+      error: "Bad request",
+      message: error.message,
+      code: `${error.details[0].path}.${error.details[0].type}`,
     });
-  } else {
-    res.status(401).json({
+  }
+
+  const newPassword = Math.random().toString(36).slice(-8);
+  const salt = await bcrypt.genSalt(10);
+  const passwordHash = await bcrypt.hash(newPassword, salt);
+
+  const user = await User.findOneAndUpdate(
+    { email: data.email },
+    { passwordHash, passwordSalt: salt }
+  ).exec();
+
+  if (user) {
+    await emailTransporter.sendMail({
+      from: '"Viajeros Solos" <viajeros.solos@ealpizar.com>',
+      to: data.email,
+      subject: "Nueva contraseña",
+      html: `
+        <div style="text-align: center;">
+          <img src="https://raw.githubusercontent.com/cenfotec-codexpress/viajeros-solos/main/src/public/assets/images/logo-green.png" alt="Viajeros Solos Logo" style="max-width: 350px;">
+          <h2 style="color: #008000;">Nueva Contraseña</h2>
+          <p style="font-size: 16px;">Hola ${user.firstName}, tu nueva contraseña es: <br/><strong>${newPassword}</strong></p>
+        </div>
+      `,
+    });
+  }
+
+  return res.status(200).json({
+    statusCode: 200,
+    message: "If email exists, a new password has been sent to it",
+  });
+}
+
+export async function resetPassword(req, res) {
+  const { error, value: data } = resetPasswordValidationSchema.validate(
+    req.body
+  );
+
+  if (error) {
+    return res.status(400).json({
+      statusCode: 400,
+      error: "Bad request",
+      message: error.message,
+      code: `${error.details[0].path}.${error.details[0].type}`,
+    });
+  }
+
+  const user = await User.findById(req.session.user.id).exec();
+  const oldPasswordHash = await bcrypt.hash(
+    data.oldPassword,
+    user.passwordSalt
+  );
+
+  if (oldPasswordHash !== user.passwordHash) {
+    return res.status(401).json({
+      statusCode: 401,
+      error: "Unauthorized",
       message: "Invalid credentials",
     });
   }
+
+  const salt = await bcrypt.genSalt(10);
+  const newPasswordHash = await bcrypt.hash(data.password, salt);
+
+  await User.findByIdAndUpdate(req.session.user.id, {
+    passwordHash: newPasswordHash,
+    passwordSalt: salt,
+  }).exec();
+
+  res.status(200).json({
+    statusCode: 200,
+    message: "Password changed successfully",
+  });
 }

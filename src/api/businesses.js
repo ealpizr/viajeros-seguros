@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 import Business from "../schemas/business.js";
-
-// Despues lo vamos a sacar de la sesion del usuario
-const userId = "65655817c7cfd62135ae90a4";
+import newBusiness from "../validation/new-business.js";
 
 function calculateRatingAverage(reviews) {
   // [5, 4, 3, 5, ...]
@@ -67,27 +65,34 @@ export async function businessDetails(req, res) {
 }
 
 export async function createNewBusiness(req, res) {
-  try {
-    const { name, address, categoriesIds, description, images } = req.body;
-
-    const business = new Business({
-      _id: new mongoose.Types.ObjectId(),
-      name,
-      owner: userId,
-      address,
-      categories: categoriesIds,
-      description,
-      images,
-      isApproved: false,
+  const { error, value: data } = newBusiness.validate(req.body);
+  if (error) {
+    return res.status(400).json({
+      statusCode: 400,
+      error: "Bad request",
+      message: error.message,
+      code: `${error.details[0].path}.${error.details[0].type}`,
     });
-
-    await business.save();
-
-    res.status(201).json(business);
-  } catch (error) {
-    console.error(error);
-
-    res.status(500).json({ error: "Error al crear un nuevo negocio" });
   }
+
+  const business = new Business({
+    _id: new mongoose.Types.ObjectId(),
+    name: data.name,
+    owner: req.session.user.id,
+    address: data.address,
+    category: data.categoryId,
+    description: data.description,
+    images: req.files.map((file) => file.filename),
+    phoneNumber: data.phone,
+    price: data.price,
+    isApproved: false,
+  });
+
+  await business.save();
+
+  res.status(201).json({
+    code: 201,
+    message: "Business created successfully",
+    businessId: business._id,
+  });
 }
-//reviews agregar objeto

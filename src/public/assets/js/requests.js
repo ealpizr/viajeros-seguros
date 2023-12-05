@@ -1,8 +1,27 @@
-function approve(id) {
-  alert("Aprobar: " + id);
-}
-function deny(id) {
-  alert("Rechazar: " + id);
+async function approveOrDeny(id, action) {
+  const displayInfAction = action === "approve" ? "aprobar" : "rechazar";
+  const displayAction = action === "approve" ? "aprobado" : "rechazado";
+
+  const response = await fetch(`/api/admin/businesses/${id}/${action}`, {
+    method: "POST",
+  });
+
+  if (!response.ok) {
+    return Swal.fire({
+      icon: "error",
+      text: `Hubo un problema al ${displayInfAction} el negocio`,
+      confirmButtonColor: "#73a942",
+    });
+  }
+
+  Swal.fire({
+    icon: "success",
+    text: `Negocio ${displayAction}`,
+    confirmButtonColor: "#73a942",
+    didClose: () => {
+      window.location.reload();
+    },
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,29 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
           const element = `
                     <div class="request ">
                     <div class="slider-item">
-                        <button class="arrow prev">&#10094;</button>
-                        <img src="/assets/images/jacuzzi-new.jpg" alt="Imagen del negocio">
-                        <button class="arrow next">&#10095;</button>
+                        <img src="/uploads/${businesses[i].image}" alt="Imagen del negocio">
                     </div>
                     <h2>Nombre del Negocio: ${businesses[i].name} </h2>
                     <p>Dirección: ${businesses[i].address}</p>
-                    <p>Categoría: ${businesses[i].categories}</p>
+                    <p>Categoría: ${businesses[i].categories.name}</p>
                     <p>Teléfono: ${businesses[i].phone}</p>
                     <p>Precio: ${businesses[i].price}</p>
                     <p>Descripción: ${businesses[i].description}</p>
                     <div class="buttons">
-                        <button onclick="approve('${businesses[i].id}')" class="approve">Aceptar</button>
-                        <button onclick="deny('${businesses[i].id}')"class="decline">Rechazar</button>
+                        <button onclick="approveOrDeny('${businesses[i].id}', 'approve')" class="approve">Aceptar</button>
+                        <button onclick="approveOrDeny('${businesses[i].id}', 'deny')"class="decline">Rechazar</button>
                     </div>
                 </div>
               `;
 
-                    table.insertAdjacentHTML("beforeend", element);
-                }
-            });
-        })
-        .catch((error) => {
-            alert("Hubo un problema al cargar los usuarios");
-            console.error(error);
-        });
+          table.insertAdjacentHTML("beforeend", element);
+        }
+      });
+    })
+    .catch((error) => {
+      alert("Hubo un problema al cargar los usuarios");
+      console.error(error);
+    });
 });
