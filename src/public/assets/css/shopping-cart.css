@@ -9,6 +9,9 @@ body {
   flex-direction: column;
   min-height: 100%;
 }
+.padding-top{
+  padding-top: 15px;
+}
 
 .img-header {
   background: url(/assets/images/bird.jpg);
@@ -83,7 +86,7 @@ body {
 
 .button-item {
   border: none;
-  background-color: #73a942;
+  background-color: var(--accent-color);
   color: white;
   padding: 15px 10px;
   border-radius: 6px;
@@ -92,9 +95,8 @@ body {
   width: 25%;
   cursor: pointer;
 }
-
 .button-item:hover {
-  background-color: #000000;
+background-color: #335c02;
 }
 
 .center {
@@ -133,24 +135,28 @@ body {
 }
 
 .btn-pay {
-  display: block;
-  background-color: #aad576;
-  padding: 10 30px;
-  font-size: 20px;
-  border-radius: 3px;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: var(--accent-color) 1px solid;
+  color: var(--accent-color);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .btn-pay:hover {
-  background-color: #ddffbe;
-  padding: 10 30px;
-  font-size: 20px;
-  cursor: pointer;
+  background-color: var(--accent-color);
+  color: white;
 }
 
+
 .margin-bottom {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 label {
@@ -203,12 +209,16 @@ select {
   .button-item {
     font-size: 9px;
     padding: 13px;
+
   }
 
   .item-container .item-1 .price-item {
     font-size: 19px;
   }
-
+  .btn-pay {
+    display: block;
+    margin-bottom: 6px;
+  }
   html {
     scrollbar-width: thin;
     scrollbar-color: #aad576 #f1f1f1;

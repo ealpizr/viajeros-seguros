@@ -1,55 +1,56 @@
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administración | Viajeros Solos</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/globals.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
-    <script src="/components/header.js"></script>
-    <script src="/components/footer.js"></script>
-    <script src="/assets/js/admin.js" defer></script>
-  </head>
 
-  <body>
-    <viajeros-solos-header></viajeros-solos-header>
-    <div class="img-header">
-      <h1>Administración</h1>
-    </div>
-    <div class="container">
-      <div class="w-50 widgets-container">
-        <div class="users radius padding font-2">
-          <p>Usuarios</p>
-          <div class="count-widget">
-            <div class="widget-icon">
-              <img class="w-15" src="/assets/images/user.png" />
-            </div>
-            <p id="user-count">Cargando...</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administración | Viajeros Solos</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/globals.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/assets/js/admin.js" defer></script>
+</head>
+
+<body>
+  <viajeros-solos-header></viajeros-solos-header>
+  <div class="img-header">
+    <h1>Administración</h1>
+  </div>
+  <div class="container">
+    <div class="w-50 widgets-container">
+      <div class="users radius padding font-2">
+        <p>Usuarios</p>
+        <div class="count-widget">
+          <div class="widget-icon">
+            <img class="w-15" src="/assets/images/user.png" />
           </div>
-        </div>
-        <div class="users radius padding font-2">
-          <p>Negocios</p>
-          <div class="count-widget">
-            <div class="widget-icon">
-              <img class="w-15" src="/assets/images/business.png" />
-            </div>
-            <p id="businesses-count">Cargando...</p>
-          </div>
+          <p id="user-count">Cargando...</p>
         </div>
       </div>
-      <div class="w-50 widgets-container">
-        <div class="users radius padding margin-right font-2">
-          <p>Solicitudes de aprobación de negocio</p>
-          <a href="requests" class="bg-gray margin-left lists"
-            >Ver solicitudes</a
-          >
+      <div class="users radius padding font-2">
+        <p>Negocios</p>
+        <div class="count-widget">
+          <div class="widget-icon">
+            <img class="w-15" src="/assets/images/business.png" />
+          </div>
+          <p id="businesses-count">Cargando...</p>
         </div>
-        <div class="users radius padding font-2">
+      </div>
+    </div>
+    <div class="w-50 widgets-container">
+      <div class="users radius padding font-2">
+        <p>Solicitudes de aprobación de negocio</p>
+        <a href="requests" class=" btn-pay ">Ver solicitudes</a>
+        <div class="users radius  font-2">
           <p>Reportes</p>
-          <a href="users" class="bg-gray lists"> Listado de usuarios</a>
-          <a href="businesses" class="bg-gray lists"> Listado de negocios</a>
+          <a href="users" class="btn-pay"> Listado de usuarios</a>
+          <a href="businesses" class="btn-pay"> Listado de negocios</a>
         </div>
       </div>
+      
     </div>
-    <viajeros-solos-footer></viajeros-solos-footer>
-  </body>
+  </div>
+  <viajeros-solos-footer></viajeros-solos-footer>
+</body>
+
 </html>
