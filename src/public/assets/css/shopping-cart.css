@@ -49,7 +49,11 @@ body {
 
 .title-item {
   font-weight: bold;
-  width: 50%;
+  width: 30%;
+}
+
+.date-item {
+  width: 20%;
 }
 
 .container-1 .item-container .item-1 {
@@ -71,7 +75,6 @@ body {
   box-shadow: 0 0 10px #73a942;
   scale: 1.05;
 }
-
 
 .item-container .item-1 .price-item {
   display: block;
@@ -168,7 +171,7 @@ select {
   .car {
     margin-top: 30px;
     margin-bottom: 20px;
-    align-items: center
+    align-items: center;
   }
 
   .container {
@@ -201,7 +204,6 @@ select {
 
   .w-30 {
     width: 50%;
-
   }
 
   .button-item {
@@ -210,17 +212,17 @@ select {
 
   }
 
-
   .item-container .item-1 .price-item {
-
     font-size: 19px;
   }
   .btn-pay {
     display: block;
     margin-bottom: 6px;
   }
-
-
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #aad576 #f1f1f1;
+  }
   html {
     scrollbar-width: thin;
     scrollbar-color: #aad576 #f1f1f1;

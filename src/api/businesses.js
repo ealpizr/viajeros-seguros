@@ -47,6 +47,14 @@ export async function businessDetails(req, res) {
     const { id } = req.params;
 
     Business.findById(id)
+      .populate({
+        path: "owner",
+        select: "profilePicture",
+      })
+      .populate({
+        path: "reservations",
+        select: "day",
+      })
       .exec()
       .then(function (business) {
         res.json({
@@ -55,7 +63,11 @@ export async function businessDetails(req, res) {
           address: business.address,
           price: business.price,
           rating: calculateRatingAverage(business.reviews),
-          // agregar campos adicionales
+          images: business.images,
+          ownerPicture: business.owner.profilePicture,
+          bookedDates: business.reservations.map(
+            (r) => r.day.toISOString().split("T")[0]
+          ),
         });
       });
   } catch (e) {

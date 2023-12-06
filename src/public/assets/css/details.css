@@ -6,6 +6,7 @@
 body {
   font-family: "lato", sans-serif;
 }
+
 .background {
   background: url("/assets/images/CR-beach.jpg") no-repeat;
   background-size: cover;
@@ -16,7 +17,18 @@ body {
   background: url("/assets/images/CR-beach.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  
+}
+
+.calendar-disabled {
+  background-color: red;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 /*Efectos menu*/
@@ -64,7 +76,7 @@ body {
 }
 
 /*b-details detalles del negocio*/
-.b-details{
+.b-details {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -182,13 +194,7 @@ body {
   width: 100%;
   margin: 20px 0 5px;
 }
-.calendar {
-  text-align: center;
-  padding-top: 2%;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  width: 500px;
-}
+
 .first-day {
   grid-column-start: 7;
 }
@@ -200,43 +206,11 @@ body {
 .position-calendar {
   padding: 10px;
 }
-.reviews{
+.reviews {
   display: flex;
   width: 100%;
 }
-.check-form {
-  margin: 30px 0;
-  background: #fff;
-  box-shadow: 1px 1px 1px 1px;
-  border-radius: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 10px 50px;
-}
 
-/*putting text on top of box*/
-.check-form label {
-  display: block;
-}
-.check-form div {
-  padding: 20px;
-}
-.check-form input {
-  padding: 15px;
-}
-.check-form button {
-  background: #73a942;
-  border: 0;
-  outline: none;
-  color: white;
-  padding: 18;
-  width: 200px;
-  height: 50px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
 .review {
   text-align: center;
   align-items: center;
@@ -281,8 +255,44 @@ body {
   filter: hue-rotate(90deg);
   transform: scale(1.03);
 }
-.size2{
+.size2 {
   font-size: x-large;
+}
+
+.button {
+  border: none;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: var(--accent-color) 1px solid;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.button:disabled:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.button:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.max-w-300 {
+  max-width: 300px;
 }
 
 /* SCROLL STYLES */
@@ -302,9 +312,4 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track {
   background-color: #ffffff;
-}
-.calendar-center{
-  width: fit-content;
-  margin: 0 auto;
-
 }
