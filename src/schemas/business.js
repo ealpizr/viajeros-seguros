@@ -18,7 +18,7 @@ var businessSchema = mongoose.Schema({
   reviews: [
     {
       _id: mongoose.Schema.Types.ObjectId,
-      userId: mongoose.Schema.Types.ObjectId,
+      userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       rating: Number,
       comment: String,
       date: Date,

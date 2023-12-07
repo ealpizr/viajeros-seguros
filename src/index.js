@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import connectToDB from "./db/connection.js";
 import { testEmailConnection } from "./email.js";
+import authMiddleware from "./middleware/auth.js";
 import appRouter from "./routes.js";
 
 async function main() {
@@ -31,7 +32,7 @@ async function main() {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
 
-    //app.use(authMiddleware);
+    app.use(authMiddleware);
 
     app.use("/uploads", express.static("uploads"));
     app.use(

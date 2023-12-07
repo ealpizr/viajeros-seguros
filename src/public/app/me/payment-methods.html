@@ -1,70 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metodos de pago | Viajeros Solos</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/globals.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/css/payment-methods.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/assets/js/payment-methods.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Metodos de pago | Viajeros Solos</title>
-  <link rel="stylesheet" type="text/css" href="/assets/css/globals.css" />
-  <link rel="stylesheet" type="text/css" href="/assets/css/payment-methods.css" />
-  <script src="/components/header.js"></script>
-  <script src="/components/footer.js"></script>
-  <script src="/assets/js/payment-methods.js"></script>
-</head>
+  <body>
+    <viajeros-solos-header></viajeros-solos-header>
+    <main>
+      <h1 id="h1-methods">Mis Métodos de Pago</h1>
 
-<body>
-  <viajeros-solos-header></viajeros-solos-header>
-  <main>
-    <h1 id="h1-methods">Mis Métodos de Pago</h1>
+      <button class="add-payment" onclick="togglePaymentForm()">
+        Agregar Nuevo Método de Pago
+      </button>
 
-    <div class="inner-layer" id="paymentMethodsContainer">
-      <div class="payment-method" data-type="credit-card">
-        <label>
-          <img src="https://media.discordapp.net/attachments/1121626379084116028/1177656872371757148/credit-card.png"
-            alt="Tarjeta de crédito" />
-          <span>Tarjeta de crédito</span>
-        </label>
-        <div class="payment-details">
-          <p>Nombre: Nombre Apellidos</p>
-          <p>Número de tarjeta: **** **** **** 1234</p>
-          <p>Vencimiento: 12/24</p>
-        </div>
-      </div>
+      <div class="inner-layer" id="paymentMethodsContainer"></div>
 
-      <div class="payment-method" data-type="debit-card">
-        <label>
-          <img src="https://media.discordapp.net/attachments/1121626379084116028/1177656872371757148/credit-card.png"
-            alt="Tarjeta de débito" />
-          <span>Tarjeta de débito</span>
-        </label>
-        <div class="payment-details">
-          <p>Nombre: Nombre Apellidos</p>
-          <p>Número de tarjeta: **** **** **** 5678</p>
-          <p>Vencimiento: 12/25</p>
-        </div>
-      </div>
-
-      <div class="payment-method" data-type="paypal">
-        <label>
-          <img src="https://media.discordapp.net/attachments/1121626379084116028/1177657502947618958/paypal.png"
-            alt="PayPal" />
-          <span>PayPal</span>
-        </label>
-        <div class="payment-details">
-          <p>Correo: correo3@ejemplo.com</p>
-        </div>
-      </div>
-
-    </div>
-
-    <button class="add-payment" onclick="togglePaymentForm()">Agregar Nuevo Método de Pago</button>
-
-
-    <div class="payment-details" id="newPaymentForm" style="display: none;">
-
-    </div>
-  </main>
-  <viajeros-solos-footer></viajeros-solos-footer>
-</body>
-
+      <div
+        class="payment-details"
+        id="newPaymentForm"
+        style="display: none"
+      ></div>
+    </main>
+    <viajeros-solos-footer></viajeros-solos-footer>
+  </body>
 </html>

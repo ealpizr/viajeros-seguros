@@ -49,11 +49,15 @@ export async function businessDetails(req, res) {
     Business.findById(id)
       .populate({
         path: "owner",
-        select: "profilePicture",
+        select: "firstName lastName profilePicture",
       })
       .populate({
         path: "reservations",
         select: "day",
+      })
+      .populate({
+        path: "reviews.userId",
+        select: "firstName lastName",
       })
       .exec()
       .then(function (business) {
@@ -65,6 +69,15 @@ export async function businessDetails(req, res) {
           rating: calculateRatingAverage(business.reviews),
           images: business.images,
           ownerPicture: business.owner.profilePicture,
+          reviews: business.reviews.map((r) => {
+            return {
+              rating: r.rating,
+              comment: r.comment,
+              date: r.date,
+              user: `${r.userId.firstName} ${r.userId.lastName}`,
+            };
+          }),
+          ownerName: `${business.owner.firstName} ${business.owner.lastName}`,
           bookedDates: business.reservations.map(
             (r) => r.day.toISOString().split("T")[0]
           ),
@@ -107,4 +120,30 @@ export async function createNewBusiness(req, res) {
     message: "Business created successfully",
     businessId: business._id,
   });
+}
+
+export async function rateBusiness(req, res) {
+  const { rating, comment } = req.body;
+
+  if (!rating || !comment) {
+    return res.status(400).json({ error: "Required fields missing" });
+  }
+
+  const business = await Business.findById(req.params.id).exec();
+
+  if (!business) {
+    return res.status(404).json({ error: "Business not found" });
+  }
+
+  business.reviews.push({
+    _id: new mongoose.Types.ObjectId(),
+    userId: req.session.user.id,
+    rating,
+    comment,
+    date: new Date(),
+  });
+
+  await business.save();
+
+  res.status(201).json({ message: "Review created successfully" });
 }

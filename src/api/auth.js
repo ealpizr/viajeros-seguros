@@ -100,7 +100,11 @@ export async function login(req, res) {
     role: userLogin.role,
   };
 
-  res.json(req.session);
+  res.status(200).json({
+    status: 200,
+    message: "Logged in successfully",
+    role: userLogin.role,
+  });
 }
 
 export async function logout(req, res) {

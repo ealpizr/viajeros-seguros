@@ -72,9 +72,6 @@ function createBusinessCardElement(business) {
     <div class="business-card-section">
       <div class="business-card-title-container">
         <h2>${business.name}</h2>
-        <a class="edit-button" href="/business/edit/${business.id}">
-          <img src="/assets/icons/edit-icon.svg" />
-        </a>
       </div>
       <p class="text-secondary">${business.description}</p>
       <p class="text-secondary">${business.address}</p>

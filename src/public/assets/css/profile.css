@@ -195,7 +195,7 @@ ul {
   visibility: visible;
 }
 
-.passbutton:hover .changepass-text{
+.passbutton:hover .changepass-text {
   cursor: pointer;
   border-radius: 5px;
   background-color: #309b76;
@@ -221,7 +221,7 @@ ul {
 
 .passbutton:hover .changepass-text::before,
 .passbutton:hover .changepass-text::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   border-style: solid;
@@ -234,8 +234,6 @@ ul {
   border-width: 0 8px 8px 8px;
   border-color: transparent transparent #309b76 transparent;
 }
-
-
 
 @media (max-width: 750px) {
   .profile-user .information {

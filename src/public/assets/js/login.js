@@ -48,6 +48,9 @@ async function login() {
   });
 
   if (response.status === 200) {
+    const body = await response.json();
+
+    localStorage.setItem("role", body.role);
     window.location.href = "/app";
   } else {
     Swal.fire({

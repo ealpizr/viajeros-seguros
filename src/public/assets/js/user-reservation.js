@@ -18,22 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
             <img class="reservation-thumbnail" src="/assets/images/hotel.jpg" />
             <h3>Nombre: ${businesses[i].businessId.name}</h3>
             <p>Descripción: ${businesses[i].businessId.description}</p>
-            <p class="black">Fechas:</p>
+            <p class="black">Fecha:<br/>${new Date(
+              businesses[i].day
+            ).toLocaleDateString("es-CR")}</p>
         
-            ${businesses[i].days
-              .map((d) => new Date(d).toLocaleDateString("es-CR"))
-              .map((d) => `<p>${d}</p>`)
-              .join("")}
-        
-            <p class="black">Cantidad de días: ${businesses[i].numberOfDays}</p>
-        
-            <p class="black">Precio por día: ${formatPrice(
-              businesses[i].dailyPrice
-            )}</p>
-        
-            <p class="black">Precio Total: ${formatPrice(
-              businesses[i].totalPrice
-            )}</p>
+            <p class="black">Precio: ${formatPrice(businesses[i].totalPaid)}</p>
+
+            <button class="rate-btn" onclick="rate('${
+              businesses[i].businessId._id
+            }')">Calificar</button>
           </div>
         </div>        
         `;
@@ -47,3 +40,38 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error(error);
     });
 });
+
+async function rate(businessId) {
+  Swal.fire({
+    html: `
+    <input id="swal-input1" style="min-width: 250px;" class="swal2-input" placeholder="Calificación" type="number" min="1" max="5">
+    <input id="swal-input2" class="swal2-input" placeholder="Comentario" type="text">
+    `,
+    preConfirm: async () => {
+      Swal.showLoading();
+
+      const rating = parseInt(document.getElementById("swal-input1").value);
+      const comment = document.getElementById("swal-input2").value;
+
+      const response = await fetch(`/api/businesses/${businessId}/rate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ rating, comment }),
+      });
+
+      if (response.status !== 201) {
+        return Swal.fire({
+          icon: "error",
+          html: "Hubo un error al calificar el negocio<br/> Intente de nuevo",
+        });
+      }
+
+      Swal.fire({
+        icon: "success",
+        html: "El negocio ha sido calificado con éxito",
+      });
+    },
+  });
+}

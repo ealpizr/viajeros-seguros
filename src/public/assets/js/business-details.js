@@ -58,12 +58,40 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
       document.getElementById("pictures").innerHTML = business.images
-        .map((i) => `<div><img src="/uploads/${i}" alt="${business.name}"></div>`)
+        .map(
+          (i) => `<div><img src="/uploads/${i}" alt="${business.name}"></div>`
+        )
         .join("");
+
+      if (business.reviews.length === 0) {
+        document.getElementById("reviews-container").innerHTML += `
+            <div class="profile-review">
+              <p class="text-1-review">
+                No hay reseñas
+              </p>
+            </div>
+            `;
+      }
+
+      document.getElementById("reviews-container").innerHTML +=
+        business.reviews.map(
+          (r) => `
+          <div class="profile-review">
+            <p class="text-1-review">
+              ${r.comment} (${r.rating} estrellas)<br />
+              <span class="review-info">${r.user} (${new Date(
+            r.date
+          ).toLocaleDateString("es-CR")})</span>
+            </p>
+          </div>
+          `
+        );
 
       document.getElementById(
         "owner-picture"
       ).src = `/uploads/${business.ownerPicture}`;
+
+      document.getElementById("owner-name").innerText = business.ownerName;
     });
 });
 

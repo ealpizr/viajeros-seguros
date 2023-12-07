@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/index.js --ignore 'src/public/*'",
     "prod": "node src/index.js"
   },
   "dependencies": {

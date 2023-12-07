@@ -1,53 +1,60 @@
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito | Viajeros Solos</title>
+    <link rel="stylesheet" href="/assets/css/globals.css" />
+    <link rel="stylesheet" href="/assets/css/shopping-cart.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/assets/js/shopping-cart.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito | Viajeros Solos</title>
-  <link rel="stylesheet" href="/assets/css/globals.css" />
-  <link rel="stylesheet" href="/assets/css/shopping-cart.css">
-  <script src="/components/header.js"></script>
-  <script src="/components/footer.js"></script>
-  <script src="/assets/js/shopping-cart.js" defer></script>
-</head>
+  <body>
+    <viajeros-solos-header></viajeros-solos-header>
+    <main>
+      <div class="img-header">
+        <h1>Carrito de compras</h1>
+      </div>
+      <section class="container-1">
+        <div id="cart-container" class="item-container"></div>
 
-<body>
-  <viajeros-solos-header></viajeros-solos-header>
-  <div class="img-header">
-    <h1>Carrito de compras</h1>
-  </div>
-  <section class="container-1 w-70">
-    <div id="cart-container" class="item-container"></div>
-
-    </div>
-    <div class="w-30">
-      <div class="car">
-        <div class="header-car">
-          <h2>Tu Carrito</h2>
-        </div>
-        <div class="total ">
-          <div class="left margin-bottom">
-            <label for="metodoPago">Seleccione Método de Pago:</label>
-            <select class="left">
-              <option value="tarjeta">Tarjeta</option>
-              <option value="nuevoMetodo">Nuevo Método</option>
-            </select>
-            <p>
-              <strong>TU TOTAL: </strong>
-              <span id="total" class="total-price"></span>
-            </p>
-            <div class="center padding-top">
-              <a href="confirmation" class="btn-pay margin-bottom">Reservar</a>
-              <a href="/app" class="btn-pay green margin-bottom">Seguir buscando</a>
+        <div>
+          <div class="car">
+            <div class="header-car">
+              <h2>Tu Carrito</h2>
+            </div>
+            <div class="total">
+              <div class="left margin-bottom">
+                <label for="metodoPago">Seleccione Método de Pago:</label>
+                <select id="payment-methods" class="left">
+                  <option selected hidden>Seleccione un método</option>
+                </select>
+                <p>
+                  <strong>TU TOTAL: </strong>
+                  <span id="total" class="total-price"></span>
+                </p>
+                <div class="center padding-top buttons-container">
+                  <button
+                    disabled
+                    href="confirmation"
+                    class="btn-pay margin-bottom"
+                    id="pay-btn"
+                    onclick="pay();"
+                  >
+                    Reservar
+                  </button>
+                  <a href="/app" class="btn-pay green margin-bottom"
+                    >Seguir buscando</a
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    </div>
-    </div>
-  </section>
-  <viajeros-solos-footer></viajeros-solos-footer>
-</body>
-
+      </section>
+    </main>
+    <viajeros-solos-footer></viajeros-solos-footer>
+  </body>
 </html>

@@ -14,6 +14,10 @@ export default function authMiddleware(req, res, next) {
     return res.redirect("/app/login");
   }
 
+  if (req.url.includes("/admin") && req.session.user.role !== "Administrador") {
+    return res.redirect("/app");
+  }
+
   if (
     req.url.startsWith("/api") &&
     !EXCLUDED_ENDPOINTS.includes(req.url) &&

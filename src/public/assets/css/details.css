@@ -276,17 +276,28 @@ body {
 .max-w-300 {
   max-width: 300px;
 }
-.colort{
+
+.review-info {
+  font-size: 0.85rem;
+  color: #434343;
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.colort {
   border-style: double;
   flex: 1;
   border-radius: 10px;
   background: transparent;
   border: 2px solid rgba(14, 173, 35, 0.5);
-  backdrop-filter:blur(50px);
+  backdrop-filter: blur(50px);
   padding-left: 10px;
   padding-right: 10px;
 }
-.grid{
+.grid {
   display: flex;
   flex-wrap: wrap;
   grid-template-columns: repeat(2, 1fr);
@@ -294,7 +305,7 @@ body {
   width: 100%;
   padding: 20px;
 }
-.grid div{
+.grid div {
   flex: 1;
   aspect-ratio: 3/2;
 }
@@ -311,12 +322,12 @@ body {
 .grid img:hover {
   transform: scale(1.03);
 }
-.flexi{
+.flexi {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 3%;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 
 /* SCROLL STYLES */

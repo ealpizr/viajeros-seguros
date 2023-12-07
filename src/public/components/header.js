@@ -14,38 +14,45 @@ class ViajerosSolosHeader extends HTMLElement {
 
     if (
       window.location.pathname.includes("/app") &&
-      window.location.pathname !== "/app/login"
+      window.location.pathname !== "/app/login" &&
+      window.location.pathname !== "/app/forgot-password"
     ) {
       links = [
         {
           name: "Inicio",
           url: "/app",
           button: false,
+          requiresAdmin: false,
         },
         {
           name: "Administración",
           url: "/app/admin",
           button: false,
+          requiresAdmin: true,
         },
         {
           name: "Mis negocios",
           url: "/app/me/businesses",
           button: false,
+          requiresAdmin: false,
         },
         {
           name: "Carrito de compras",
           url: "/app/shopping-cart",
           button: false,
+          requiresAdmin: false,
         },
         {
           name: "Mi cuenta",
           url: "/app/me/profile",
           button: false,
+          requiresAdmin: false,
         },
         {
           name: "Cerrar sesión",
           url: "/app/logout",
           button: true,
+          requiresAdmin: false,
         },
       ];
     } else {
@@ -57,12 +64,18 @@ class ViajerosSolosHeader extends HTMLElement {
     }
 
     return links
-      .map(
-        (link) =>
-          `<a class="${link.button ? "btn-popup" : "navigation-link"}" href="${
-            link.url
-          }">${link.name}</a>`
-      )
+      .map((link) => {
+        if (
+          link.requiresAdmin &&
+          localStorage.getItem("role") !== "Administrador"
+        ) {
+          return "";
+        }
+
+        return `<a class="${
+          link.button ? "btn-popup" : "navigation-link"
+        }" href="${link.url}">${link.name}</a>`;
+      })
       .join("");
   }
 
