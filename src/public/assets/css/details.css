@@ -17,6 +17,7 @@ body {
   background: url("/assets/images/CR-beach.jpg") no-repeat;
   background-size: cover;
   background-position: center;
+  height: 200px;
 }
 
 .calendar-disabled {
@@ -29,6 +30,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  flex: 1;
 }
 
 /*Efectos menu*/
@@ -97,26 +99,6 @@ body {
 .b-title span {
   margin: 0 20px;
 }
-.gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.gallery div img {
-  width: 400px;
-  height: 300px;
-  border: 2px solid black;
-  border-radius: 13px;
-  box-shadow: 4px 7px 7px 0px black;
-  cursor: pointer;
-  margin: 10px;
-  transition: 40ms;
-}
-.gallery div img:hover {
-  filter: grayscale(1);
-  transform: scale(1.03);
-}
 .profile {
   display: flex;
   flex-wrap: wrap;
@@ -182,6 +164,7 @@ body {
 .details {
   padding-bottom: 25px;
   padding-left: 25px;
+  padding-right: 25px;
 }
 .title-h1 {
   color: #245501;
@@ -208,22 +191,21 @@ body {
 }
 .reviews {
   display: flex;
-  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .review {
   text-align: center;
   align-items: center;
-  padding-bottom: 5%;
-  padding-top: 25px;
 }
 
 .profile-review {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-bottom: 50px;
-  padding-left: 10px;
   flex-direction: column;
 }
 .profile-1-review {
@@ -293,6 +275,48 @@ body {
 
 .max-w-300 {
   max-width: 300px;
+}
+.colort{
+  border-style: double;
+  flex: 1;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid rgba(14, 173, 35, 0.5);
+  backdrop-filter:blur(50px);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+  padding: 20px;
+}
+.grid div{
+  flex: 1;
+  aspect-ratio: 3/2;
+}
+.grid img {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin: 10px;
+  transition: 40ms;
+  height: 100%;
+  object-fit: cover;
+}
+.grid img:hover {
+  transform: scale(1.03);
+}
+.flexi{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 3%;
+  align-items:flex-start;
 }
 
 /* SCROLL STYLES */
