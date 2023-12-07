@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
       document.getElementById("pictures").innerHTML = business.images
-        .map((i) => `<img src="/uploads/${i}" alt="${business.name}">`)
+        .map((i) => `<div><img src="/uploads/${i}" alt="${business.name}"></div>`)
         .join("");
 
       document.getElementById(
