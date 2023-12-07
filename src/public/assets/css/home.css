@@ -103,15 +103,18 @@ body {
 .paddingl {
   margin: 15px;
 }
+
 .text-white {
   color: #fff;
   margin: 10px;
 }
+
 .box {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 10px;
 }
+
 .text-img {
   top: 0;
   width: 100%;
@@ -134,7 +137,7 @@ body {
   border-radius: 10px;
 }
 
-.text-img > a {
+.text-img>a {
   transform: translateY(25px);
   transition: transform 0.6s;
 }
@@ -156,69 +159,6 @@ div a {
 .item-info-container {
   width: 30%;
 }
-
-/* MEDIA */
-
-@media (max-width: 1200px) {
-  .menu-izq {
-    width: auto;
-    padding-left: 0px;
-  }
-
-  .menu-der {
-    width: auto;
-    padding-right: 0px;
-  }
-
-  .col-25 {
-    width: 50%;
-  }
-
-  .item-container {
-    width: 100%;
-  }
-
-  .businesses-container {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  .col-25 {
-    width: 100%;
-  }
-}
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #aad576 #f1f1f1;
-}
-
-html::-webkit-scrollbar {
-  width: 12px;
-}
-
-html::-webkit-scrollbar-thumb {
-  background-color: #aad576;
-  border-radius: 10px;
-}
-
-html::-webkit-scrollbar-track {
-  background-color: #ffffff;
-}
-
-.flex {
-  display: flex;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
 .business-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
@@ -279,3 +219,74 @@ html::-webkit-scrollbar-track {
 .business-rating {
   color: var(--text-secondary);
 }
+
+/* MEDIA */
+
+@media (max-width: 727px) {
+  .business-card {
+    width: calc(50% - 2rem);
+
+  }
+  .business-rating{
+    font-size: 14px;
+  }
+  .menu-izq {
+    width: auto;
+    padding-left: 0px;
+  }
+
+  .menu-der {
+    width: auto;
+    padding-right: 0px;
+  }
+
+  .col-25 {
+    width: 50%;
+  }
+
+  .item-container {
+    width: 100%;
+  }
+
+  .businesses-container {
+    gap: 20px;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .col-25 {
+    width: 100%;
+  }
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #aad576 #f1f1f1;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #aad576;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
