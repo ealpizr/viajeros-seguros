@@ -90,7 +90,8 @@ nav>ul>li a:hover {
 
 .users {
   border-style: solid;
-
+  background-color:#aad576;
+  box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -134,13 +135,13 @@ nav>ul>li a:hover {
   background-color: var(--accent-color);
   color: white;
 }
+
 .btn-buis {
-  
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
   border-radius: 10px;
-  background-color: var(--accent-color);
+  background-color:#78aa49;
   color: white;
   font-weight: 700;
   text-align: center;
@@ -168,7 +169,7 @@ nav>ul>li a:hover {
 
 
 .btn-pay:hover {
-  background-color: #335c02;
+  background-color: #3b6902;
 }
 
 .font {
@@ -188,7 +189,7 @@ nav>ul>li a:hover {
 }
 
 .radius {
-  border-radius: 20px;
+  border-radius: 6px;
 }
 
 .padding {
