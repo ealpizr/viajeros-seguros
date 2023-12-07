@@ -183,6 +183,60 @@ ul {
   transform: scale(1.4);
 }
 
+.changepass-text {
+  visibility: hidden;
+}
+
+.passbutton {
+  text-align: center;
+}
+
+.passbutton:hover .changepass-text {
+  visibility: visible;
+}
+
+.passbutton:hover .changepass-text{
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #309b76;
+  padding: 4px;
+  margin-top: 20px;
+}
+
+.passbutton {
+  position: relative;
+}
+
+.passbutton:hover .changepass-text {
+  cursor: pointer;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background-color: #309b76;
+  padding: 4px;
+  color: #fff;
+}
+
+.passbutton:hover .changepass-text::before,
+.passbutton:hover .changepass-text::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-style: solid;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.passbutton:hover .changepass-text::after {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #309b76 transparent;
+}
+
+
+
 @media (max-width: 750px) {
   .profile-user .information {
     width: 100%;
