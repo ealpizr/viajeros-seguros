@@ -168,6 +168,10 @@ main {
   width: 50%;
 }
 
+.h-20 {
+  min-height: 5vh;
+}
+
 .testimonials div {
   flex: 1;
   display: flex;
