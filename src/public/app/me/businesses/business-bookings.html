@@ -12,24 +12,26 @@
 
   <body>
     <viajeros-solos-header></viajeros-solos-header>
-    <div class="img-header">
-      <h1>Reservaciones de mis negocios</h1>
-    </div>
-    <main>
-      <div class="center">
-        <label for="select">Seleccionar Negocio:</label>
-        <select id="select">
-          <option selected hidden>Seleccione un negocio</option>
-        </select>
+    <div class="flex-1">
+      <div class="img-header">
+        <h1>Reservaciones de mis negocios</h1>
       </div>
+      <main>
+        <div class="center">
+          <label for="select">Seleccionar Negocio:</label>
+          <select id="select">
+            <option selected hidden>Seleccione un negocio</option>
+          </select>
+        </div>
 
-      <table id="business-bookings">
-        <tr>
-          <th>Cliente</th>
-          <th>Días de reserva</th>
-        </tr>
-      </table>
-    </main>
+        <table id="business-bookings">
+          <tr>
+            <th>Cliente</th>
+            <th>Días de reserva</th>
+          </tr>
+        </table>
+      </main>
+    </div>
     <viajeros-solos-footer></viajeros-solos-footer>
   </body>
 </html>

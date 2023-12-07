@@ -1,3 +1,17 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  flex: 1;
+}
+
 .wrapper {
   padding: 1rem;
 }
@@ -5,7 +19,7 @@
 .img-header {
   background: url(/assets/images/bg-birds.jpg);
   background-size: cover;
-  
+
   height: 400px;
 }
 
@@ -19,7 +33,7 @@
 
 #businesses-container {
   display: flex;
-  
+
   gap: 2rem;
 }
 
@@ -58,7 +72,7 @@
   border-radius: 0.25rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.2)
+  box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.2);
 }
 
 .business-card-title-container {
