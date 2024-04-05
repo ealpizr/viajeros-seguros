@@ -1,16 +1,17 @@
 <p align="center">
-        <img src="https://raw.githubusercontent.com/cenfotec-codexpress/branding/main/logo-white.png" alt="Logo de Viajeros Solos">
+    <img src="https://raw.githubusercontent.com/cenfotec-codexpress/branding/main/logo-white.png" alt="Viajeros Seguros Application Logo">
 </p>
-<h1 align="center">Viajeros Solos</h1>
 
-This repository contains the source code for Viajeros Solos, a web application designed to address the needs of solo travelers.
+<h1 align="center">Viajeros Seguros</h1>
 
-This project was developed for the first practical project at Cenfotec University.
+Welcome to Viajeros Seguros! This repository contains the source code for Viajeros Seguros, an application designed to enhance the experiences of both travelers and business owners. It is a fork of [Viajeros Seguros](https://github.com/cenfotec-codexpress/viajeros-solos), with some upgrades and most importantly, using SQL Server as the database engine.
+
+We originally developed this project for the first practical project at Cenfotec University. Now, we are rebranding it for another course!
 
 ## Contributing
 
-Pull requests are welcome.
+Contributions are welcome! If you have any ideas for improvements or find any issues, feel free to submit a pull request or open an issue.
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+This project is licensed under the [MIT License](LICENSE).

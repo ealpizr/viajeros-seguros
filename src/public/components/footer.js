@@ -14,7 +14,7 @@ class ViajerosSolosFooter extends HTMLElement {
       }
     </style>
     <footer class="footer">
-        <p>&copy; Viajeros Solos 2023 Todos los derechos reservados.</p>
+        <p>&copy; Viajeros Seguros 2023 Todos los derechos reservados.</p>
     </footer>
     `;
   }

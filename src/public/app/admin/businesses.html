@@ -1,41 +1,44 @@
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Negocios | Viajeros Seguros</title>
+    <link rel="stylesheet" href="/assets/css/businesses.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="shortcut icon"
+      href="/src/public/assets/images/minilogo-viajerossolos.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/assets/js/business-list.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Negocios | Viajeros Solos</title>
-  <link rel="stylesheet" href="/assets/css/businesses.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="shortcut icon" href="/src/public/assets/images/minilogo-viajerossolos.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-  <script src="/components/header.js"></script>
-  <script src="/components/footer.js"></script>
-  <script src="/assets/js/business-list.js" defer></script>
-</head>
+  <body>
+    <viajeros-solos-header></viajeros-solos-header>
+    <div class="wrapper">
+      <div class="header">
+        <div>
+          <h1 class="padding">Negocios</h1>
+        </div>
+      </div>
 
-<body>
-  <viajeros-solos-header></viajeros-solos-header>
-  <div class="wrapper">
-    <div class="header">
-      <div>
-        <h1 class="padding">Negocios</h1>
+      <div class="table-container">
+        <table id="business-table">
+          <tr>
+            <th>Nombre</th>
+            <th>Dueño</th>
+            <th>Categoría</th>
+            <th>Calificación</th>
+          </tr>
+        </table>
       </div>
     </div>
-
-    <div class="table-container">
-      <table id="business-table">
-
-        <tr>
-          <th>Nombre</th>
-          <th>Dueño</th>
-          <th>Categoría</th>
-          <th>Calificación</th>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <viajeros-solos-footer></viajeros-solos-footer>
-</body>
-
+    <viajeros-solos-footer></viajeros-solos-footer>
+  </body>
 </html>

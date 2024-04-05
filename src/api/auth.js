@@ -141,12 +141,12 @@ export async function forgotPassword(req, res) {
 
   if (user) {
     await emailTransporter.sendMail({
-      from: '"Viajeros Solos" <viajeros.solos@ealpizar.com>',
+      from: '"Viajeros Seguros" <viajeros.solos@ealpizar.com>',
       to: data.email,
       subject: "Nueva contraseña",
       html: `
         <div style="text-align: center;">
-          <img src="https://raw.githubusercontent.com/cenfotec-codexpress/viajeros-solos/main/src/public/assets/images/logo-green.png" alt="Viajeros Solos Logo" style="max-width: 350px;">
+          <img src="https://raw.githubusercontent.com/cenfotec-codexpress/viajeros-solos/main/src/public/assets/images/logo-green.png" alt="Viajeros Seguros Logo" style="max-width: 350px;">
           <h2 style="color: #008000;">Nueva Contraseña</h2>
           <p style="font-size: 16px;">Hola ${user.firstName}, tu nueva contraseña es: <br/><strong>${newPassword}</strong></p>
         </div>
