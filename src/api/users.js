@@ -1,5 +1,5 @@
+import db from "../db/connection.js";
 import Business from "../schemas/business.js";
-import User from "../schemas/user.js";
 
 function calculateRatingAverage(reviews) {
   const ratings = reviews.map((review) => {
@@ -16,20 +16,24 @@ function calculateRatingAverage(reviews) {
   return average;
 }
 
-export function getCurrentUser(req, res) {
-  User.findById(req.session.user.id)
-    .exec()
-    .then((user) => {
-      res.json({
-        identification: user.identification,
-        fullName: user.firstName + " " + user.lastName,
-        homeAddress: user.homeAddress,
-        email: user.email,
-        phone: user.phoneNumber,
-        dateOfBirth: user.dateOfBirth.toLocaleDateString("es-CR"),
-        photo: user.profilePicture,
-      });
-    });
+export async function getCurrentUser(req, res) {
+  let usuario = await db.query(
+    `SELECT Identificacion, CONCAT(Nombre, ' ', PrimerApellido, ' ', SegundoApellido) AS NombreCompleto, Correo, Telefono, FechaNacimiento, UrlFoto FROM Usuarios WHERE Identificacion = '${req.session.user.id}'`
+  );
+
+  if (usuario.length === 0) {
+    return res.status(404).json({ error: "Something bad happened" });
+  }
+  usuario = usuario[0];
+
+  res.json({
+    identification: usuario.Identificacion,
+    fullName: usuario.NombreCompleto,
+    email: usuario.Correo,
+    phone: usuario.Telefono,
+    dateOfBirth: usuario.FechaNacimiento,
+    photo: usuario.UrlFoto,
+  });
 }
 
 export function listUserBusinesses(req, res) {

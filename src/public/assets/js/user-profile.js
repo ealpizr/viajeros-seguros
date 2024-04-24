@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("profilePhoto").src = `/uploads/${user.photo}`;
 
       document.getElementById(
-        "homeAddress"
-      ).innerHTML += ` <span class="block">${user.homeAddress}</span>`;
-
-      document.getElementById(
         "dateOfBirth"
       ).innerHTML += ` <span class="block">${user.dateOfBirth}</span>`;
 
