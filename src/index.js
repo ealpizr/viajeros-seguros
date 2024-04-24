@@ -2,18 +2,17 @@ import express from "express";
 import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
-import connectToDB from "./db/connection.js";
-import { testEmailConnection } from "./email.js";
+import db from "./db/connection.js";
 import authMiddleware from "./middleware/auth.js";
 import appRouter from "./routes.js";
 
 async function main() {
   try {
-    await connectToDB();
-    console.info("Connection to Mongo established successfully");
+    await db.connect();
+    console.log("Connected to SQL Server successfully");
 
-    await testEmailConnection();
-    console.info("Connection to SMTP server established successfully");
+    // await testEmailConnection();
+    // console.info("Connection to SMTP server established successfully");
 
     const PORT = process.env.PORT || 5000;
     const __filename = fileURLToPath(import.meta.url);

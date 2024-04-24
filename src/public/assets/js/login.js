@@ -63,24 +63,24 @@ async function login() {
 
 async function signup() {
   const firstName = document.getElementById("name").value;
-  const lastName = document.getElementById("lastName").value;
+  const firstLastName = document.getElementById("firstLastName").value;
+  const secondLastName = document.getElementById("secondLastName").value;
   const dateOfBirth = document.getElementById("dateOfBirth").value;
   const email = document.getElementById("email-register").value;
   const password = document.getElementById("password-register").value;
   const identification = document.getElementById("identification").value;
   const phoneNumber = document.getElementById("phoneNumber").value;
-  const address = document.getElementById("address").value;
   const photo = document.getElementById("profile-picture").files[0];
 
   const formData = new FormData();
   formData.append("firstName", firstName);
-  formData.append("lastName", lastName);
+  formData.append("firstLastName", firstLastName);
+  formData.append("secondLastName", secondLastName);
   formData.append("dateOfBirth", dateOfBirth);
   formData.append("email", email);
   formData.append("password", password);
   formData.append("identification", identification);
   formData.append("phoneNumber", phoneNumber);
-  formData.append("homeAddress", address);
   formData.append("photo", photo);
 
   const response = await fetch("/api/auth/signup", {
@@ -107,11 +107,23 @@ async function signup() {
       "firstName.string.empty": "El nombre es requerido",
       "firstName.any.required": "El nombre es requerido",
 
-      "lastName.string.min": "El apellido debe tener al menos 3 caracteres",
-      "lastName.string.max": "El apellido debe tener menos de 30 caracteres",
-      "lastName.string.pattern.base": "El apellido solo puede contener letras",
-      "lastName.string.empty": "El apellido es requerido",
-      "lastName.any.required": "El apellido es requerido",
+      "firstLastName.string.min":
+        "El primer apellido debe tener al menos 3 caracteres",
+      "firstLastName.string.max":
+        "El primer apellido debe tener menos de 30 caracteres",
+      "firstLastName.string.pattern.base":
+        "El primer apellido solo puede contener letras",
+      "firstLastName.string.empty": "El primer apellido es requerido",
+      "firstLastName.any.required": "El primer apellido es requerido",
+
+      "secondLastName.string.min":
+        "El segundo apellido debe tener al menos 3 caracteres",
+      "secondLastName.string.max":
+        "El segundo apellido debe tener menos de 30 caracteres",
+      "secondLastName.string.pattern.base":
+        "El segundo apellido solo puede contener letras",
+      "secondLastName.string.empty": "El segundo apellido es requerido",
+      "secondLastName.any.required": "El segundo apellido es requerido",
 
       "dateOfBirth.date.base": "La fecha de nacimiento debe ser válida",
       "dateOfBirth.date.less": "La fecha de nacimiento debe ser válida",

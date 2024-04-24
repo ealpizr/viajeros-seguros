@@ -14,17 +14,31 @@ export default Joi.object({
         "firstName must be less than or equal to 30 characters long",
       "string.pattern.base": "firstName must contain only letters",
     }),
-  lastName: Joi.string()
+  firstLastName: Joi.string()
     .min(3)
     .max(30)
     .pattern(new RegExp("^[a-zA-Z ]+$"))
     .required()
     .messages({
-      "any.required": "lastName is a required field",
-      "string.empty": "lastName is required",
-      "string.min": "lastName must be at least 3 characters long",
-      "string.max": "lastName must be less than or equal to 30 characters long",
-      "string.pattern.base": "lastName must contain only letters",
+      "any.required": "firstLastName is a required field",
+      "string.empty": "firstLastName is required",
+      "string.min": "firstLastName must be at least 3 characters long",
+      "string.max":
+        "firstLastName must be less than or equal to 30 characters long",
+      "string.pattern.base": "firstLastName must contain only letters",
+    }),
+  secondLastName: Joi.string()
+    .min(3)
+    .max(30)
+    .pattern(new RegExp("^[a-zA-Z ]+$"))
+    .required()
+    .messages({
+      "any.required": "secondLastName is a required field",
+      "string.empty": "secondLastName is required",
+      "string.min": "secondLastName must be at least 3 characters long",
+      "string.max":
+        "secondLastName must be less than or equal to 30 characters long",
+      "string.pattern.base": "secondLastName must contain only letters",
     }),
   dateOfBirth: Joi.date().less("now").required().messages({
     "any.required": "dateOfBirth is a required field",
@@ -64,11 +78,6 @@ export default Joi.object({
       "string.max":
         "identification must be less than or equal to 12 characters long",
     }),
-  homeAddress: Joi.string().min(10).required().messages({
-    "any.required": "homeAddress is a required field",
-    "string.empty": "homeAddress is required",
-    "string.min": "homeAddress must be at least 10 characters long",
-  }),
   phoneNumber: Joi.string()
     .min(8)
     .max(12)

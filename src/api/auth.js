@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import db from "../db/connection.js";
 import emailTransporter from "../email.js";
 import User from "../schemas/user.js";
 import forgotPasswordValidationSchema from "../validation/forgot-password.js";
@@ -31,28 +32,20 @@ export async function signup(req, res) {
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(data.password, salt);
 
-    const user = new User({
-      identification: data.identification,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      dateOfBirth: data.dateOfBirth,
-      email: data.email,
-      passwordHash: passwordHash,
-      passwordSalt: salt,
-      homeAddress: data.homeAddress,
-      phoneNumber: data.phoneNumber,
-      role: "Viajero",
-      profilePicture: req.file.filename,
-      paymentMethods: [],
-      reservations: [],
-    });
-
-    await user.save();
+    await db.execute(
+      `INSERT INTO Usuarios (Identificacion, Nombre, PrimerApellido, SegundoApellido, Correo, Telefono, FechaNacimiento, UrlFoto, HashContrasena, SaltContrasena, IDRol) VALUES ('${
+        data.identification
+      }', '${data.firstName}', '${data.firstLastName}', '${
+        data.secondLastName
+      }', '${data.email}', '${data.phoneNumber}', '${
+        data.dateOfBirth.toISOString().split("T")[0]
+      }', '${req.file.filename}', '${passwordHash}', '${salt}', 2)`
+    );
 
     res.status(201).json({
       statusCode: 201,
       message: "User created",
-      objectId: user._id,
+      objectId: data.identification,
     });
   } catch (error) {
     console.log(error);
@@ -80,30 +73,35 @@ export async function login(req, res) {
     });
   }
 
-  const userLogin = await User.findOne(
-    { email: data.email },
-    "passwordHash passwordSalt role"
-  ).exec();
+  let userLogin = await db.query(
+    `SELECT U.Identificacion, R.Descripcion AS 'Rol', U.HashContrasena, U.SaltContrasena FROM Usuarios U JOIN Roles R ON U.IDRol = R.ID WHERE Correo = '${data.email}'`
+  );
+  console.log(userLogin);
 
-  if (!userLogin) {
+  if (userLogin.length === 0) {
     return res.status(401).json(unautorizedResponse);
   }
 
-  const passwordHash = await bcrypt.hash(data.password, userLogin.passwordSalt);
+  userLogin = userLogin[0];
 
-  if (passwordHash !== userLogin.passwordHash) {
+  const passwordHash = await bcrypt.hash(
+    data.password,
+    userLogin.SaltContrasena
+  );
+
+  if (passwordHash !== userLogin.HashContrasena) {
     return res.status(401).json(unautorizedResponse);
   }
 
   req.session.user = {
-    id: userLogin._id,
-    role: userLogin.role,
+    id: userLogin.Identificacion,
+    role: userLogin.Rol,
   };
 
   res.status(200).json({
     status: 200,
     message: "Logged in successfully",
-    role: userLogin.role,
+    role: userLogin.Rol,
   });
 }
 
@@ -141,7 +139,7 @@ export async function forgotPassword(req, res) {
 
   if (user) {
     await emailTransporter.sendMail({
-      from: '"Viajeros Seguros" <viajeros.solos@ealpizar.com>',
+      from: '"Viajeros Seguros" <viajeros.seguros@ealpizar.com>',
       to: data.email,
       subject: "Nueva contraseña",
       html: `
