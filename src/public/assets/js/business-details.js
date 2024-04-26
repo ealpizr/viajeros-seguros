@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       },
       clickDay(event, dates) {
-        document.getElementById("add-to-cart").disabled = !dates.length;
-        document.getElementById("add-to-cart").innerText = dates.length
-          ? "Agregar al carrito"
-          : "Seleccione una fecha";
+        console.log({ dates });
+        document.getElementById("add-to-cart").disabled = dates.length === 0;
+        document.getElementById("add-to-cart").innerText =
+          dates.length > 0 ? "Agregar al carrito" : "Seleccione una fecha";
       },
     },
     settings: {

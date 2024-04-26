@@ -1,12 +1,19 @@
-import mongoose from "mongoose";
-import User from "../schemas/user.js";
+import db from "../db/connection.js";
 
-export function listPaymentMethods(req, res) {
-  User.findById(req.session.user.id)
-    .exec()
-    .then(function (user) {
-      res.json(user.paymentMethods);
-    });
+export async function listPaymentMethods(req, res) {
+  const metodosDePago = await db.query(
+    `SELECT ID, Tipo, Detalles FROM MetodosPagoUsuario WHERE IDUsuario = '${req.session.user.id}'`
+  );
+
+  res.json(
+    metodosDePago.map((m) => {
+      return {
+        _id: m.ID,
+        type: m.Tipo,
+        details: m.Detalles,
+      };
+    })
+  );
 }
 
 export async function createPaymentMethod(req, res) {
@@ -16,13 +23,9 @@ export async function createPaymentMethod(req, res) {
     return;
   }
 
-  const user = await User.findById(req.session.user.id).exec();
-  user.paymentMethods.push({
-    _id: new mongoose.Types.ObjectId(),
-    type,
-    details,
-  });
-  await user.save();
+  await db.execute(
+    `INSERT INTO MetodosPagoUsuario (IDUsuario, Tipo, Detalles) VALUES ('${req.session.user.id}', '${type}', '${details}')`
+  );
 
   return res.status(201).json({ message: "Payment method created" });
 }
@@ -30,11 +33,9 @@ export async function createPaymentMethod(req, res) {
 export async function deletePaymentMethod(req, res) {
   const { id } = req.params;
 
-  const user = await User.findById(req.session.user.id).exec();
-  user.paymentMethods = user.paymentMethods.filter(
-    (pm) => pm._id.toString() !== id
+  await db.execute(
+    `DELETE FROM MetodosPagoUsuario WHERE ID = ${id} AND IDUsuario = '${req.session.user.id}'`
   );
-  await user.save();
 
   return res.status(200).json({ message: "Payment method deleted" });
 }

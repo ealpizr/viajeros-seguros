@@ -1,5 +1,4 @@
 import db from "../db/connection.js";
-import Business from "../schemas/business.js";
 
 function calculateRatingAverage(reviews) {
   const ratings = reviews.map((review) => {
@@ -36,22 +35,36 @@ export async function getCurrentUser(req, res) {
   });
 }
 
-export function listUserBusinesses(req, res) {
-  Business.find({ owner: req.session.user.id })
-    .exec()
-    .then((businesses) => {
-      res.json(
-        businesses.map((b) => {
-          return {
-            id: b._id,
-            name: b.name,
-            price: b.price,
-            address: b.address,
-            description: b.description,
-            images: b.images,
-            rating: calculateRatingAverage(b.reviews),
-          };
-        })
-      );
+export async function listUserBusinesses(req, res) {
+  const negocios = await db.query(
+    `SELECT ID, Nombre, Direccion, Descripcion, CostoPorDia FROM Negocios WHERE IDDueno = '${req.session.user.id}'`
+  );
+
+  for (let i = 0; i < negocios.length; i++) {
+    const reviews = await db.query(
+      `SELECT Calificacion FROM Resenas WHERE IDNegocio = ${negocios[i].ID}`
+    );
+    const imagenes = await db.query(
+      `SELECT UrlImagen FROM ImagenesNegocios WHERE IDNegocio = ${negocios[i].ID}`
+    );
+
+    negocios[i].rating = calculateRatingAverage(reviews);
+    negocios[i].images = imagenes.map((imagen) => {
+      return imagen.UrlImagen;
     });
+  }
+
+  res.json(
+    negocios.map((n) => {
+      return {
+        id: n.ID,
+        name: n.Nombre,
+        price: n.CostoPorDia,
+        address: n.Direccion,
+        description: n.Descripcion,
+        images: n.images,
+        rating: n.rating,
+      };
+    })
+  );
 }

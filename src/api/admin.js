@@ -1,6 +1,4 @@
-import Business from "../schemas/business.js";
-import Category from "../schemas/category.js";
-import User from "../schemas/user.js";
+import db from "../db/connection.js";
 
 function calculateRatingAverage(reviews) {
   const ratings = reviews.map((review) => {
@@ -17,126 +15,103 @@ function calculateRatingAverage(reviews) {
   return average;
 }
 
-export function listUnapprovedBusinesses(req, res) {
+export async function listUnapprovedBusinesses(req, res) {
   try {
-    Business.find({ isApproved: false })
-      .populate({
-        path: "category",
-        select: "name",
-        // The schema property here is not required.
-        // We just add it here so that VSCode's remove unused imports
-        // functionallity doesn't break the code.
-        schema: Category,
+    const business = await db.query(
+      `SELECT N.ID, N.Nombre, N.Descripcion, N.Direccion, N.CostoPorDia, N.Telefono, C.Nombre AS 'NombreCategoria' FROM Negocios N JOIN Categorias C ON N.IDCategoria = C.ID WHERE Aprobado = 0`
+    );
+
+    for (let i = 0; i < business.length; i++) {
+      const imagen = (
+        await db.query(
+          `SELECT TOP 1 UrlImagen FROM ImagenesNegocios WHERE IDNegocio = ${business[i].ID}`
+        )
+      )[0].UrlImagen;
+
+      business[i].imagen = imagen;
+    }
+
+    res.json(
+      business.map((n) => {
+        return {
+          id: n.ID,
+          name: n.Nombre,
+          description: n.Descripcion,
+          category: n.NombreCategoria,
+          address: n.Direccion,
+          price: n.CostoPorDia,
+          image: n.imagen,
+          phone: n.Telefono,
+        };
       })
-      .exec()
-      .then(function (businesses) {
-        res.json(
-          businesses.map((b) => {
-            return {
-              id: b._id,
-              name: b.name,
-              price: b.price,
-              address: b.address,
-              description: b.description,
-              categories: b.category,
-              image: b.images[0],
-              phone: b.phoneNumber,
-            };
-          })
-        );
-      });
+    );
   } catch (e) {
     console.error(e);
     res.status(500).json({ error: "Error al listar los negocios" });
   }
 }
 
-export function listBusinesses(req, res) {
-  Business.find()
-    .populate({
-      path: "owner",
-      select: "firstName lastName",
+export async function listBusinesses(req, res) {
+  const businesses = await db.query(
+    `SELECT N.ID, N.Nombre, N.Direccion, N.Descripcion, N.CostoPorDia, U.Nombre AS NombreDueno, U.PrimerApellido AS ApellidoDueno, C.Nombre AS NombreCategoria FROM Negocios N JOIN Usuarios U ON N.IDDueno = U.Identificacion JOIN Categorias C ON N.IDCategoria = C.ID WHERE N.Aprobado = 1 AND N.Activo = 1`
+  );
+
+  for (let i = 0; i < businesses.length; i++) {
+    const reviews = await db.query(
+      `SELECT Calificacion FROM Resenas WHERE IDNegocio = ${businesses[i].ID}`
+    );
+
+    businesses[i].rating = calculateRatingAverage(reviews);
+  }
+
+  res.json(
+    businesses.map((business) => {
+      return {
+        id: business.ID,
+        name: business.Nombre,
+        address: business.Direccion,
+        description: business.Descripcion,
+        price: business.CostoPorDia,
+        owner: business.NombreDueno + " " + business.ApellidoDueno,
+        category: business.NombreCategoria,
+        rating: business.rating,
+      };
     })
-    .populate({
-      path: "category",
-      select: "name",
-      // The schema property here is not required.
-      // We just add it here so that VSCode's remove unused imports
-      // functionallity doesn't break the code.
-      schema: Category,
-    })
-    .exec()
-    .then(function (businesses) {
-      const cleanedUpBusinesses = [];
-
-      for (let i = 0; i < businesses.length; i++) {
-        const name = businesses[i].name;
-        const owner =
-          businesses[i].owner.firstName + " " + businesses[i].owner.lastName;
-        const categories = businesses[i].category;
-        const rating = calculateRatingAverage(businesses[i].reviews);
-
-        const business = {
-          name: name,
-          owner: owner,
-          categories: categories,
-          rating: rating,
-        };
-
-        cleanedUpBusinesses.push(business);
-      }
-
-      res.json(cleanedUpBusinesses);
-    });
+  );
 }
 
-export function listUsers(req, res) {
-  User.find()
-    .exec()
-    .then(function (users) {
-      const cleanedUpUsers = [];
+export async function listUsers(req, res) {
+  const users = await db.query(
+    `SELECT Identificacion, CONCAT(Nombre, ' ', PrimerApellido, ' ', SegundoApellido) AS NombreCompleto, Correo FROM Usuarios`
+  );
 
-      for (let i = 0; i < users.length; i++) {
-        const identification = users[i].identification;
-        const firstName = users[i].firstName;
-        const lastName = users[i].lastName;
-        const email = users[i].email;
-
-        const fullName = firstName + " " + lastName;
-
-        const user = {
-          identification: identification,
-          fullName: fullName,
-          email: email,
-        };
-
-        cleanedUpUsers.push(user);
-      }
-
-      res.json(cleanedUpUsers);
-    });
+  res.json(
+    users.map((user) => {
+      return {
+        identification: user.Identificacion,
+        fullName: user.NombreCompleto,
+        email: user.Correo,
+      };
+    })
+  );
 }
 
-export function approveBusiness(req, res) {
+export async function approveBusiness(req, res) {
   const { id } = req.params;
 
-  Business.findByIdAndUpdate(id, { isApproved: true })
-    .exec()
-    .then(function (business) {
-      res.status(200).json({
-        message: "Business approved",
-      });
-    });
+  db.execute(`UPDATE Negocios SET Aprobado = 1 WHERE ID = ${id}`);
+
+  res.status(200).json({
+    message: "Business approved",
+  });
 }
 
 export function denyBusiness(req, res) {
   const { id } = req.params;
 
-  Business.findByIdAndDelete(id)
-    .exec()
-    .then(function (business) {
-      res.status(200).json({
-        message: "Business denied",
-      });
-    });
+  db.execute(`DELETE FROM Negocios WHERE ID = ${id}`);
+
+  res.status(200).json({
+    message: "Business denied",
+  });
 }

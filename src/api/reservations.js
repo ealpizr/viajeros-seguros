@@ -1,30 +1,27 @@
-import mongoose from "mongoose";
-import Business from "../schemas/business.js";
-import Reservation from "../schemas/reservation.js";
-import User from "../schemas/user.js";
+import db from "../db/connection.js";
 
 export async function listReservations(req, res) {
   try {
-    const user = await User.findById(req.session.user.id).exec();
-    const reservations = [];
-    const reservationIds = user.reservations;
+    const reservaciones = await db.query(
+      `SELECT R.ID, R.IDUsuario, R.IDNegocio, R.Total, R.IDMetodoPago, R.FechaReserva, R.FechaCreada, N.Nombre AS 'NombreNegocio', N.Descripcion AS 'DescripcionNegocio' FROM Reservaciones R JOIN Negocios N ON R.IDNegocio = N.ID WHERE IDUsuario = '${req.session.user.id}'`
+    );
 
-    for (let i = 0; i < reservationIds.length; i++) {
-      const reservation = await Reservation.findById(reservationIds[i])
-        .populate({
-          path: "businessId",
-          select: "name description images",
-          // The schema property here is not required.
-          // We just add it here so that VSCode's remove unused imports
-          // functionallity doesn't break the code.
-          schema: Business,
-        })
-        .exec();
-
-      reservations.push(reservation);
-    }
-
-    res.json(reservations);
+    res.json(
+      reservaciones.map((r) => {
+        return {
+          id: r.ID,
+          userId: r.IDUsuario,
+          businessId: {
+            _id: r.IDNegocio,
+            name: r.NombreNegocio,
+            description: r.DescripcionNegocio,
+          },
+          totalPaid: r.Total,
+          paymentMethodId: r.IDMetodoPago,
+          day: r.FechaReserva,
+        };
+      })
+    );
   } catch (e) {
     console.error(e);
     res.status(500).json({ error: "Error al listar las reservas" });
@@ -38,41 +35,29 @@ export async function bookReservations(req, res) {
     return res.status(400).json({ error: "Required fields missing" });
   }
 
-  const user = await User.findById(req.session.user.id).exec();
-
+  const metodoPago = await db.query(
+    `SELECT ID, IDUsuario FROM MetodosPagoUsuario WHERE ID = ${paymentMethodId}`
+  );
   if (
-    !user.paymentMethods
-      .map((pm) => pm._id.toString())
-      .includes(paymentMethodId)
+    metodoPago.length === 0 ||
+    metodoPago[0].IDUsuario !== req.session.user.id
   ) {
     return res.status(400).json({ error: "Payment method not found" });
   }
 
   for (let i = 0; i < reservations.length; i++) {
-    const business = await Business.findById(reservations[i].businessId).exec();
-    if (!business) {
+    const negocio = await db.query(
+      `SELECT ID, CostoPorDia FROM Negocios WHERE ID = ${reservations[i].businessId}`
+    );
+
+    if (negocio.length === 0) {
       continue;
     }
 
-    const mongoId = new mongoose.Types.ObjectId();
-
-    const reservation = new Reservation({
-      _id: mongoId,
-      userId: req.session.user.id,
-      businessId: reservations[i].businessId,
-      totalPaid: business.price,
-      day: new Date(`${reservations[i].day}T00:00:00-06:00`),
-      paymentMethodId,
-    });
-    await reservation.save();
-
-    business.reservations.push(mongoId);
-    await business.save();
-
-    user.reservations.push(mongoId);
+    db.execute(
+      `INSERT INTO Reservaciones (IDUsuario, IDNegocio, Total, IDMetodoPago, FechaReserva, FechaCreada) VALUES ('${req.session.user.id}', '${reservations[i].businessId}', '${negocio[0].CostoPorDia}', '${paymentMethodId}', '${reservations[i].day}', GETDATE())`
+    );
   }
-
-  await user.save();
 
   res.status(200).json({ message: "Reservations booked" });
 }

@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import db from "../db/connection.js";
 import emailTransporter from "../email.js";
-import User from "../schemas/user.js";
 import forgotPasswordValidationSchema from "../validation/forgot-password.js";
 import loginValidationSchema from "../validation/login.js";
 import resetPasswordValidationSchema from "../validation/reset-password.js";
@@ -132,21 +131,26 @@ export async function forgotPassword(req, res) {
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(newPassword, salt);
 
-  const user = await User.findOneAndUpdate(
-    { email: data.email },
-    { passwordHash, passwordSalt: salt }
-  ).exec();
+  let user = await db.query(
+    `SELECT Identificacion, Nombre, Correo FROM Usuarios WHERE Correo = '${data.email}'`
+  );
 
-  if (user) {
+  if (user.length > 0) {
+    user = user[0];
+
+    await db.execute(
+      `UPDATE Usuarios SET HashContrasena = '${passwordHash}', SaltContrasena = '${salt}' WHERE Identificacion = '${user.Identificacion}'`
+    );
+
     await emailTransporter.sendMail({
       from: '"Viajeros Seguros" <viajeros.seguros@ealpizar.com>',
-      to: data.email,
+      to: user.Correo,
       subject: "Nueva contraseña",
       html: `
         <div style="text-align: center;">
           <img src="https://raw.githubusercontent.com/cenfotec-codexpress/viajeros-solos/main/src/public/assets/images/logo-green.png" alt="Viajeros Seguros Logo" style="max-width: 350px;">
           <h2 style="color: #008000;">Nueva Contraseña</h2>
-          <p style="font-size: 16px;">Hola ${user.firstName}, tu nueva contraseña es: <br/><strong>${newPassword}</strong></p>
+          <p style="font-size: 16px;">Hola ${user.Nombre}, tu nueva contraseña es: <br/><strong>${newPassword}</strong></p>
         </div>
       `,
     });
@@ -172,13 +176,19 @@ export async function resetPassword(req, res) {
     });
   }
 
-  const user = await User.findById(req.session.user.id).exec();
+  let user = await db.query(
+    `SELECT HashContrasena, SaltContrasena FROM Usuarios WHERE Identificacion = '${req.session.user.id}'`
+  );
+  if (user.length > 0) {
+    user = user[0];
+  }
+
   const oldPasswordHash = await bcrypt.hash(
     data.oldPassword,
-    user.passwordSalt
+    user.SaltContrasena
   );
 
-  if (oldPasswordHash !== user.passwordHash) {
+  if (oldPasswordHash !== user.HashContrasena) {
     return res.status(401).json({
       statusCode: 401,
       error: "Unauthorized",
@@ -189,10 +199,9 @@ export async function resetPassword(req, res) {
   const salt = await bcrypt.genSalt(10);
   const newPasswordHash = await bcrypt.hash(data.password, salt);
 
-  await User.findByIdAndUpdate(req.session.user.id, {
-    passwordHash: newPasswordHash,
-    passwordSalt: salt,
-  }).exec();
+  await db.execute(
+    `UPDATE Usuarios SET HashContrasena = '${newPasswordHash}', SaltContrasena = '${salt}' WHERE Identificacion = '${req.session.user.id}'`
+  );
 
   res.status(200).json({
     statusCode: 200,

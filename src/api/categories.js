@@ -1,9 +1,14 @@
-import Category from "../schemas/category.js";
+import db from "../db/connection.js";
 
-export function listCategories(req, res) {
-  Category.find()
-    .exec()
-    .then(function (result) {
-      res.json(result);
-    });
+export async function listCategories(req, res) {
+  const categorias = await db.query(`SELECT ID, Nombre FROM Categorias`);
+
+  res.json(
+    categorias.map((c) => {
+      return {
+        _id: c.ID,
+        name: c.Nombre,
+      };
+    })
+  );
 }

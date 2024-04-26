@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const el = `
         <div class="business-card">
         <div class="businesses-image-container">
-          <img src="/assets/images/casa1.jpg" />
+          <img src="/uploads/${businesses[i].images[0]}" />
         </div>
         <div class="business-info-container">
           <div class="flex items-center justify-between">

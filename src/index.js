@@ -3,6 +3,7 @@ import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import db from "./db/connection.js";
+import authMiddleware from "./middleware/auth.js";
 import appRouter from "./routes.js";
 
 async function main() {
@@ -30,7 +31,7 @@ async function main() {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
 
-    //app.use(authMiddleware);
+    app.use(authMiddleware);
 
     app.use("/uploads", express.static("uploads"));
     app.use(

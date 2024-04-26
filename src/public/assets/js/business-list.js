@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
               }
               </td>
               <td>${businesses[i].owner}</td>
-              <td>${businesses[i].categories}</td>
+              <td>${businesses[i].category}</td>
               <td>${businesses[i].rating || "Sin calificaciones"}</td>
             </tr>
             `;

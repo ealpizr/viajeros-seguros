@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <h2>Nombre del Negocio: ${businesses[i].name} </h2>
                     <p>Dirección: ${businesses[i].address}</p>
-                    <p>Categoría: ${businesses[i].categories.name}</p>
+                    <p>Categoría: ${businesses[i].category}</p>
                     <p>Teléfono: ${businesses[i].phone}</p>
                     <p>Precio: ${businesses[i].price}</p>
                     <p>Descripción: ${businesses[i].description}</p>

@@ -1,6 +1,4 @@
-import mongoose from "mongoose";
 import db from "../db/connection.js";
-import Business from "../schemas/business.js";
 import newBusiness from "../validation/new-business.js";
 
 function calculateRatingAverage(reviews) {
@@ -9,7 +7,7 @@ function calculateRatingAverage(reviews) {
   }
 
   const ratings = reviews.map((review) => {
-    return review.calificacion;
+    return review.Calificacion;
   });
 
   let sum = 0;
@@ -67,44 +65,6 @@ export async function businessDetails(req, res) {
   try {
     const { id } = req.params;
 
-    // Business.findById(id)
-    //   .populate({
-    //     path: "owner",
-    //     select: "firstName lastName profilePicture",
-    //   })
-    //   .populate({
-    //     path: "reservations",
-    //     select: "day",
-    //   })
-    //   .populate({
-    //     path: "reviews.userId",
-    //     select: "firstName lastName",
-    //   })
-    //   .exec()
-    //   .then(function (business) {
-    //     res.json({
-    //       name: business.name,
-    //       description: business.description,
-    //       address: business.address,
-    //       price: business.price,
-    //       rating: calculateRatingAverage(business.reviews),
-    //       images: business.images,
-    //       ownerPicture: business.owner.profilePicture,
-    //       reviews: business.reviews.map((r) => {
-    //         return {
-    //           rating: r.rating,
-    //           comment: r.comment,
-    //           date: r.date,
-    //           user: `${r.userId.firstName} ${r.userId.lastName}`,
-    //         };
-    //       }),
-    //       ownerName: `${business.owner.firstName} ${business.owner.lastName}`,
-    //       bookedDates: business.reservations.map(
-    //         (r) => r.day.toISOString().split("T")[0]
-    //       ),
-    //     });
-    //   });
-
     let business = await db.query(
       `SELECT N.ID, N.Nombre, N.Descripcion, N.Direccion, N.CostoPorDia, CONCAT(U.Nombre, ' ', U.PrimerApellido, ' ', U.SegundoApellido) AS 'NombreDuenio', U.UrlFoto AS FotoDuenio FROM Negocios N INNER JOIN Usuarios U ON N.IDDueno = U.Identificacion WHERE N.ID = ${id}`
     );
@@ -119,7 +79,11 @@ export async function businessDetails(req, res) {
     );
 
     const resenas = await db.query(
-      `SELECT R.Calificacion, R.Comentario, R.Fecha, CONCAT(U.Nombre, ' ', U.PrimerApellido, ' ', U.SegundoApellido) FROM Resenas R JOIN Usuarios U ON R.IDUsuario = U.Identificacion WHERE IDNegocio = ${business.ID}`
+      `SELECT R.Calificacion, R.Comentario, R.Fecha, CONCAT(U.Nombre, ' ', U.PrimerApellido, ' ', U.SegundoApellido) AS 'NombreUsuario' FROM Resenas R JOIN Usuarios U ON R.IDUsuario = U.Identificacion WHERE IDNegocio = ${business.ID}`
+    );
+
+    const fechasReservas = await db.query(
+      `SELECT FechaReserva FROM Reservaciones WHERE IDNegocio = ${business.ID}`
     );
 
     res.json({
@@ -129,7 +93,6 @@ export async function businessDetails(req, res) {
       price: business.CostoPorDia,
       rating: calculateRatingAverage(resenas),
       images: imagenes.map((i) => i.UrlImagen),
-      reviews: calculateRatingAverage(resenas),
       ownerPicture: business.FotoDuenio,
       ownerName: business.NombreDuenio,
       reviews: resenas.map((r) => {
@@ -137,10 +100,12 @@ export async function businessDetails(req, res) {
           rating: r.Calificacion,
           comment: r.Comentario,
           date: r.Fecha,
-          user: r.Nombre,
+          user: r.NombreUsuario,
         };
       }),
-      bookedDates: [],
+      bookedDates: fechasReservas.map(
+        (r) => r.FechaReserva.toISOString().split("T")[0]
+      ),
     });
   } catch (e) {
     console.error(e);
@@ -159,25 +124,27 @@ export async function createNewBusiness(req, res) {
     });
   }
 
-  const business = new Business({
-    _id: new mongoose.Types.ObjectId(),
-    name: data.name,
-    owner: req.session.user.id,
-    address: data.address,
-    category: data.categoryId,
-    description: data.description,
-    images: req.files.map((file) => file.filename),
-    phoneNumber: data.phone,
-    price: data.price,
-    isApproved: false,
-  });
+  await db.execute(
+    `INSERT INTO Negocios (Nombre, IDDueno, Descripcion, IDCategoria, Direccion, CostoPorDia, Telefono, Correo, Horario, Aprobado, Activo) VALUES ('${data.name}', '${req.session.user.id}', '${data.description}', '${data.categoryId}', '${data.address}', '${data.price}', '${data.phone}', NULL, '', 0, 1)`
+  );
 
-  await business.save();
+  const id = (
+    await db.query(
+      `SELECT ID FROM Negocios WHERE IDDueno = '${req.session.user.id}' ORDER BY ID DESC`
+    )
+  )[0].ID;
+
+  data.images = req.files;
+
+  for (let i = 0; i < data.images.length; i++) {
+    await db.execute(
+      `INSERT INTO ImagenesNegocios (IDNegocio, UrlImagen) VALUES (${id}, '${data.images[i].filename}')`
+    );
+  }
 
   res.status(201).json({
     code: 201,
     message: "Business created successfully",
-    businessId: business._id,
   });
 }
 
@@ -188,21 +155,17 @@ export async function rateBusiness(req, res) {
     return res.status(400).json({ error: "Required fields missing" });
   }
 
-  const business = await Business.findById(req.params.id).exec();
+  const business = await db.query(
+    `SELECT ID FROM Negocios WHERE ID = ${req.params.id}`
+  );
 
-  if (!business) {
+  if (business.length === 0) {
     return res.status(404).json({ error: "Business not found" });
   }
 
-  business.reviews.push({
-    _id: new mongoose.Types.ObjectId(),
-    userId: req.session.user.id,
-    rating,
-    comment,
-    date: new Date(),
-  });
-
-  await business.save();
+  await db.execute(
+    `INSERT INTO Resenas (IDNegocio, IDUsuario, Calificacion, Comentario, Fecha) VALUES (${req.params.id}, '${req.session.user.id}', ${rating}, '${comment}', GETDATE())`
+  );
 
   res.status(201).json({ message: "Review created successfully" });
 }
